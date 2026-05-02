@@ -936,9 +936,9 @@
                 <div class="form-group">
                     <label>참여 유형 선택 <span class="required">*</span></label>
                     <div class="type-buttons">
-                        <button type="button" class="type-btn" data-type="셀러" onclick="selectType('셀러')">셀러</button>
-                        <button type="button" class="type-btn" data-type="공급사" onclick="selectType('공급사')">공급사</button>
-                        <button type="button" class="type-btn" data-type="물류사" onclick="selectType('물류사')">물류사</button>
+                        <button type="button" class="type-btn" data-type="Seller" onclick="selectType('Seller')">셀러</button>
+                        <button type="button" class="type-btn" data-type="Supplier" onclick="selectType('Supplier')">공급사</button>
+                        <button type="button" class="type-btn" data-type="3PL" onclick="selectType('3PL')">물류사</button>
                     </div>
                     <input type="hidden" id="userType" name="participationType" required>
                 </div>
@@ -1021,15 +1021,7 @@
 
         function selectType(type) {
             selectedType = type;
-            
-            // Map Korean labels to English values for backend
-            const typeMap = {
-                '셀러': 'Seller',
-                '공급사': 'Supplier',
-                '물류사': '3PL'
-            };
-            
-            document.getElementById('userType').value = typeMap[type] || type;
+            document.getElementById('userType').value = type;
             
             // Update button states
             document.querySelectorAll('.type-btn').forEach(btn => {
