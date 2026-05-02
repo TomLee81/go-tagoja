@@ -831,7 +831,7 @@
                         <li><span>✓</span> 해외 판매 채널 확대 희망</li>
                         <li><span>✓</span> 재고 부담 없는 사업 모델</li>
                     </ul>
-                    <button class="target-btn" onclick="scrollToForm()">
+                    <button class="target-btn" onclick="selectUserType('셀러')">
                         셀러로 참여 →
                     </button>
                 </div>
@@ -850,7 +850,7 @@
                         <li><span>✓</span> 수출 절차 간소화 희망</li>
                         <li><span>✓</span> 유통사 없이 직접 수출</li>
                     </ul>
-                    <button class="target-btn" style="color: #7c3aed;" onclick="scrollToForm()">
+                    <button class="target-btn" style="color: #7c3aed;" onclick="selectUserType('공급사')">
                         공급사로 참여 →
                     </button>
                 </div>
@@ -869,7 +869,7 @@
                         <li><span>✓</span> 물량 확보 및 안정적 수익</li>
                         <li><span>✓</span> 글로벌 커머스 인프라 참여</li>
                     </ul>
-                    <button class="target-btn" style="color: #059669;" onclick="scrollToForm()">
+                    <button class="target-btn" style="color: #059669;" onclick="selectUserType('물류사')">
                         물류사로 참여 →
                     </button>
                 </div>
@@ -932,9 +932,57 @@
                 <p style="font-size: 1.25rem; color: #93c5fd;">Join Early Access Waitlist</p>
             </div>
 
-            <div style="max-width: 640px; margin: 0 auto; background: white; border-radius: 24px; padding: 24px; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);">
-                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdjQz6dDAz53mMdUUnabH9pCtBnXW80stRGaOQek90S8Nzgmg/viewform?embedded=true" width="100%" height="1200" frameborder="0" marginheight="0" marginwidth="0" style="border-radius: 16px;">로드 중…</iframe>
-            </div>
+            <form class="form-box" id="waitlistForm" onsubmit="handleSubmit(event)">
+                <div class="form-group">
+                    <label>참여 유형 선택 <span class="required">*</span></label>
+                    <div class="type-buttons">
+                        <button type="button" class="type-btn" data-type="셀러" onclick="selectType('셀러')">셀러</button>
+                        <button type="button" class="type-btn" data-type="공급사" onclick="selectType('공급사')">공급사</button>
+                        <button type="button" class="type-btn" data-type="물류사" onclick="selectType('물류사')">물류사</button>
+                    </div>
+                    <input type="hidden" id="userType" name="participationType" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="name">이름 <span class="required">*</span></label>
+                    <input type="text" id="name" name="name" placeholder="홍길동" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">이메일 <span class="required">*</span></label>
+                    <input type="email" id="email" name="email" placeholder="email@example.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="country">국가 / Country <span class="required">*</span></label>
+                    <select id="country" name="country" required>
+                        <option value="">국가를 선택하세요</option>
+                        <option value="South Korea / 대한민국">South Korea / 대한민국</option>
+                        <option value="Philippines / 필리핀">Philippines / 필리핀</option>
+                        <option value="Vietnam / 베트남">Vietnam / 베트남</option>
+                        <option value="Thailand / 태국">Thailand / 태국</option>
+                        <option value="Indonesia / 인도네시아">Indonesia / 인도네시아</option>
+                        <option value="Singapore / 싱가포르">Singapore / 싱가포르</option>
+                        <option value="Malaysia / 말레이시아">Malaysia / 말레이시아</option>
+                        <option value="Other / 기타">Other / 기타</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="company">회사명 <span style="color: #9ca3af; font-size: 12px;">(선택사항)</span></label>
+                    <input type="text" id="company" name="company" placeholder="회사명 입력">
+                </div>
+
+                <button type="submit" class="submit-btn" id="submitBtn" disabled>
+                    <span>⭐</span>
+                    <span>얼리 액세스 신청하기</span>
+                    <span>→</span>
+                </button>
+
+                <p class="form-note">
+                    ✓ 출시 시 우선 안내 · 특별 혜택 제공 · 무료 가입
+                </p>
+            </form>
 
             <p class="contact-info">
                 출시 일정 및 얼리 액세스 관련 문의: <a href="mailto:support@tagoja.com">support@tagoja.com</a>
@@ -963,12 +1011,105 @@
     </footer>
 
     <script>
+        let selectedType = '';
+
         function scrollToForm() {
             document.getElementById('waitlist-form').scrollIntoView({ behavior: 'smooth' });
         }
 
+        function selectType(type) {
+            selectedType = type;
+            document.getElementById('userType').value = type;
+            
+            // Update button states
+            document.querySelectorAll('.type-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+            
+            // Enable submit button if form is valid
+            validateForm();
+        }
+
         function selectUserType(type) {
             scrollToForm();
+            setTimeout(() => {
+                const btn = document.querySelector(`.type-btn[data-type="${type}"]`);
+                if (btn) {
+                    btn.click();
+                }
+            }, 500);
+        }
+
+        function validateForm() {
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const country = document.getElementById('country').value;
+            const userType = document.getElementById('userType').value;
+            const submitBtn = document.getElementById('submitBtn');
+            
+            if (name && email && country && userType) {
+                submitBtn.disabled = false;
+            } else {
+                submitBtn.disabled = true;
+            }
+        }
+
+        // Add event listeners for form validation
+        document.getElementById('name').addEventListener('input', validateForm);
+        document.getElementById('email').addEventListener('input', validateForm);
+        document.getElementById('country').addEventListener('change', validateForm);
+
+        function handleSubmit(e) {
+            e.preventDefault();
+            
+            // 제출 버튼 비활성화
+            const submitBtn = document.getElementById('submitBtn');
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<span>⏳</span><span>제출 중...</span>';
+            
+            // 폼 데이터 수집
+            const formData = new FormData(document.getElementById('waitlistForm'));
+            const data = {};
+            formData.forEach((value, key) => {
+                data[key] = value;
+            });
+            
+            // Google Apps Script URL
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbx0gTekuERG9xp1Hj8Rfkw3bcZLaBSVb_R3gWp_6Oa7Z7R8KvV5vO2VXh0TPJk0jpsAag/exec';
+            
+            // URL 인코딩된 데이터 생성
+            const params = new URLSearchParams(data).toString();
+            
+            // GET 요청으로 전송 (Apps Script는 GET도 지원)
+            fetch(scriptURL + '?' + params, {
+                method: 'GET',
+                mode: 'no-cors'
+            })
+            .then(() => {
+                // 성공 메시지
+                alert('✅ 대기자 명단에 성공적으로 등록되었습니다!\n\n출시 시 우선 안내 드리겠습니다.\n감사합니다! 🎉');
+                
+                // 폼 초기화
+                document.getElementById('waitlistForm').reset();
+                document.querySelectorAll('.type-btn').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                
+                // 버튼 복원
+                submitBtn.innerHTML = '<span>⭐</span><span>얼리 액세스 신청하기</span><span>→</span>';
+                submitBtn.disabled = true;
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('❌ 제출 중 오류가 발생했습니다.\n다시 시도해 주세요.');
+                
+                // 버튼 복원
+                submitBtn.innerHTML = '<span>⭐</span><span>얼리 액세스 신청하기</span><span>→</span>';
+                submitBtn.disabled = false;
+            });
+            
+            return false;
         }
     </script>
 </body>
