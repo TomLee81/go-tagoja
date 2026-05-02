@@ -1021,7 +1021,15 @@
 
         function selectType(type) {
             selectedType = type;
-            document.getElementById('userType').value = type;
+            
+            // Map Korean labels to English values for backend
+            const typeMap = {
+                '셀러': 'Seller',
+                '공급사': 'Supplier',
+                '물류사': '3PL'
+            };
+            
+            document.getElementById('userType').value = typeMap[type] || type;
             
             // Update button states
             document.querySelectorAll('.type-btn').forEach(btn => {
