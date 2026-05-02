@@ -1020,11 +1020,11 @@
 
         function selectType(type) {
             selectedType = type;
-            // Map Korean types to values expected by Google Form
+            // Map Korean types to values expected by Google Form (exact match from form)
             const typeMap = {
                 '셀러': 'Seller / 판매자',
                 '공급사': 'Supplier / 공급사',
-                '물류사': '3PL / 물류 파트너'
+                '물류사': '3PL Partner / 물류 파트너 (3PL)'
             };
             document.getElementById('userType').value = typeMap[type] || type;
             
