@@ -1,0 +1,1066 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TAGOJA - 얼리 액세스 대기자 등록</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        }
+
+        body {
+            background: white;
+            color: #111827;
+        }
+
+        .gradient-bg {
+            background: linear-gradient(135deg, #0f172a 0%, #1e40af 100%);
+        }
+
+        .badge-glow {
+            animation: badge-pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes badge-pulse {
+            0%, 100% { box-shadow: 0 0 20px rgba(251, 191, 36, 0.5); }
+            50% { box-shadow: 0 0 30px rgba(251, 191, 36, 0.8); }
+        }
+
+        .early-badge {
+            background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+        }
+
+        .announcement-bar {
+            background: linear-gradient(to right, #f59e0b, #ea580c);
+            color: white;
+            padding: 12px 16px;
+            text-align: center;
+            font-weight: 700;
+            font-size: 14px;
+        }
+
+        .hero-section {
+            background: linear-gradient(135deg, #0f172a 0%, #1e40af 100%);
+            color: white;
+            padding: 80px 24px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+            color: #111827;
+            border-radius: 9999px;
+            font-weight: 700;
+            font-size: 14px;
+            margin-bottom: 24px;
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 16px;
+        }
+
+        h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #93c5fd;
+            margin-bottom: 24px;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #dbeafe;
+            margin-bottom: 16px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-description {
+            font-size: 1.25rem;
+            color: #bfdbfe;
+            margin-bottom: 40px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .value-props {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 16px;
+            max-width: 900px;
+            margin: 0 auto 48px;
+        }
+
+        .value-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            padding: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .value-card-icon {
+            font-size: 24px;
+            margin: 0 auto 8px;
+            display: block;
+            text-align: center;
+        }
+
+        .value-card-title {
+            font-weight: 700;
+            color: white;
+            text-align: center;
+            margin-bottom: 4px;
+        }
+
+        .value-card-desc {
+            font-size: 14px;
+            color: #93c5fd;
+            text-align: center;
+        }
+
+        .cta-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            align-items: center;
+            margin-bottom: 24px;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 20px 40px;
+            background: #fbbf24;
+            color: #111827;
+            border-radius: 12px;
+            font-weight: 900;
+            font-size: 1.25rem;
+            text-decoration: none;
+            transition: all 0.3s;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary:hover {
+            background: #fcd34d;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 20px 40px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 2px solid white;
+            color: white;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 1.25rem;
+            text-decoration: none;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .section {
+            padding: 80px 24px;
+        }
+
+        .section-gray {
+            background: #f9fafb;
+        }
+
+        .section-dark {
+            background: linear-gradient(to bottom right, #111827, #1f2937);
+            color: white;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 900;
+            text-align: center;
+            margin-bottom: 16px;
+        }
+
+        .section-subtitle {
+            font-size: 1.25rem;
+            color: #6b7280;
+            text-align: center;
+            margin-bottom: 64px;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 24px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .benefit-card {
+            background: white;
+            border-radius: 24px;
+            padding: 32px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+            border: 2px solid #dbeafe;
+            position: relative;
+            transition: all 0.3s;
+        }
+
+        .benefit-card:hover {
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+            transform: translateY(-4px);
+        }
+
+        .benefit-badge {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            padding: 4px 12px;
+            background: #fbbf24;
+            color: #111827;
+            border-radius: 9999px;
+            font-size: 12px;
+            font-weight: 900;
+        }
+
+        .benefit-icon {
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(to bottom right, #2563eb, #1e40af);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 36px;
+            margin-bottom: 16px;
+        }
+
+        .benefit-title {
+            font-size: 1.25rem;
+            font-weight: 900;
+            margin-bottom: 4px;
+        }
+
+        .benefit-subtitle {
+            font-size: 14px;
+            color: #2563eb;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .benefit-desc {
+            color: #6b7280;
+            font-size: 14px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 32px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            text-align: center;
+        }
+
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            background: #dbeafe;
+            border-radius: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            margin: 0 auto 24px;
+        }
+
+        .service-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .service-desc {
+            color: #6b7280;
+            margin-bottom: 16px;
+        }
+
+        .service-subtitle {
+            font-size: 14px;
+            color: #2563eb;
+            font-weight: 600;
+        }
+
+        .target-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .target-card {
+            background: linear-gradient(to bottom right, #2563eb, #1e40af);
+            border-radius: 24px;
+            padding: 32px;
+            color: white;
+            transition: all 0.3s;
+        }
+
+        .target-card:hover {
+            transform: scale(1.05);
+        }
+
+        .target-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+
+        .target-icon {
+            width: 48px;
+            height: 48px;
+            background: white;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+        }
+
+        .target-type {
+            font-size: 1.5rem;
+            font-weight: 900;
+        }
+
+        .target-eng {
+            font-size: 14px;
+            color: #93c5fd;
+            font-weight: 600;
+        }
+
+        .target-tagline {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .target-list {
+            list-style: none;
+            margin-bottom: 24px;
+        }
+
+        .target-list li {
+            padding: 8px 0;
+            font-size: 14px;
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+        }
+
+        .target-btn {
+            width: 100%;
+            padding: 12px 24px;
+            background: white;
+            color: #2563eb;
+            border-radius: 12px;
+            font-weight: 700;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: all 0.3s;
+            cursor: pointer;
+            border: none;
+        }
+
+        .target-btn:hover {
+            background: #dbeafe;
+        }
+
+        .roadmap-card {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 24px;
+            padding: 48px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+            border: 2px solid #dbeafe;
+        }
+
+        .roadmap-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .roadmap-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            flex-shrink: 0;
+        }
+
+        .roadmap-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .roadmap-desc {
+            color: #6b7280;
+        }
+
+        .roadmap-eng {
+            font-size: 14px;
+            color: #10b981;
+            font-weight: 600;
+            margin-top: 4px;
+        }
+
+        .roadmap-note {
+            margin-top: 32px;
+            padding: 24px;
+            background: #dbeafe;
+            border-radius: 16px;
+            border: 2px solid #93c5fd;
+            text-align: center;
+            font-weight: 700;
+            color: #1e40af;
+        }
+
+        .form-section {
+            background: linear-gradient(135deg, #0f172a 0%, #1e40af 100%);
+            color: white;
+            padding: 80px 24px;
+        }
+
+        .form-container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-box {
+            background: white;
+            color: #111827;
+            border-radius: 24px;
+            padding: 48px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .form-group {
+            margin-bottom: 24px;
+        }
+
+        label {
+            display: block;
+            font-size: 14px;
+            font-weight: 700;
+            color: #374151;
+            margin-bottom: 8px;
+        }
+
+        .required {
+            color: #dc2626;
+        }
+
+        input[type="text"],
+        input[type="email"] {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid #d1d5db;
+            border-radius: 12px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus {
+            outline: none;
+            border-color: #2563eb;
+        }
+
+        .type-buttons {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+        }
+
+        .type-btn {
+            padding: 12px 16px;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 14px;
+            background: #f3f4f6;
+            color: #374151;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .type-btn.active {
+            background: #2563eb;
+            color: white;
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+        }
+
+        .type-btn:hover {
+            background: #e5e7eb;
+        }
+
+        .type-btn.active:hover {
+            background: #1e40af;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 20px 32px;
+            background: linear-gradient(to right, #fbbf24, #f59e0b);
+            color: #111827;
+            border-radius: 12px;
+            font-weight: 900;
+            font-size: 1.25rem;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .submit-btn:hover {
+            background: linear-gradient(to right, #fcd34d, #fbbf24);
+            transform: translateY(-2px);
+        }
+
+        .submit-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .form-note {
+            text-align: center;
+            font-size: 14px;
+            color: #6b7280;
+            margin-top: 24px;
+        }
+
+        .contact-info {
+            text-align: center;
+            color: #93c5fd;
+            font-size: 14px;
+            margin-top: 32px;
+        }
+
+        .contact-info a {
+            color: white;
+            text-decoration: underline;
+            font-weight: 700;
+        }
+
+        .final-cta {
+            background: linear-gradient(to bottom right, #f59e0b, #ea580c);
+            color: white;
+            padding: 80px 24px;
+            text-align: center;
+        }
+
+        .final-cta h2 {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: white;
+            margin-bottom: 24px;
+        }
+
+        .final-cta p {
+            font-size: 1.5rem;
+            margin-bottom: 40px;
+        }
+
+        footer {
+            background: #111827;
+            color: #9ca3af;
+            padding: 32px 24px;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        footer p {
+            margin-bottom: 8px;
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2rem; }
+            h2 { font-size: 1.5rem; }
+            .section-title { font-size: 1.75rem; }
+            .cta-buttons { width: 100%; }
+            .btn-primary, .btn-secondary { width: 100%; }
+            .form-box { padding: 32px 24px; }
+        }
+    </style>
+</head>
+<body>
+    <!-- ANNOUNCEMENT BAR -->
+    <div class="announcement-bar">
+        <div style="display: flex; align-items: center; justify-content: center; gap: 8px;">
+            <span>✨</span>
+            <span>글로벌 커머스 플랫폼 TAGOJA 곧 출시 | Launching Soon – Secure Your Early Access</span>
+            <span>✨</span>
+        </div>
+    </div>
+
+    <!-- HERO SECTION -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="text-center">
+                <div class="badge badge-glow">
+                    <span>⏰</span>
+                    <span>곧 출시 · Launching Soon</span>
+                </div>
+
+                <h1>글로벌 커머스 플랫폼,<br>곧 출시됩니다</h1>
+                
+                <h2>Global Commerce Platform<br>Launching Soon</h2>
+                
+                <p class="hero-subtitle">
+                    지금 참여하고 초기 기회를 선점하세요
+                </p>
+                <p class="hero-description">
+                    공급사, 셀러, 물류 파트너를 위한 글로벌 커머스 인프라<br>
+                    출시 전 우선 참여 기회 제공
+                </p>
+
+                <div class="value-props">
+                    <div class="value-card">
+                        <div class="value-card-icon">✓</div>
+                        <p class="value-card-title">재고 없이 글로벌 판매</p>
+                        <p class="value-card-desc">출시 시 바로 시작 가능</p>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-card-icon">✓</div>
+                        <p class="value-card-title">자동화된 물류 시스템</p>
+                        <p class="value-card-desc">배송부터 정산까지 자동</p>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-card-icon">✓</div>
+                        <p class="value-card-title">우선 파트너 혜택</p>
+                        <p class="value-card-desc">얼리 참여자 특별 지원</p>
+                    </div>
+                </div>
+
+                <div class="cta-buttons">
+                    <button class="btn-primary" onclick="scrollToForm()">
+                        <span>⭐</span>
+                        <span>얼리 액세스 신청</span>
+                        <span>→</span>
+                    </button>
+                    <button class="btn-secondary" onclick="scrollToForm()">
+                        <span>대기자 등록</span>
+                        <span>›</span>
+                    </button>
+                </div>
+
+                <p style="margin-top: 24px; color: #93c5fd; font-size: 14px;">
+                    ✓ 신청 후 출시 시 우선 안내 · 특별 혜택 제공 · 무료 가입
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHY JOIN EARLY -->
+    <section class="section section-gray">
+        <div class="container">
+            <div class="text-center" style="margin-bottom: 64px;">
+                <div class="badge">
+                    <span>⚡</span>
+                    <span>얼리 어답터 혜택</span>
+                </div>
+                <h2 class="section-title">지금 참여해야 하는 이유</h2>
+                <p class="section-subtitle">Why You Should Join Early Access</p>
+            </div>
+
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-badge">1순위</div>
+                    <div class="benefit-icon">📈</div>
+                    <h3 class="benefit-title">우선 온보딩</h3>
+                    <p class="benefit-subtitle">Priority Onboarding</p>
+                    <p class="benefit-desc">플랫폼 출시 시 가장 먼저 이용 가능</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-badge">VIP</div>
+                    <div class="benefit-icon">⭐</div>
+                    <h3 class="benefit-title">초기 파트너 지위</h3>
+                    <p class="benefit-subtitle">Founding Partner Status</p>
+                    <p class="benefit-desc">특별 파트너 인증 및 네트워크 내 우선 노출</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-badge">할인</div>
+                    <div class="benefit-icon">🛡️</div>
+                    <h3 class="benefit-title">출시 특별 수수료</h3>
+                    <p class="benefit-subtitle">Launch Fee Benefits</p>
+                    <p class="benefit-desc">정식 출시 후 일반 가입자보다 낮은 수수료</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-badge">독점</div>
+                    <div class="benefit-icon">🌏</div>
+                    <h3 class="benefit-title">글로벌 시장 선점</h3>
+                    <p class="benefit-subtitle">First Market Access</p>
+                    <p class="benefit-desc">동남아시아 시장 우선 진출 기회</p>
+                </div>
+            </div>
+
+            <div class="text-center" style="margin-top: 48px;">
+                <button class="btn-primary" onclick="scrollToForm()">
+                    지금 신청하고 혜택 받기
+                    <span>→</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHAT IS TAGOJA -->
+    <section class="section">
+        <div class="container">
+            <div class="text-center" style="margin-bottom: 64px;">
+                <h2 class="section-title">TAGOJA가 제공할 서비스</h2>
+                <p class="section-subtitle">What TAGOJA Will Provide</p>
+            </div>
+
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">📦</div>
+                    <h3 class="service-title">글로벌 공급망 연결</h3>
+                    <p class="service-desc">
+                        공급사와 셀러를 자동으로 매칭하는 글로벌 네트워크
+                    </p>
+                    <p class="service-subtitle">Global Supply Chain Connection</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">🚚</div>
+                    <h3 class="service-title">자동화 물류 시스템</h3>
+                    <p class="service-desc">
+                        주문부터 배송, 정산까지 완전 자동화 처리
+                    </p>
+                    <p class="service-subtitle">Automated Logistics System</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">🌏</div>
+                    <h3 class="service-title">무재고 판매 모델</h3>
+                    <p class="service-desc">
+                        재고 부담 없이 전세계 시장에서 판매 가능
+                    </p>
+                    <p class="service-subtitle">Zero-Inventory Sales Model</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHO SHOULD JOIN -->
+    <section class="section section-dark">
+        <div class="container">
+            <div class="text-center" style="margin-bottom: 64px;">
+                <h2 class="section-title" style="color: white;">누가 먼저 참여해야 하나요?</h2>
+                <p class="section-subtitle" style="color: #d1d5db;">Who Should Join Early Access?</p>
+            </div>
+
+            <div class="target-grid">
+                <div class="target-card">
+                    <div class="target-header">
+                        <div class="target-icon">👥</div>
+                        <div>
+                            <div class="target-type">셀러</div>
+                            <div class="target-eng">Seller / Dropshipper</div>
+                        </div>
+                    </div>
+                    <p class="target-tagline">재고 없이 글로벌 판매를 원하는 분</p>
+                    <ul class="target-list">
+                        <li><span>✓</span> 드랍쉬핑 비즈니스 준비 중</li>
+                        <li><span>✓</span> 해외 판매 채널 확대 희망</li>
+                        <li><span>✓</span> 재고 부담 없는 사업 모델</li>
+                    </ul>
+                    <button class="target-btn" onclick="selectUserType('셀러')">
+                        셀러로 참여 →
+                    </button>
+                </div>
+
+                <div class="target-card" style="background: linear-gradient(to bottom right, #7c3aed, #6d28d9);">
+                    <div class="target-header">
+                        <div class="target-icon">📦</div>
+                        <div>
+                            <div class="target-type">공급사</div>
+                            <div class="target-eng">Supplier / Manufacturer</div>
+                        </div>
+                    </div>
+                    <p class="target-tagline">해외 수출을 준비하는 제조사</p>
+                    <ul class="target-list">
+                        <li><span>✓</span> 글로벌 판매망 확보 필요</li>
+                        <li><span>✓</span> 수출 절차 간소화 희망</li>
+                        <li><span>✓</span> 유통사 없이 직접 수출</li>
+                    </ul>
+                    <button class="target-btn" style="color: #7c3aed;" onclick="selectUserType('공급사')">
+                        공급사로 참여 →
+                    </button>
+                </div>
+
+                <div class="target-card" style="background: linear-gradient(to bottom right, #059669, #047857);">
+                    <div class="target-header">
+                        <div class="target-icon">🚚</div>
+                        <div>
+                            <div class="target-type">물류 파트너</div>
+                            <div class="target-eng">3PL / Logistics</div>
+                        </div>
+                    </div>
+                    <p class="target-tagline">글로벌 물류 네트워크 참여 희망</p>
+                    <ul class="target-list">
+                        <li><span>✓</span> 국제 배송 서비스 제공</li>
+                        <li><span>✓</span> 물량 확보 및 안정적 수익</li>
+                        <li><span>✓</span> 글로벌 커머스 인프라 참여</li>
+                    </ul>
+                    <button class="target-btn" style="color: #059669;" onclick="selectUserType('물류사')">
+                        물류사로 참여 →
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ROADMAP -->
+    <section class="section section-gray">
+        <div class="container">
+            <div class="text-center" style="margin-bottom: 64px;">
+                <h2 class="section-title">출시 준비 현황</h2>
+                <p class="section-subtitle">Development & Launch Roadmap</p>
+            </div>
+
+            <div class="roadmap-card">
+                <div class="roadmap-item">
+                    <div class="roadmap-icon" style="background: #10b981; color: white;">✓</div>
+                    <div>
+                        <h3 class="roadmap-title">현재: 개발 진행 중</h3>
+                        <p class="roadmap-desc">플랫폼 핵심 기능 개발 완료 단계</p>
+                        <p class="roadmap-eng">Currently in Development</p>
+                    </div>
+                </div>
+
+                <div class="roadmap-item">
+                    <div class="roadmap-icon" style="background: #3b82f6; color: white;">⏰</div>
+                    <div>
+                        <h3 class="roadmap-title">2026년 3분기: 단계별 출시</h3>
+                        <p class="roadmap-desc">얼리 액세스 파트너 우선 초대</p>
+                        <p class="roadmap-eng" style="color: #3b82f6;">Phased Launch in Q3 2026</p>
+                    </div>
+                </div>
+
+                <div class="roadmap-item">
+                    <div class="roadmap-icon" style="background: #7c3aed; color: white;">🌏</div>
+                    <div>
+                        <h3 class="roadmap-title">첫 시장: 동남아시아</h3>
+                        <p class="roadmap-desc">베트남, 태국, 필리핀 등 우선 진출</p>
+                        <p class="roadmap-eng" style="color: #7c3aed;">Starting in Southeast Asia</p>
+                    </div>
+                </div>
+
+                <div class="roadmap-note">
+                    🎯 얼리 액세스 참여자는 정식 출시 전 우선 온보딩 및 테스트 기회 제공
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WAITLIST FORM -->
+    <section id="waitlist-form" class="form-section">
+        <div class="form-container">
+            <div class="text-center" style="margin-bottom: 48px;">
+                <div class="badge">
+                    <span>⭐</span>
+                    <span>한정된 얼리 액세스 기회</span>
+                </div>
+                <h2 class="section-title" style="color: white;">대기자 명단 등록</h2>
+                <p style="font-size: 1.25rem; color: #93c5fd;">Join Early Access Waitlist</p>
+            </div>
+
+            <form class="form-box" id="waitlistForm" onsubmit="handleSubmit(event)">
+                <div class="form-group">
+                    <label>참여 유형 선택 <span class="required">*</span></label>
+                    <div class="type-buttons">
+                        <button type="button" class="type-btn" data-type="셀러" onclick="selectType('셀러')">셀러</button>
+                        <button type="button" class="type-btn" data-type="공급사" onclick="selectType('공급사')">공급사</button>
+                        <button type="button" class="type-btn" data-type="물류사" onclick="selectType('물류사')">물류사</button>
+                    </div>
+                    <input type="hidden" id="userType" name="userType" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="name">이름 <span class="required">*</span></label>
+                    <input type="text" id="name" name="name" placeholder="홍길동" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">이메일 <span class="required">*</span></label>
+                    <input type="email" id="email" name="email" placeholder="email@example.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="company">회사명 <span style="color: #9ca3af; font-size: 12px;">(선택사항)</span></label>
+                    <input type="text" id="company" name="company" placeholder="회사명 입력">
+                </div>
+
+                <button type="submit" class="submit-btn" id="submitBtn" disabled>
+                    <span>⭐</span>
+                    <span>얼리 액세스 신청하기</span>
+                    <span>→</span>
+                </button>
+
+                <p class="form-note">
+                    ✓ 출시 시 우선 안내 · 특별 혜택 제공 · 무료 가입
+                </p>
+            </form>
+
+            <p class="contact-info">
+                출시 일정 및 얼리 액세스 관련 문의: <a href="mailto:support@tagoja.com">support@tagoja.com</a>
+            </p>
+        </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="final-cta">
+        <div class="container">
+            <h2>선점하는 자가<br>기회를 잡습니다</h2>
+            <p>글로벌 커머스 혁명에 가장 먼저 참여하세요.<br>얼리 액세스는 한정되어 있습니다.</p>
+            <button class="btn-primary" onclick="scrollToForm()" style="background: white; color: #ea580c;">
+                <span>✨</span>
+                <span>지금 대기자 등록하기</span>
+                <span>→</span>
+            </button>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>© 2026 TAGOJA. Operated by SEOWOO LLC</p>
+        <p>30 N Gould St, Sheridan, WY 82801, United States</p>
+        <p style="margin-top: 16px; font-size: 12px; color: #6b7280;">현재 개발 중 · 2026년 출시 예정 · Currently in Development</p>
+    </footer>
+
+    <script>
+        let selectedType = '';
+
+        function scrollToForm() {
+            document.getElementById('waitlist-form').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function selectType(type) {
+            selectedType = type;
+            document.getElementById('userType').value = type;
+            
+            // Update button states
+            document.querySelectorAll('.type-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+            
+            // Enable submit button if form is valid
+            validateForm();
+        }
+
+        function selectUserType(type) {
+            scrollToForm();
+            setTimeout(() => {
+                const btn = document.querySelector(`.type-btn[data-type="${type}"]`);
+                if (btn) {
+                    btn.click();
+                }
+            }, 500);
+        }
+
+        function validateForm() {
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const userType = document.getElementById('userType').value;
+            const submitBtn = document.getElementById('submitBtn');
+            
+            if (name && email && userType) {
+                submitBtn.disabled = false;
+            } else {
+                submitBtn.disabled = true;
+            }
+        }
+
+        // Add event listeners for form validation
+        document.getElementById('name').addEventListener('input', validateForm);
+        document.getElementById('email').addEventListener('input', validateForm);
+
+        function handleSubmit(e) {
+            e.preventDefault();
+            
+            const formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                userType: document.getElementById('userType').value,
+                company: document.getElementById('company').value || '미입력'
+            };
+
+            const subject = `TAGOJA 얼리 액세스 신청 - ${formData.userType}`;
+            const body = `이름: ${formData.name}
+이메일: ${formData.email}
+유형: ${formData.userType}
+회사: ${formData.company}
+
+얼리 액세스 대기자 등록`;
+
+            window.location.href = `mailto:support@tagoja.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        }
+    </script>
+</body>
+</html>
