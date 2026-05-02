@@ -930,7 +930,7 @@
                 <p style="font-size: 1.25rem; color: #93c5fd;">Join Early Access Waitlist</p>
             </div>
 
-            <form class="form-box" id="waitlistForm" onsubmit="handleSubmit(event)">
+            <form class="form-box" id="waitlistForm" action="https://docs.google.com/forms/d/e/1FAIpQLSdjQz6dDAz53mMdUUnabH9pCtBnXW80stRGaOQek90S8Nzgmg/formResponse" method="POST" target="hidden_iframe" onsubmit="handleSubmit(event)">
                 <div class="form-group">
                     <label>참여 유형 선택 <span class="required">*</span></label>
                     <div class="type-buttons">
@@ -938,22 +938,22 @@
                         <button type="button" class="type-btn" data-type="공급사" onclick="selectType('공급사')">공급사</button>
                         <button type="button" class="type-btn" data-type="물류사" onclick="selectType('물류사')">물류사</button>
                     </div>
-                    <input type="hidden" id="userType" name="userType" required>
+                    <input type="hidden" id="userType" name="entry.1892183932" required>
                 </div>
 
                 <div class="form-group">
                     <label for="name">이름 <span class="required">*</span></label>
-                    <input type="text" id="name" name="name" placeholder="홍길동" required>
+                    <input type="text" id="name" name="entry.1933303776" placeholder="홍길동" required>
                 </div>
 
                 <div class="form-group">
                     <label for="email">이메일 <span class="required">*</span></label>
-                    <input type="email" id="email" name="email" placeholder="email@example.com" required>
+                    <input type="email" id="email" name="entry.2074708390" placeholder="email@example.com" required>
                 </div>
 
                 <div class="form-group">
                     <label for="company">회사명 <span style="color: #9ca3af; font-size: 12px;">(선택사항)</span></label>
-                    <input type="text" id="company" name="company" placeholder="회사명 입력">
+                    <input type="text" id="company" name="entry.2125067626" placeholder="회사명 입력">
                 </div>
 
                 <button type="submit" class="submit-btn" id="submitBtn" disabled>
@@ -966,6 +966,7 @@
                     ✓ 출시 시 우선 안내 · 특별 혜택 제공 · 무료 가입
                 </p>
             </form>
+            <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
 
             <p class="contact-info">
                 출시 일정 및 얼리 액세스 관련 문의: <a href="mailto:support@tagoja.com">support@tagoja.com</a>
@@ -1002,7 +1003,13 @@
 
         function selectType(type) {
             selectedType = type;
-            document.getElementById('userType').value = type;
+            // Map Korean types to values expected by Google Form
+            const typeMap = {
+                '셀러': 'Seller / 판매자',
+                '공급사': 'Supplier / 공급사',
+                '물류사': '3PL / 물류 파트너'
+            };
+            document.getElementById('userType').value = typeMap[type] || type;
             
             // Update button states
             document.querySelectorAll('.type-btn').forEach(btn => {
@@ -1042,24 +1049,18 @@
         document.getElementById('email').addEventListener('input', validateForm);
 
         function handleSubmit(e) {
-            e.preventDefault();
+            // Form will submit to Google Forms via iframe
+            // Show success message after short delay
+            setTimeout(() => {
+                alert('✅ 대기자 명단에 성공적으로 등록되었습니다!\n\n출시 시 우선 안내 드리겠습니다.\n감사합니다! 🎉');
+                document.getElementById('waitlistForm').reset();
+                document.getElementById('submitBtn').disabled = true;
+                document.querySelectorAll('.type-btn').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+            }, 500);
             
-            const formData = {
-                name: document.getElementById('name').value,
-                email: document.getElementById('email').value,
-                userType: document.getElementById('userType').value,
-                company: document.getElementById('company').value || '미입력'
-            };
-
-            const subject = `TAGOJA 얼리 액세스 신청 - ${formData.userType}`;
-            const body = `이름: ${formData.name}
-이메일: ${formData.email}
-유형: ${formData.userType}
-회사: ${formData.company}
-
-얼리 액세스 대기자 등록`;
-
-            window.location.href = `mailto:support@tagoja.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+            return true; // Allow form to submit
         }
     </script>
 </body>
