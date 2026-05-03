@@ -35,21 +35,79 @@
             display: flex;
             justify-content: flex-end;
             padding: 0 24px;
+            position: relative;
         }
 
-        .language-select {
+        .language-btn {
+            display: flex;
+            align-items: center;
+            gap: 8px;
             padding: 10px 16px;
             background: #f3f4f6;
             border: 1px solid #d1d5db;
             border-radius: 8px;
+            cursor: pointer;
             font-weight: 600;
             font-size: 14px;
-            cursor: pointer;
-            font-family: 'Noto Sans', sans-serif;
+            transition: background 0.2s;
         }
 
-        .language-select:hover {
+        .language-btn:hover {
             background: #e5e7eb;
+        }
+
+        .language-dropdown {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            margin-top: 8px;
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            max-height: 400px;
+            overflow-y: auto;
+            z-index: 1000;
+            display: none;
+            width: 250px;
+        }
+
+        .language-dropdown.active {
+            display: block;
+        }
+
+        .language-option {
+            padding: 12px 16px;
+            cursor: pointer;
+            transition: background 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+        }
+
+        .language-option:hover {
+            background: #f3f4f6;
+        }
+
+        .language-option.selected {
+            background: #dbeafe;
+            color: #2563eb;
+            font-weight: 700;
+        }
+
+        .lang-code {
+            font-weight: 700;
+            color: #6b7280;
+            min-width: 30px;
+        }
+
+        .chevron {
+            transition: transform 0.3s;
+        }
+
+        .chevron.rotate {
+            transform: rotate(180deg);
         }
 
         /* Announcement Bar */
@@ -608,12 +666,73 @@
     <!-- LANGUAGE SELECTOR -->
     <div class="language-bar">
         <div class="language-selector">
-            <select class="language-select" id="languageSelect" onchange="changeLanguage(this.value)">
-                <option value="kr">🇰🇷 한국어</option>
-                <option value="en" selected>🇬🇧 English</option>
-                <option value="jp">🇯🇵 日本語</option>
-                <option value="ph">🇵🇭 Tagalog</option>
-            </select>
+            <button class="language-btn" onclick="toggleLanguageDropdown()">
+                <span id="currentLangCode">GB</span>
+                <span id="currentLangName">English</span>
+                <span class="chevron" id="chevron">▼</span>
+            </button>
+            <div class="language-dropdown" id="languageDropdown">
+                <div class="language-option" onclick="changeLanguage('ko', this)">
+                    <span class="lang-code">KR</span>
+                    <span>한국어</span>
+                </div>
+                <div class="language-option selected" onclick="changeLanguage('en', this)">
+                    <span class="lang-code">GB</span>
+                    <span>English</span>
+                </div>
+                <div class="language-option" onclick="changeLanguage('tl', this)">
+                    <span class="lang-code">PH</span>
+                    <span>Tagalog</span>
+                </div>
+                <div class="language-option" onclick="changeLanguage('id', this)">
+                    <span class="lang-code">ID</span>
+                    <span>Bahasa Indonesia</span>
+                </div>
+                <div class="language-option" onclick="changeLanguage('th', this)">
+                    <span class="lang-code">TH</span>
+                    <span>ภาษาไทย</span>
+                </div>
+                <div class="language-option" onclick="changeLanguage('vi', this)">
+                    <span class="lang-code">VN</span>
+                    <span>Tiếng Việt</span>
+                </div>
+                <div class="language-option" onclick="changeLanguage('zh', this)">
+                    <span class="lang-code">CN</span>
+                    <span>中文</span>
+                </div>
+                <div class="language-option" onclick="changeLanguage('ja', this)">
+                    <span class="lang-code">JP</span>
+                    <span>日本語</span>
+                </div>
+                <div class="language-option" onclick="changeLanguage('hi', this)">
+                    <span class="lang-code">IN</span>
+                    <span>हिन्दी</span>
+                </div>
+                <div class="language-option" onclick="changeLanguage('es', this)">
+                    <span class="lang-code">ES</span>
+                    <span>Español</span>
+                </div>
+                <div class="language-option" onclick="changeLanguage('fr', this)">
+                    <span class="lang-code">FR</span>
+                    <span>Français</span>
+                </div>
+                <div class="language-option" onclick="changeLanguage('ar', this)">
+                    <span class="lang-code">SA</span>
+                    <span>العربية</span>
+                </div>
+                <div class="language-option" onclick="changeLanguage('pt', this)">
+                    <span class="lang-code">BR</span>
+                    <span>Português</span>
+                </div>
+                <div class="language-option" onclick="changeLanguage('ru', this)">
+                    <span class="lang-code">RU</span>
+                    <span>Русский</span>
+                </div>
+                <div class="language-option" onclick="changeLanguage('de', this)">
+                    <span class="lang-code">DE</span>
+                    <span>Deutsch</span>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -918,24 +1037,46 @@
     </footer>
 
     <script>
-        // Language Switching
-        function changeLanguage(lang) {
-            localStorage.setItem('tagoja_language', lang);
-            window.location.href = '/' + lang + '/';
+        // Toggle language dropdown
+        function toggleLanguageDropdown() {
+            const dropdown = document.getElementById('languageDropdown');
+            const chevron = document.getElementById('chevron');
+            dropdown.classList.toggle('active');
+            chevron.classList.toggle('rotate');
         }
 
-        // Initialize language selector
-        window.addEventListener('DOMContentLoaded', function() {
-            const path = window.location.pathname;
-            const langMatch = path.match(/\/(kr|en|jp|ph)\//);
-            const currentLang = langMatch ? langMatch[1] : 'en';
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function(event) {
+            const dropdown = document.getElementById('languageDropdown');
+            const languageBtn = document.querySelector('.language-btn');
             
-            const selector = document.getElementById('languageSelect');
-            if (selector) {
-                selector.value = currentLang;
+            if (languageBtn && !languageBtn.contains(event.target) && !dropdown.contains(event.target)) {
+                dropdown.classList.remove('active');
+                document.getElementById('chevron').classList.remove('rotate');
             }
         });
 
+        // Language Switching
+        function changeLanguage(lang, element) {
+            // Redirect to folder-based pages for kr, en, jp, ph
+            const folderLanguages = {
+                'ko': '/kr/',
+                'en': '/en/',
+                'ja': '/jp/',
+                'tl': '/ph/'
+            };
+            
+            if (folderLanguages[lang]) {
+                // Redirect to folder-based page
+                localStorage.setItem('tagoja_language', lang);
+                window.location.href = folderLanguages[lang];
+                return;
+            }
+            
+            // For other languages, redirect to main page with that language
+            localStorage.setItem('tagoja_language', lang);
+            window.location.href = '/?lang=' + lang;
+        }
         // Form handling
         let selectedType = '';
 
