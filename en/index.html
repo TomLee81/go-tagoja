@@ -1,0 +1,1025 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TAGOJA - Global Commerce Platform</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Noto Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        }
+
+        body {
+            background: white;
+            color: #111827;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Language Selector */
+        .language-bar {
+            background: white;
+            border-bottom: 1px solid #e5e7eb;
+            padding: 12px 0;
+        }
+
+        .language-selector {
+            display: flex;
+            justify-content: flex-end;
+            padding: 0 24px;
+        }
+
+        .language-select {
+            padding: 10px 16px;
+            background: #f3f4f6;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            font-family: 'Noto Sans', sans-serif;
+        }
+
+        .language-select:hover {
+            background: #e5e7eb;
+        }
+
+        /* Announcement Bar */
+        .announcement-bar {
+            background: linear-gradient(to right, #f59e0b, #ea580c);
+            color: white;
+            padding: 12px 16px;
+            text-align: center;
+            font-weight: 700;
+            font-size: 14px;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(135deg, #0f172a 0%, #1e40af 100%);
+            color: white;
+            padding: 80px 24px;
+            text-align: center;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(251, 191, 36, 0.9);
+            color: #111827;
+            padding: 8px 20px;
+            border-radius: 24px;
+            font-weight: 700;
+            font-size: 14px;
+            margin-bottom: 32px;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: 900;
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 24px;
+            color: #93c5fd;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .hero-description {
+            font-size: 1rem;
+            color: #cbd5e1;
+            margin-bottom: 48px;
+            line-height: 1.6;
+        }
+
+        .value-props {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 24px;
+            margin-bottom: 48px;
+        }
+
+        .value-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 16px;
+            padding: 24px;
+            text-align: center;
+        }
+
+        .value-card-icon {
+            font-size: 2rem;
+            margin-bottom: 12px;
+        }
+
+        .value-card-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .value-card-desc {
+            font-size: 0.9rem;
+            color: #cbd5e1;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, #fbbf24, #f59e0b);
+            color: #111827;
+            padding: 16px 32px;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            text-decoration: none;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(251, 191, 36, 0.4);
+        }
+
+        .btn-secondary {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid white;
+            color: white;
+            padding: 16px 32px;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-decoration: none;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Section */
+        .section {
+            padding: 80px 24px;
+        }
+
+        .section-gray {
+            background: #f9fafb;
+        }
+
+        .section-dark {
+            background: linear-gradient(to bottom right, #111827, #1f2937);
+            color: white;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-bottom: 16px;
+            text-align: center;
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: #6b7280;
+            margin-bottom: 48px;
+            text-align: center;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 32px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .benefit-card {
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 16px;
+            padding: 32px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .benefit-icon {
+            font-size: 3rem;
+            margin-bottom: 16px;
+        }
+
+        .benefit-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .benefit-subtitle {
+            font-size: 0.9rem;
+            color: #2563eb;
+            margin-bottom: 12px;
+        }
+
+        .benefit-desc {
+            color: #6b7280;
+            line-height: 1.6;
+        }
+
+        /* What Section */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 48px;
+        }
+
+        .feature-card {
+            text-align: center;
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: #dbeafe;
+            border-radius: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+            font-size: 2.5rem;
+        }
+
+        .feature-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .feature-desc {
+            color: #6b7280;
+            line-height: 1.6;
+        }
+
+        /* Who Section */
+        .who-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 32px;
+        }
+
+        .who-card {
+            background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+            border-radius: 24px;
+            padding: 40px;
+            color: white;
+            transition: transform 0.3s;
+        }
+
+        .who-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .who-card.supplier {
+            background: linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%);
+        }
+
+        .who-card.logistics {
+            background: linear-gradient(135deg, #059669 0%, #047857 100%);
+        }
+
+        .who-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .who-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+        }
+
+        .who-title {
+            font-size: 1.75rem;
+            font-weight: 900;
+        }
+
+        .who-subtitle {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .who-message {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .who-list {
+            list-style: none;
+            margin-bottom: 24px;
+        }
+
+        .who-list li {
+            display: flex;
+            align-items: start;
+            gap: 12px;
+            margin-bottom: 12px;
+            padding: 8px 0;
+        }
+
+        .who-list li::before {
+            content: "✓";
+            font-size: 1.2rem;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .who-cta {
+            width: 100%;
+            padding: 14px 24px;
+            background: rgba(255, 255, 255, 0.9);
+            color: #111827;
+            border: none;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .who-cta:hover {
+            background: white;
+        }
+
+        /* Roadmap Section */
+        .roadmap-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .roadmap-item {
+            display: flex;
+            gap: 24px;
+            margin-bottom: 48px;
+            align-items: start;
+        }
+
+        .roadmap-number {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #2563eb, #1d4ed8);
+            color: white;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 900;
+            flex-shrink: 0;
+        }
+
+        .roadmap-content {
+            flex: 1;
+        }
+
+        .roadmap-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .roadmap-desc {
+            color: #6b7280;
+            line-height: 1.6;
+        }
+
+        /* Form */
+        .form-section {
+            background: linear-gradient(135deg, #0f172a 0%, #1e40af 100%);
+            padding: 80px 24px;
+        }
+
+        .form-box {
+            background: white;
+            border-radius: 24px;
+            padding: 48px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 24px;
+            text-align: left;
+        }
+
+        label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #374151;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 14px 16px;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border 0.2s;
+        }
+
+        input:focus, select:focus {
+            outline: none;
+            border-color: #2563eb;
+        }
+
+        .type-buttons {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+
+        .type-btn {
+            padding: 16px;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            background: white;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+
+        .type-btn:hover {
+            border-color: #2563eb;
+            background: #eff6ff;
+        }
+
+        .type-btn.active {
+            border-color: #2563eb;
+            background: #2563eb;
+            color: white;
+        }
+
+        .submit-btn {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background: linear-gradient(135deg, #2563eb, #1d4ed8);
+            color: white;
+            padding: 18px;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(37, 99, 235, 0.4);
+        }
+
+        .submit-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .required {
+            color: #ef4444;
+        }
+
+        /* Final CTA */
+        .final-cta {
+            background: linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%);
+            color: white;
+            padding: 80px 24px;
+            text-align: center;
+        }
+
+        .final-title {
+            font-size: 3rem;
+            font-weight: 900;
+            margin-bottom: 16px;
+        }
+
+        .final-message {
+            font-size: 1.25rem;
+            margin-bottom: 32px;
+            color: #e9d5ff;
+        }
+
+        .final-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 18px 48px;
+            background: white;
+            color: #7c3aed;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.25rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            text-decoration: none;
+        }
+
+        .final-btn:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.3);
+        }
+
+        footer {
+            background: #0f172a;
+            color: white;
+            text-align: center;
+            padding: 48px 24px;
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2rem; }
+            h2 { font-size: 1.25rem; }
+            .section-title { font-size: 1.75rem; }
+            .final-title { font-size: 2rem; }
+            .cta-buttons { width: 100%; }
+            .btn-primary, .btn-secondary { width: 100%; justify-content: center; }
+            .form-box { padding: 32px 24px; }
+            .type-buttons { grid-template-columns: 1fr; }
+            .who-grid { grid-template-columns: 1fr; }
+            .benefits-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <!-- LANGUAGE SELECTOR -->
+    <div class="language-bar">
+        <div class="language-selector">
+            <select class="language-select" id="languageSelect" onchange="changeLanguage(this.value)">
+                <option value="kr">🇰🇷 한국어</option>
+                <option value="en" selected>🇬🇧 English</option>
+                <option value="jp">🇯🇵 日本語</option>
+                <option value="ph">🇵🇭 Tagalog</option>
+            </select>
+        </div>
+    </div>
+
+    <!-- ANNOUNCEMENT BAR -->
+    <div class="announcement-bar">
+        <span>✨ Global Commerce Platform TAGOJA Launching Soon – Secure Your Early Access ✨</span>
+    </div>
+
+    <!-- HERO SECTION -->
+    <section class="hero-section">
+        <div class="container">
+            <div>
+                <div class="badge">
+                    <span>⏰</span>
+                    <span>Launching Soon</span>
+                </div>
+
+                <h1>Global Commerce Platform<br>Launching Soon</h1>
+                
+                <h2>글로벌 커머스 플랫폼<br>곧 출시</h2>
+                
+                <p class="hero-subtitle">Join now and secure early opportunities</p>
+                <p class="hero-description">Global commerce infrastructure for suppliers, sellers, and logistics partners</p>
+
+                <div class="value-props">
+                    <div class="value-card">
+                        <div class="value-card-icon">✓</div>
+                        <p class="value-card-title">Sell globally without inventory</p>
+                        <p class="value-card-desc">Ready at launch</p>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-card-icon">✓</div>
+                        <p class="value-card-title">Automated logistics system</p>
+                        <p class="value-card-desc">From shipping to settlement</p>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-card-icon">✓</div>
+                        <p class="value-card-title">Early partner benefits</p>
+                        <p class="value-card-desc">Special support</p>
+                    </div>
+                </div>
+
+                <div class="cta-buttons">
+                    <a href="#waitlist-form" class="btn-primary">
+                        <span>⭐</span>
+                        <span>Join Early Access</span>
+                        <span>→</span>
+                    </a>
+                    <a href="#waitlist-form" class="btn-secondary">
+                        <span>Join Waitlist</span>
+                        <span>›</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHY JOIN EARLY -->
+    <section class="section section-gray">
+        <div class="container">
+            <div>
+                <div class="badge">
+                    <span>⚡</span>
+                    <span>Early Access Benefits</span>
+                </div>
+                <h2 class="section-title">Why Join Early Access</h2>
+            </div>
+
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">🎯</div>
+                    <h3 class="benefit-title">Priority Onboarding</h3>
+                    <p class="benefit-subtitle">Priority Onboarding</p>
+                    <p class="benefit-desc">First to use at launch</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">👑</div>
+                    <h3 class="benefit-title">Founding Partner Status</h3>
+                    <p class="benefit-subtitle">Founding Partner Status</p>
+                    <p class="benefit-desc">VIP certification</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">💰</div>
+                    <h3 class="benefit-title">Launch Fee Benefits</h3>
+                    <p class="benefit-subtitle">Launch Fee Benefits</p>
+                    <p class="benefit-desc">Lower fees</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">🌏</div>
+                    <h3 class="benefit-title">First Market Access</h3>
+                    <p class="benefit-subtitle">First Market Access</p>
+                    <p class="benefit-desc">Southeast Asia priority</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHAT IS TAGOJA -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">What TAGOJA Will Provide</h2>
+            <p class="section-subtitle">What TAGOJA Will Provide</p>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">📦</div>
+                    <h3 class="feature-title">Global Supply Chain</h3>
+                    <p class="feature-desc">Connect suppliers and sellers</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🚚</div>
+                    <h3 class="feature-title">Automated Logistics</h3>
+                    <p class="feature-desc">Order to delivery automation</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🌐</div>
+                    <h3 class="feature-title">Zero-Inventory Model</h3>
+                    <p class="feature-desc">Sell without stock burden</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHO SHOULD JOIN -->
+    <section class="section section-dark">
+        <div class="container">
+            <h2 class="section-title">Who Should Join Early?</h2>
+            <p class="section-subtitle" style="color: #cbd5e1;">Who Should Join Early?</p>
+
+            <div class="who-grid">
+                <!-- Sellers -->
+                <div class="who-card">
+                    <div class="who-header">
+                        <div class="who-icon">👥</div>
+                        <div>
+                            <h3 class="who-title">Sellers</h3>
+                            <p class="who-subtitle">Seller / Dropshipper</p>
+                        </div>
+                    </div>
+                    <p class="who-message">Sell globally without inventory</p>
+                    <ul class="who-list">
+                        <li>Dropshipping business</li>
+                        <li>Overseas sales channels</li>
+                        <li>Zero-inventory model</li>
+                    </ul>
+                    <button class="who-cta" onclick="location.href='#waitlist-form'">Join as Seller</button>
+                </div>
+
+                <!-- Suppliers -->
+                <div class="who-card supplier">
+                    <div class="who-header">
+                        <div class="who-icon">📦</div>
+                        <div>
+                            <h3 class="who-title">Suppliers</h3>
+                            <p class="who-subtitle">Supplier / Manufacturer</p>
+                        </div>
+                    </div>
+                    <p class="who-message">Export manufacturers</p>
+                    <ul class="who-list">
+                        <li>Global sales network</li>
+                        <li>Simplified export</li>
+                        <li>Direct export</li>
+                    </ul>
+                    <button class="who-cta" onclick="location.href='#waitlist-form'">Join as Supplier</button>
+                </div>
+
+                <!-- Logistics -->
+                <div class="who-card logistics">
+                    <div class="who-header">
+                        <div class="who-icon">🚚</div>
+                        <div>
+                            <h3 class="who-title">Logistics Partner</h3>
+                            <p class="who-subtitle">3PL / Logistics</p>
+                        </div>
+                    </div>
+                    <p class="who-message">Global logistics network</p>
+                    <ul class="who-list">
+                        <li>International shipping</li>
+                        <li>Stable revenue</li>
+                        <li>Commerce infrastructure</li>
+                    </ul>
+                    <button class="who-cta" onclick="location.href='#waitlist-form'">Join as Partner</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ROADMAP -->
+    <section class="section section-gray">
+        <div class="container">
+            <h2 class="section-title">Launch Preparation</h2>
+            <p class="section-subtitle">Launch Preparation</p>
+
+            <div class="roadmap-container">
+                <div class="roadmap-item">
+                    <div class="roadmap-number">1</div>
+                    <div class="roadmap-content">
+                        <h3 class="roadmap-title">Now: In Development</h3>
+                        <p class="roadmap-desc">Core features nearing completion</p>
+                    </div>
+                </div>
+                <div class="roadmap-item">
+                    <div class="roadmap-number">2</div>
+                    <div class="roadmap-content">
+                        <h3 class="roadmap-title">Q3 2026: Phased Launch</h3>
+                        <p class="roadmap-desc">Early access first</p>
+                    </div>
+                </div>
+                <div class="roadmap-item">
+                    <div class="roadmap-number">3</div>
+                    <div class="roadmap-content">
+                        <h3 class="roadmap-title">First Market: Southeast Asia</h3>
+                        <p class="roadmap-desc">Vietnam, Thailand, Philippines</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WAITLIST FORM -->
+    <section class="form-section" id="waitlist-form">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 48px;">
+                <div class="badge" style="background: rgba(251, 191, 36, 0.9);">
+                    <span>🎯</span>
+                    <span>Limited Early Access</span>
+                </div>
+                <h2 class="section-title" style="color: white;">Join Waitlist</h2>
+            </div>
+
+            <div class="form-box">
+                <form id="waitlistForm" onsubmit="handleSubmit(event)">
+                    <div class="form-group">
+                        <label>Select Type <span class="required">*</span></label>
+                        <div class="type-buttons">
+                            <button type="button" class="type-btn" onclick="selectType('Seller', this)">Seller</button>
+                            <button type="button" class="type-btn" onclick="selectType('Supplier', this)">Supplier</button>
+                            <button type="button" class="type-btn" onclick="selectType('Logistics', this)">Logistics</button>
+                        </div>
+                        <input type="hidden" id="userType" name="type" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="name">Full Name <span class="required">*</span></label>
+                        <input type="text" id="name" name="name" placeholder="John Doe" required oninput="validateForm()">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email <span class="required">*</span></label>
+                        <input type="email" id="email" name="email" placeholder="example@email.com" required oninput="validateForm()">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="country">Country <span class="required">*</span></label>
+                        <select id="country" name="country" required onchange="validateForm()">
+                            <option value="">Select your country</option>
+                            <option value="KR">🇰🇷 South Korea</option>
+                            <option value="US">🇺🇸 United States</option>
+                            <option value="PH">🇵🇭 Philippines</option>
+                            <option value="ID">🇮🇩 Indonesia</option>
+                            <option value="TH">🇹🇭 Thailand</option>
+                            <option value="VN">🇻🇳 Vietnam</option>
+                            <option value="CN">🇨🇳 China</option>
+                            <option value="JP">🇯🇵 Japan</option>
+                            <option value="IN">🇮🇳 India</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="company">Company <span style="color: #9ca3af; font-size: 12px;">(Optional)</span></label>
+                        <input type="text" id="company" name="company" placeholder="Company name">
+                    </div>
+
+                    <button type="submit" class="submit-btn" id="submitBtn" disabled>
+                        <span>⭐</span>
+                        <span>Join Early Access</span>
+                        <span>→</span>
+                    </button>
+                </form>
+
+                <div id="formMessage" style="margin-top: 24px; padding: 16px; border-radius: 8px; display: none; text-align: center; font-weight: 600;"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="final-cta">
+        <div class="container">
+            <h2 class="final-title">First Movers Win</h2>
+            <p class="final-message">Early access is limited</p>
+            <a href="#waitlist-form" class="final-btn">
+                <span>Join Now</span>
+                <span>→</span>
+            </a>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2026 TAGOJA. Operated by SEOWOO LLC</p>
+        <p>30 N Gould St, Sheridan, WY 82801, United States</p>
+        <p style="margin-top: 16px; font-size: 12px; color: #6b7280;">Currently in Development · Launching in 2026</p>
+    </footer>
+
+    <script>
+        // Language Switching
+        function changeLanguage(lang) {
+            localStorage.setItem('tagoja_language', lang);
+            window.location.href = '/' + lang + '/';
+        }
+
+        // Initialize language selector
+        window.addEventListener('DOMContentLoaded', function() {
+            const path = window.location.pathname;
+            const langMatch = path.match(/\/(kr|en|jp|ph)\//);
+            const currentLang = langMatch ? langMatch[1] : 'en';
+            
+            const selector = document.getElementById('languageSelect');
+            if (selector) {
+                selector.value = currentLang;
+            }
+        });
+
+        // Form handling
+        let selectedType = '';
+
+        function selectType(type, element) {
+            selectedType = type;
+            document.getElementById('userType').value = type;
+            
+            document.querySelectorAll('.type-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            element.classList.add('active');
+            
+            validateForm();
+        }
+
+        function validateForm() {
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const country = document.getElementById('country').value;
+            const userType = document.getElementById('userType').value;
+            const submitBtn = document.getElementById('submitBtn');
+            
+            if (name && email && country && userType) {
+                submitBtn.disabled = false;
+            } else {
+                submitBtn.disabled = true;
+            }
+        }
+
+        async function handleSubmit(event) {
+            event.preventDefault();
+            
+            const submitBtn = document.getElementById('submitBtn');
+            const formMessage = document.getElementById('formMessage');
+            
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '⏳ Submitting...';
+            formMessage.style.display = 'none';
+            
+            const formData = {
+                type: document.getElementById('userType').value,
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                country: document.getElementById('country').value,
+                company: document.getElementById('company').value || ''
+            };
+            
+            try {
+                const params = new URLSearchParams(formData);
+                const response = await fetch('https://script.google.com/macros/s/AKfycbyUIVHgWpf0c0QPLtDD-iUTkLFd2FjnljKS88I_Vi8ciSgSlJtHo-YPnD1MYJ4W6oUueQ/exec?' + params, {
+                    method: 'GET',
+                    redirect: 'follow'
+                });
+                
+                const result = await response.json();
+                
+                if (result.status === 'success') {
+                    formMessage.textContent = '✅ Successfully registered! 🎉';
+                    formMessage.style.display = 'block';
+                    formMessage.style.backgroundColor = '#d1fae5';
+                    formMessage.style.color = '#065f46';
+                    
+                    document.getElementById('waitlistForm').reset();
+                    document.querySelectorAll('.type-btn').forEach(btn => {
+                        btn.classList.remove('active');
+                    });
+                    selectedType = '';
+                    
+                    submitBtn.innerHTML = '<span>⭐</span><span>Join Early Access</span><span>→</span>';
+                    submitBtn.disabled = true;
+                } else {
+                    throw new Error(result.message || 'Submission failed');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                formMessage.textContent = '❌ An error occurred.';
+                formMessage.style.display = 'block';
+                formMessage.style.backgroundColor = '#fee2e2';
+                formMessage.style.color = '#991b1b';
+                
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = '<span>⭐</span><span>Join Early Access</span><span>→</span>';
+            }
+        }
+    </script>
+</body>
+</html>
