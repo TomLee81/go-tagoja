@@ -754,63 +754,63 @@
                 <span class="chevron" id="chevron">▼</span>
             </button>
             <div class="language-dropdown" id="languageDropdown">
-                <div class="language-option" onclick="changeLanguage('en')">
+                <div class="language-option" onclick="changeLanguage('en', this)">
                     <span class="lang-code">GB</span>
                     <span>English</span>
                 </div>
-                <div class="language-option selected" onclick="changeLanguage('ko')">
+                <div class="language-option selected" onclick="changeLanguage('ko', this)">
                     <span class="lang-code">KR</span>
                     <span>한국어</span>
                 </div>
-                <div class="language-option" onclick="changeLanguage('tl')">
+                <div class="language-option" onclick="changeLanguage('tl', this)">
                     <span class="lang-code">PH</span>
                     <span>Tagalog</span>
                 </div>
-                <div class="language-option" onclick="changeLanguage('id')">
+                <div class="language-option" onclick="changeLanguage('id', this)">
                     <span class="lang-code">ID</span>
                     <span>Bahasa Indonesia</span>
                 </div>
-                <div class="language-option" onclick="changeLanguage('th')">
+                <div class="language-option" onclick="changeLanguage('th', this)">
                     <span class="lang-code">TH</span>
                     <span>ภาษาไทย</span>
                 </div>
-                <div class="language-option" onclick="changeLanguage('vi')">
+                <div class="language-option" onclick="changeLanguage('vi', this)">
                     <span class="lang-code">VN</span>
                     <span>Tiếng Việt</span>
                 </div>
-                <div class="language-option" onclick="changeLanguage('zh')">
+                <div class="language-option" onclick="changeLanguage('zh', this)">
                     <span class="lang-code">CN</span>
                     <span>中文</span>
                 </div>
-                <div class="language-option" onclick="changeLanguage('ja')">
+                <div class="language-option" onclick="changeLanguage('ja', this)">
                     <span class="lang-code">JP</span>
                     <span>日本語</span>
                 </div>
-                <div class="language-option" onclick="changeLanguage('hi')">
+                <div class="language-option" onclick="changeLanguage('hi', this)">
                     <span class="lang-code">IN</span>
                     <span>हिन्दी</span>
                 </div>
-                <div class="language-option" onclick="changeLanguage('es')">
+                <div class="language-option" onclick="changeLanguage('es', this)">
                     <span class="lang-code">ES</span>
                     <span>Español</span>
                 </div>
-                <div class="language-option" onclick="changeLanguage('fr')">
+                <div class="language-option" onclick="changeLanguage('fr', this)">
                     <span class="lang-code">FR</span>
                     <span>Français</span>
                 </div>
-                <div class="language-option" onclick="changeLanguage('ar')">
+                <div class="language-option" onclick="changeLanguage('ar', this)">
                     <span class="lang-code">SA</span>
                     <span>العربية</span>
                 </div>
-                <div class="language-option" onclick="changeLanguage('pt')">
+                <div class="language-option" onclick="changeLanguage('pt', this)">
                     <span class="lang-code">BR</span>
                     <span>Português</span>
                 </div>
-                <div class="language-option" onclick="changeLanguage('ru')">
+                <div class="language-option" onclick="changeLanguage('ru', this)">
                     <span class="lang-code">RU</span>
                     <span>Русский</span>
                 </div>
-                <div class="language-option" onclick="changeLanguage('de')">
+                <div class="language-option" onclick="changeLanguage('de', this)">
                     <span class="lang-code">DE</span>
                     <span>Deutsch</span>
                 </div>
@@ -2242,7 +2242,7 @@
             chevron.classList.toggle('rotate');
         }
 
-        function changeLanguage(lang) {
+        function changeLanguage(lang, element) {
             currentLang = lang;
             localStorage.setItem('tagoja_language', lang);
             
@@ -2256,7 +2256,7 @@
             document.querySelectorAll('.language-option').forEach(opt => {
                 opt.classList.remove('selected');
             });
-            event.target.classList.add('selected');
+            if (element) element.classList.add('selected');
             
             // Close dropdown
             document.getElementById('languageDropdown').classList.remove('active');
