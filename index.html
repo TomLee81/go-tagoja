@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TAGOJA - 얼리 액세스 대기자 등록</title>
+    <title>TAGOJA - Global Commerce Platform</title>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
     <style>
         * {
@@ -18,635 +18,23 @@
             color: #111827;
         }
 
-        .gradient-bg {
-            background: linear-gradient(135deg, #0f172a 0%, #1e40af 100%);
-        }
-
-        .badge-glow {
-            animation: badge-pulse 2s ease-in-out infinite;
-        }
-
-        @keyframes badge-pulse {
-            0%, 100% { box-shadow: 0 0 20px rgba(251, 191, 36, 0.5); }
-            50% { box-shadow: 0 0 30px rgba(251, 191, 36, 0.8); }
-        }
-
-        .early-badge {
-            background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
-        }
-
-        .announcement-bar {
-            background: linear-gradient(to right, #f59e0b, #ea580c);
-            color: white;
-            padding: 12px 16px;
-            text-align: center;
-            font-weight: 700;
-            font-size: 14px;
-        }
-
-        .hero-section {
-            background: linear-gradient(135deg, #0f172a 0%, #1e40af 100%);
-            color: white;
-            padding: 80px 24px;
-        }
-
         .container {
             max-width: 1200px;
             margin: 0 auto;
+            padding: 0 24px;
         }
 
-        .text-center {
-            text-align: center;
-        }
-
-        .badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 8px 16px;
-            background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
-            color: #111827;
-            border-radius: 9999px;
-            font-weight: 700;
-            font-size: 14px;
-            margin-bottom: 24px;
-        }
-
-        h1 {
-            font-size: 3rem;
-            font-weight: 900;
-            line-height: 1.1;
-            margin-bottom: 16px;
-        }
-
-        h2 {
-            font-size: 2rem;
-            font-weight: 700;
-            color: #93c5fd;
-            margin-bottom: 24px;
-        }
-
-        .hero-subtitle {
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: #dbeafe;
-            margin-bottom: 16px;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .hero-description {
-            font-size: 1.25rem;
-            color: #bfdbfe;
-            margin-bottom: 40px;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .value-props {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 16px;
-            max-width: 900px;
-            margin: 0 auto 48px;
-        }
-
-        .value-card {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 16px;
-            padding: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .value-card-icon {
-            font-size: 24px;
-            margin: 0 auto 8px;
-            display: block;
-            text-align: center;
-        }
-
-        .value-card-title {
-            font-weight: 700;
-            color: white;
-            text-align: center;
-            margin-bottom: 4px;
-        }
-
-        .value-card-desc {
-            font-size: 14px;
-            color: #93c5fd;
-            text-align: center;
-        }
-
-        .cta-buttons {
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-            align-items: center;
-            margin-bottom: 24px;
-        }
-
-        .btn-primary {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            padding: 20px 40px;
-            background: #fbbf24;
-            color: #111827;
-            border-radius: 12px;
-            font-weight: 900;
-            font-size: 1.25rem;
-            text-decoration: none;
-            transition: all 0.3s;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            cursor: pointer;
-            border: none;
-        }
-
-        .btn-primary:hover {
-            background: #fcd34d;
-            transform: translateY(-2px);
-        }
-
-        .btn-secondary {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            padding: 20px 40px;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border: 2px solid white;
-            color: white;
-            border-radius: 12px;
-            font-weight: 700;
-            font-size: 1.25rem;
-            text-decoration: none;
-            transition: all 0.3s;
-            cursor: pointer;
-        }
-
-        .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.2);
-        }
-
-        .section {
-            padding: 80px 24px;
-        }
-
-        .section-gray {
-            background: #f9fafb;
-        }
-
-        .section-dark {
-            background: linear-gradient(to bottom right, #111827, #1f2937);
-            color: white;
-        }
-
-        .section-title {
-            font-size: 2.5rem;
-            font-weight: 900;
-            text-align: center;
-            margin-bottom: 16px;
-        }
-
-        .section-subtitle {
-            font-size: 1.25rem;
-            color: #6b7280;
-            text-align: center;
-            margin-bottom: 64px;
-        }
-
-        .benefits-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 24px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .benefit-card {
-            background: white;
-            border-radius: 24px;
-            padding: 32px;
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-            border: 2px solid #dbeafe;
-            position: relative;
-            transition: all 0.3s;
-        }
-
-        .benefit-card:hover {
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
-            transform: translateY(-4px);
-        }
-
-        .benefit-badge {
-            position: absolute;
-            top: 16px;
-            right: 16px;
-            padding: 4px 12px;
-            background: #fbbf24;
-            color: #111827;
-            border-radius: 9999px;
-            font-size: 12px;
-            font-weight: 900;
-        }
-
-        .benefit-icon {
-            width: 64px;
-            height: 64px;
-            background: linear-gradient(to bottom right, #2563eb, #1e40af);
-            border-radius: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 36px;
-            margin-bottom: 16px;
-        }
-
-        .benefit-title {
-            font-size: 1.25rem;
-            font-weight: 900;
-            margin-bottom: 4px;
-        }
-
-        .benefit-subtitle {
-            font-size: 14px;
-            color: #2563eb;
-            font-weight: 600;
-            margin-bottom: 12px;
-        }
-
-        .benefit-desc {
-            color: #6b7280;
-            font-size: 14px;
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 32px;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .service-card {
-            text-align: center;
-        }
-
-        .service-icon {
-            width: 80px;
-            height: 80px;
-            background: #dbeafe;
-            border-radius: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 40px;
-            margin: 0 auto 24px;
-        }
-
-        .service-title {
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 12px;
-        }
-
-        .service-desc {
-            color: #6b7280;
-            margin-bottom: 16px;
-        }
-
-        .service-subtitle {
-            font-size: 14px;
-            color: #2563eb;
-            font-weight: 600;
-        }
-
-        .target-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 32px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .target-card {
-            background: linear-gradient(to bottom right, #2563eb, #1e40af);
-            border-radius: 24px;
-            padding: 32px;
-            color: white;
-            transition: all 0.3s;
-        }
-
-        .target-card:hover {
-            transform: scale(1.05);
-        }
-
-        .target-header {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 24px;
-        }
-
-        .target-icon {
-            width: 48px;
-            height: 48px;
-            background: white;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 28px;
-        }
-
-        .target-type {
-            font-size: 1.5rem;
-            font-weight: 900;
-        }
-
-        .target-eng {
-            font-size: 14px;
-            color: #93c5fd;
-            font-weight: 600;
-        }
-
-        .target-tagline {
-            font-size: 1.25rem;
-            font-weight: 700;
-            margin-bottom: 16px;
-        }
-
-        .target-list {
-            list-style: none;
-            margin-bottom: 24px;
-        }
-
-        .target-list li {
-            padding: 8px 0;
-            font-size: 14px;
-            display: flex;
-            align-items: flex-start;
-            gap: 8px;
-        }
-
-        .target-btn {
-            width: 100%;
-            padding: 12px 24px;
-            background: white;
-            color: #2563eb;
-            border-radius: 12px;
-            font-weight: 700;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            transition: all 0.3s;
-            cursor: pointer;
-            border: none;
-        }
-
-        .target-btn:hover {
-            background: #dbeafe;
-        }
-
-        .roadmap-card {
-            max-width: 800px;
-            margin: 0 auto;
-            background: white;
-            border-radius: 24px;
-            padding: 48px;
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-            border: 2px solid #dbeafe;
-        }
-
-        .roadmap-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 16px;
-            margin-bottom: 24px;
-        }
-
-        .roadmap-icon {
-            width: 48px;
-            height: 48px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 24px;
-            flex-shrink: 0;
-        }
-
-        .roadmap-title {
-            font-size: 1.25rem;
-            font-weight: 700;
-            margin-bottom: 4px;
-        }
-
-        .roadmap-desc {
-            color: #6b7280;
-        }
-
-        .roadmap-eng {
-            font-size: 14px;
-            color: #10b981;
-            font-weight: 600;
-            margin-top: 4px;
-        }
-
-        .roadmap-note {
-            margin-top: 32px;
-            padding: 24px;
-            background: #dbeafe;
-            border-radius: 16px;
-            border: 2px solid #93c5fd;
-            text-align: center;
-            font-weight: 700;
-            color: #1e40af;
-        }
-
-        .form-section {
-            background: linear-gradient(135deg, #0f172a 0%, #1e40af 100%);
-            color: white;
-            padding: 80px 24px;
-        }
-
-        .form-container {
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .form-box {
-            background: white;
-            color: #111827;
-            border-radius: 24px;
-            padding: 48px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
-        }
-
-        .form-group {
-            margin-bottom: 24px;
-        }
-
-        label {
-            display: block;
-            font-size: 14px;
-            font-weight: 700;
-            color: #374151;
-            margin-bottom: 8px;
-        }
-
-        .required {
-            color: #dc2626;
-        }
-
-        input[type="text"],
-        input[type="email"],
-        select {
-            width: 100%;
-            padding: 12px 16px;
-            border: 2px solid #d1d5db;
-            border-radius: 12px;
-            font-size: 16px;
-            transition: border-color 0.3s;
-        }
-
-        input[type="text"]:focus,
-        input[type="email"]:focus,
-        select:focus {
-            outline: none;
-            border-color: #2563eb;
-        }
-
-        .type-buttons {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 12px;
-        }
-
-        .type-btn {
-            padding: 12px 16px;
-            border-radius: 12px;
-            font-weight: 700;
-            font-size: 14px;
-            background: #f3f4f6;
-            color: #374151;
-            border: none;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .type-btn.active {
-            background: #2563eb;
-            color: white;
-            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
-        }
-
-        .type-btn:hover {
-            background: #e5e7eb;
-        }
-
-        .type-btn.active:hover {
-            background: #1e40af;
-        }
-
-        .submit-btn {
-            width: 100%;
-            padding: 20px 32px;
-            background: linear-gradient(to right, #fbbf24, #f59e0b);
-            color: #111827;
-            border-radius: 12px;
-            font-weight: 900;
-            font-size: 1.25rem;
-            border: none;
-            cursor: pointer;
-            transition: all 0.3s;
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
-        }
-
-        .submit-btn:hover {
-            background: linear-gradient(to right, #fcd34d, #fbbf24);
-            transform: translateY(-2px);
-        }
-
-        .submit-btn:disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
-        }
-
-        .form-note {
-            text-align: center;
-            font-size: 14px;
-            color: #6b7280;
-            margin-top: 24px;
-        }
-
-        .contact-info {
-            text-align: center;
-            color: #93c5fd;
-            font-size: 14px;
-            margin-top: 32px;
-        }
-
-        .contact-info a {
-            color: white;
-            text-decoration: underline;
-            font-weight: 700;
-        }
-
-        .final-cta {
-            background: linear-gradient(to bottom right, #f59e0b, #ea580c);
-            color: white;
-            padding: 80px 24px;
-            text-align: center;
-        }
-
-        .final-cta h2 {
-            font-size: 2.5rem;
-            font-weight: 900;
-            color: white;
-            margin-bottom: 24px;
-        }
-
-        .final-cta p {
-            font-size: 1.5rem;
-            margin-bottom: 40px;
-        }
-
-        footer {
-            background: #111827;
-            color: #9ca3af;
-            padding: 32px 24px;
-            text-align: center;
-            font-size: 14px;
-        }
-
-        footer p {
-            margin-bottom: 8px;
-        }
-
-        /* Language Selector Styles */
+        /* Language Selector */
         .language-bar {
             background: white;
             border-bottom: 1px solid #e5e7eb;
-            padding: 12px 24px;
-            display: flex;
-            justify-content: flex-end;
-            align-items: center;
+            padding: 12px 0;
         }
 
         .language-selector {
+            display: flex;
+            justify-content: flex-end;
+            padding: 0 24px;
             position: relative;
         }
 
@@ -654,14 +42,14 @@
             display: flex;
             align-items: center;
             gap: 8px;
-            padding: 8px 16px;
+            padding: 10px 16px;
             background: #f3f4f6;
             border: 1px solid #d1d5db;
             border-radius: 8px;
             cursor: pointer;
             font-weight: 600;
             font-size: 14px;
-            transition: all 0.3s;
+            transition: background 0.2s;
         }
 
         .language-btn:hover {
@@ -670,12 +58,13 @@
 
         .language-dropdown {
             position: absolute;
+            top: 100%;
             right: 0;
-            top: 45px;
+            margin-top: 8px;
             background: white;
-            border: 1px solid #d1d5db;
+            border: 1px solid #e5e7eb;
             border-radius: 12px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
             max-height: 400px;
             overflow-y: auto;
             z-index: 1000;
@@ -721,26 +110,321 @@
             transform: rotate(180deg);
         }
 
-        @media (max-width: 640px) {
-            .language-dropdown {
-                position: fixed;
-                left: 0;
-                right: 0;
-                top: auto;
-                bottom: 0;
-                max-height: 60vh;
-                border-radius: 16px 16px 0 0;
-                width: 100%;
-            }
+        /* Announcement Bar */
+        .announcement-bar {
+            background: linear-gradient(to right, #f59e0b, #ea580c);
+            color: white;
+            padding: 12px 16px;
+            text-align: center;
+            font-weight: 700;
+            font-size: 14px;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(135deg, #0f172a 0%, #1e40af 100%);
+            color: white;
+            padding: 80px 24px;
+            text-align: center;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(251, 191, 36, 0.9);
+            color: #111827;
+            padding: 8px 20px;
+            border-radius: 24px;
+            font-weight: 700;
+            font-size: 14px;
+            margin-bottom: 32px;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: 900;
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 24px;
+            color: #93c5fd;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .hero-description {
+            font-size: 1rem;
+            color: #cbd5e1;
+            margin-bottom: 48px;
+            line-height: 1.6;
+        }
+
+        .value-props {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 24px;
+            margin-bottom: 48px;
+        }
+
+        .value-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 16px;
+            padding: 24px;
+            text-align: center;
+        }
+
+        .value-card-icon {
+            font-size: 2rem;
+            margin-bottom: 12px;
+        }
+
+        .value-card-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .value-card-desc {
+            font-size: 0.9rem;
+            color: #cbd5e1;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, #fbbf24, #f59e0b);
+            color: #111827;
+            padding: 16px 32px;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(251, 191, 36, 0.4);
+        }
+
+        .btn-secondary {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid white;
+            color: white;
+            padding: 16px 32px;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Section */
+        .section {
+            padding: 80px 24px;
+        }
+
+        .section-gray {
+            background: #f9fafb;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-bottom: 16px;
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: #6b7280;
+            margin-bottom: 48px;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 32px;
+        }
+
+        .benefit-card {
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 16px;
+            padding: 32px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .benefit-icon {
+            font-size: 3rem;
+            margin-bottom: 16px;
+        }
+
+        .benefit-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .benefit-subtitle {
+            font-size: 0.9rem;
+            color: #2563eb;
+            margin-bottom: 12px;
+        }
+
+        .benefit-desc {
+            color: #6b7280;
+            line-height: 1.6;
+        }
+
+        /* Form */
+        .form-box {
+            background: white;
+            border-radius: 24px;
+            padding: 48px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 24px;
+            text-align: left;
+        }
+
+        label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #374151;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 14px 16px;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border 0.2s;
+        }
+
+        input:focus, select:focus {
+            outline: none;
+            border-color: #2563eb;
+        }
+
+        .type-buttons {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+
+        .type-btn {
+            padding: 16px;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            background: white;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+
+        .type-btn:hover {
+            border-color: #2563eb;
+            background: #eff6ff;
+        }
+
+        .type-btn.active {
+            border-color: #2563eb;
+            background: #2563eb;
+            color: white;
+        }
+
+        .submit-btn {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background: linear-gradient(135deg, #2563eb, #1d4ed8);
+            color: white;
+            padding: 18px;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(37, 99, 235, 0.4);
+        }
+
+        .submit-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .required {
+            color: #ef4444;
+        }
+
+        footer {
+            background: #0f172a;
+            color: white;
+            text-align: center;
+            padding: 48px 24px;
         }
 
         @media (max-width: 768px) {
             h1 { font-size: 2rem; }
-            h2 { font-size: 1.5rem; }
+            h2 { font-size: 1.25rem; }
             .section-title { font-size: 1.75rem; }
             .cta-buttons { width: 100%; }
             .btn-primary, .btn-secondary { width: 100%; }
             .form-box { padding: 32px 24px; }
+            .type-buttons { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -754,13 +438,13 @@
                 <span class="chevron" id="chevron">▼</span>
             </button>
             <div class="language-dropdown" id="languageDropdown">
-                <div class="language-option" onclick="changeLanguage('en', this)">
-                    <span class="lang-code">GB</span>
-                    <span>English</span>
-                </div>
                 <div class="language-option selected" onclick="changeLanguage('ko', this)">
                     <span class="lang-code">KR</span>
                     <span>한국어</span>
+                </div>
+                <div class="language-option" onclick="changeLanguage('en', this)">
+                    <span class="lang-code">GB</span>
+                    <span>English</span>
                 </div>
                 <div class="language-option" onclick="changeLanguage('tl', this)">
                     <span class="lang-code">PH</span>
@@ -819,68 +503,55 @@
     </div>
 
     <!-- ANNOUNCEMENT BAR -->
-    <div class="announcement-bar">
-        <div style="display: flex; align-items: center; justify-content: center; gap: 8px;">
-            <span>✨</span>
-            <span>글로벌 커머스 플랫폼 TAGOJA 곧 출시 | Launching Soon – Secure Your Early Access</span>
-            <span>✨</span>
-        </div>
+    <div class="announcement-bar" id="announcementBar">
+        <span>✨ 글로벌 커머스 플랫폼 TAGOJA 곧 출시 | Launching Soon – Secure Your Early Access ✨</span>
     </div>
 
     <!-- HERO SECTION -->
     <section class="hero-section">
         <div class="container">
-            <div class="text-center">
-                <div class="badge badge-glow">
+            <div>
+                <div class="badge">
                     <span>⏰</span>
-                    <span>곧 출시 · Launching Soon</span>
+                    <span id="heroBadge">곧 출시 · Launching Soon</span>
                 </div>
 
-                <h1>글로벌 커머스 플랫폼,<br>곧 출시됩니다</h1>
+                <h1 id="heroTitle">글로벌 커머스 플랫폼,<br>곧 출시됩니다</h1>
                 
-                <h2>Global Commerce Platform<br>Launching Soon</h2>
+                <h2 id="heroSubtitle">Global Commerce Platform<br>Launching Soon</h2>
                 
-                <p class="hero-subtitle">
-                    지금 참여하고 초기 기회를 선점하세요
-                </p>
-                <p class="hero-description">
-                    공급사, 셀러, 물류 파트너를 위한 글로벌 커머스 인프라<br>
-                    출시 전 우선 참여 기회 제공
-                </p>
+                <p class="hero-subtitle" id="heroMessage">지금 참여하고 초기 기회를 선점하세요</p>
+                <p class="hero-description" id="heroDesc">공급사, 셀러, 물류 파트너를 위한 글로벌 커머스 인프라</p>
 
                 <div class="value-props">
                     <div class="value-card">
                         <div class="value-card-icon">✓</div>
-                        <p class="value-card-title">재고 없이 글로벌 판매</p>
-                        <p class="value-card-desc">출시 시 바로 시작 가능</p>
+                        <p class="value-card-title" id="val1">재고 없이 글로벌 판매</p>
+                        <p class="value-card-desc" id="val1sub">출시 시 바로 시작 가능</p>
                     </div>
                     <div class="value-card">
                         <div class="value-card-icon">✓</div>
-                        <p class="value-card-title">자동화된 물류 시스템</p>
-                        <p class="value-card-desc">배송부터 정산까지 자동</p>
+                        <p class="value-card-title" id="val2">자동화된 물류 시스템</p>
+                        <p class="value-card-desc" id="val2sub">배송부터 정산까지 자동</p>
                     </div>
                     <div class="value-card">
                         <div class="value-card-icon">✓</div>
-                        <p class="value-card-title">우선 파트너 혜택</p>
-                        <p class="value-card-desc">얼리 참여자 특별 지원</p>
+                        <p class="value-card-title" id="val3">우선 파트너 혜택</p>
+                        <p class="value-card-desc" id="val3sub">얼리 참여자 특별 지원</p>
                     </div>
                 </div>
 
                 <div class="cta-buttons">
                     <button class="btn-primary" onclick="scrollToForm()">
                         <span>⭐</span>
-                        <span>얼리 액세스 신청</span>
+                        <span id="cta1">얼리 액세스 신청</span>
                         <span>→</span>
                     </button>
                     <button class="btn-secondary" onclick="scrollToForm()">
-                        <span>대기자 등록</span>
+                        <span id="cta2">대기자 등록</span>
                         <span>›</span>
                     </button>
                 </div>
-
-                <p style="margin-top: 24px; color: #93c5fd; font-size: 14px;">
-                    ✓ 신청 후 출시 시 우선 안내 · 특별 혜택 제공 · 무료 가입
-                </p>
             </div>
         </div>
     </section>
@@ -888,295 +559,115 @@
     <!-- WHY JOIN EARLY -->
     <section class="section section-gray">
         <div class="container">
-            <div class="text-center" style="margin-bottom: 64px;">
+            <div style="text-align: center; margin-bottom: 64px;">
                 <div class="badge">
                     <span>⚡</span>
                     <span>얼리 어답터 혜택</span>
                 </div>
-                <h2 class="section-title">지금 참여해야 하는 이유</h2>
-                <p class="section-subtitle">Why You Should Join Early Access</p>
+                <h2 class="section-title" id="whyTitle">지금 참여해야 하는 이유</h2>
             </div>
 
             <div class="benefits-grid">
                 <div class="benefit-card">
-                    <div class="benefit-badge">1순위</div>
-                    <div class="benefit-icon">📈</div>
-                    <h3 class="benefit-title">우선 온보딩</h3>
-                    <p class="benefit-subtitle">Priority Onboarding</p>
-                    <p class="benefit-desc">플랫폼 출시 시 가장 먼저 이용 가능</p>
+                    <div class="benefit-icon">🎯</div>
+                    <h3 class="benefit-title" id="b1">우선 온보딩</h3>
+                    <p class="benefit-subtitle" id="b1sub">Priority Onboarding</p>
+                    <p class="benefit-desc" id="b1d">플랫폼 출시 시 가장 먼저 이용 가능</p>
                 </div>
-
                 <div class="benefit-card">
-                    <div class="benefit-badge">VIP</div>
-                    <div class="benefit-icon">⭐</div>
-                    <h3 class="benefit-title">초기 파트너 지위</h3>
-                    <p class="benefit-subtitle">Founding Partner Status</p>
-                    <p class="benefit-desc">특별 파트너 인증 및 네트워크 내 우선 노출</p>
+                    <div class="benefit-icon">👑</div>
+                    <h3 class="benefit-title" id="b2">초기 파트너 지위</h3>
+                    <p class="benefit-subtitle" id="b2sub">Founding Partner Status</p>
+                    <p class="benefit-desc" id="b2d">특별 파트너 인증 및 네트워크 내 우선 노출</p>
                 </div>
-
                 <div class="benefit-card">
-                    <div class="benefit-badge">할인</div>
-                    <div class="benefit-icon">🛡️</div>
-                    <h3 class="benefit-title">출시 특별 수수료</h3>
-                    <p class="benefit-subtitle">Launch Fee Benefits</p>
-                    <p class="benefit-desc">정식 출시 후 일반 가입자보다 낮은 수수료</p>
+                    <div class="benefit-icon">💰</div>
+                    <h3 class="benefit-title" id="b3">출시 특별 수수료</h3>
+                    <p class="benefit-subtitle" id="b3sub">Launch Fee Benefits</p>
+                    <p class="benefit-desc" id="b3d">정식 출시 후 일반 가입자보다 낮은 수수료</p>
                 </div>
-
                 <div class="benefit-card">
-                    <div class="benefit-badge">독점</div>
                     <div class="benefit-icon">🌏</div>
-                    <h3 class="benefit-title">글로벌 시장 선점</h3>
-                    <p class="benefit-subtitle">First Market Access</p>
-                    <p class="benefit-desc">동남아시아 시장 우선 진출 기회</p>
-                </div>
-            </div>
-
-            <div class="text-center" style="margin-top: 48px;">
-                <button class="btn-primary" onclick="scrollToForm()">
-                    지금 신청하고 혜택 받기
-                    <span>→</span>
-                </button>
-            </div>
-        </div>
-    </section>
-
-    <!-- WHAT IS TAGOJA -->
-    <section class="section">
-        <div class="container">
-            <div class="text-center" style="margin-bottom: 64px;">
-                <h2 class="section-title">TAGOJA가 제공할 서비스</h2>
-                <p class="section-subtitle">What TAGOJA Will Provide</p>
-            </div>
-
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">📦</div>
-                    <h3 class="service-title">글로벌 공급망 연결</h3>
-                    <p class="service-desc">
-                        공급사와 셀러를 자동으로 매칭하는 글로벌 네트워크
-                    </p>
-                    <p class="service-subtitle">Global Supply Chain Connection</p>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-icon">🚚</div>
-                    <h3 class="service-title">자동화 물류 시스템</h3>
-                    <p class="service-desc">
-                        주문부터 배송, 정산까지 완전 자동화 처리
-                    </p>
-                    <p class="service-subtitle">Automated Logistics System</p>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-icon">🌏</div>
-                    <h3 class="service-title">무재고 판매 모델</h3>
-                    <p class="service-desc">
-                        재고 부담 없이 전세계 시장에서 판매 가능
-                    </p>
-                    <p class="service-subtitle">Zero-Inventory Sales Model</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- WHO SHOULD JOIN -->
-    <section class="section section-dark">
-        <div class="container">
-            <div class="text-center" style="margin-bottom: 64px;">
-                <h2 class="section-title" style="color: white;">누가 먼저 참여해야 하나요?</h2>
-                <p class="section-subtitle" style="color: #d1d5db;">Who Should Join Early Access?</p>
-            </div>
-
-            <div class="target-grid">
-                <div class="target-card">
-                    <div class="target-header">
-                        <div class="target-icon">👥</div>
-                        <div>
-                            <div class="target-type">셀러</div>
-                            <div class="target-eng">Seller / Dropshipper</div>
-                        </div>
-                    </div>
-                    <p class="target-tagline">재고 없이 글로벌 판매를 원하는 분</p>
-                    <ul class="target-list">
-                        <li><span>✓</span> 드랍쉬핑 비즈니스 준비 중</li>
-                        <li><span>✓</span> 해외 판매 채널 확대 희망</li>
-                        <li><span>✓</span> 재고 부담 없는 사업 모델</li>
-                    </ul>
-                    <button class="target-btn" onclick="selectUserType('셀러')">
-                        셀러로 참여 →
-                    </button>
-                </div>
-
-                <div class="target-card" style="background: linear-gradient(to bottom right, #7c3aed, #6d28d9);">
-                    <div class="target-header">
-                        <div class="target-icon">📦</div>
-                        <div>
-                            <div class="target-type">공급사</div>
-                            <div class="target-eng">Supplier / Manufacturer</div>
-                        </div>
-                    </div>
-                    <p class="target-tagline">해외 수출을 준비하는 제조사</p>
-                    <ul class="target-list">
-                        <li><span>✓</span> 글로벌 판매망 확보 필요</li>
-                        <li><span>✓</span> 수출 절차 간소화 희망</li>
-                        <li><span>✓</span> 유통사 없이 직접 수출</li>
-                    </ul>
-                    <button class="target-btn" style="color: #7c3aed;" onclick="selectUserType('공급사')">
-                        공급사로 참여 →
-                    </button>
-                </div>
-
-                <div class="target-card" style="background: linear-gradient(to bottom right, #059669, #047857);">
-                    <div class="target-header">
-                        <div class="target-icon">🚚</div>
-                        <div>
-                            <div class="target-type">물류 파트너</div>
-                            <div class="target-eng">3PL / Logistics</div>
-                        </div>
-                    </div>
-                    <p class="target-tagline">글로벌 물류 네트워크 참여 희망</p>
-                    <ul class="target-list">
-                        <li><span>✓</span> 국제 배송 서비스 제공</li>
-                        <li><span>✓</span> 물량 확보 및 안정적 수익</li>
-                        <li><span>✓</span> 글로벌 커머스 인프라 참여</li>
-                    </ul>
-                    <button class="target-btn" style="color: #059669;" onclick="selectUserType('물류사')">
-                        물류사로 참여 →
-                    </button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ROADMAP -->
-    <section class="section section-gray">
-        <div class="container">
-            <div class="text-center" style="margin-bottom: 64px;">
-                <h2 class="section-title">출시 준비 현황</h2>
-                <p class="section-subtitle">Development & Launch Roadmap</p>
-            </div>
-
-            <div class="roadmap-card">
-                <div class="roadmap-item">
-                    <div class="roadmap-icon" style="background: #10b981; color: white;">✓</div>
-                    <div>
-                        <h3 class="roadmap-title">현재: 개발 진행 중</h3>
-                        <p class="roadmap-desc">플랫폼 핵심 기능 개발 완료 단계</p>
-                        <p class="roadmap-eng">Currently in Development</p>
-                    </div>
-                </div>
-
-                <div class="roadmap-item">
-                    <div class="roadmap-icon" style="background: #3b82f6; color: white;">⏰</div>
-                    <div>
-                        <h3 class="roadmap-title">2026년 3분기: 단계별 출시</h3>
-                        <p class="roadmap-desc">얼리 액세스 파트너 우선 초대</p>
-                        <p class="roadmap-eng" style="color: #3b82f6;">Phased Launch in Q3 2026</p>
-                    </div>
-                </div>
-
-                <div class="roadmap-item">
-                    <div class="roadmap-icon" style="background: #7c3aed; color: white;">🌏</div>
-                    <div>
-                        <h3 class="roadmap-title">첫 시장: 동남아시아</h3>
-                        <p class="roadmap-desc">베트남, 태국, 필리핀 등 우선 진출</p>
-                        <p class="roadmap-eng" style="color: #7c3aed;">Starting in Southeast Asia</p>
-                    </div>
-                </div>
-
-                <div class="roadmap-note">
-                    🎯 얼리 액세스 참여자는 정식 출시 전 우선 온보딩 및 테스트 기회 제공
+                    <h3 class="benefit-title" id="b4">글로벌 시장 선점</h3>
+                    <p class="benefit-subtitle" id="b4sub">First Market Access</p>
+                    <p class="benefit-desc" id="b4d">동남아시아 시장 우선 진출 기회</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- WAITLIST FORM -->
-    <section id="waitlist-form" class="form-section">
-        <div class="form-container">
-            <div class="text-center" style="margin-bottom: 48px;">
+    <section class="section" id="waitlist-form">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 48px;">
                 <div class="badge">
-                    <span>⭐</span>
+                    <span>🎯</span>
                     <span>한정된 얼리 액세스 기회</span>
                 </div>
-                <h2 class="section-title" style="color: white;">대기자 명단 등록</h2>
-                <p style="font-size: 1.25rem; color: #93c5fd;">Join Early Access Waitlist</p>
+                <h2 class="section-title" id="formTitle">대기자 명단 등록</h2>
             </div>
 
-            <form class="form-box" id="waitlistForm" onsubmit="handleSubmit(event)">
-                <div class="form-group">
-                    <label>참여 유형 선택 <span class="required">*</span></label>
-                    <div class="type-buttons">
-                        <button type="button" class="type-btn" data-type="Seller" onclick="selectType('Seller')">셀러</button>
-                        <button type="button" class="type-btn" data-type="Supplier" onclick="selectType('Supplier')">공급사</button>
-                        <button type="button" class="type-btn" data-type="3PL" onclick="selectType('3PL')">물류사</button>
+            <div class="form-box">
+                <form id="waitlistForm" onsubmit="handleSubmit(event)">
+                    <div class="form-group">
+                        <label id="formTypeLabel">참여 유형 선택 <span class="required">*</span></label>
+                        <div class="type-buttons">
+                            <button type="button" class="type-btn" onclick="selectType('Seller', this)" id="typeBtn1">셀러</button>
+                            <button type="button" class="type-btn" onclick="selectType('Supplier', this)" id="typeBtn2">공급사</button>
+                            <button type="button" class="type-btn" onclick="selectType('Logistics', this)" id="typeBtn3">물류사</button>
+                        </div>
+                        <input type="hidden" id="userType" name="type" required>
                     </div>
-                    <input type="hidden" id="userType" name="participationType" required>
-                </div>
 
-                <div class="form-group">
-                    <label for="name">이름 <span class="required">*</span></label>
-                    <input type="text" id="name" name="name" placeholder="홍길동" required>
-                </div>
+                    <div class="form-group">
+                        <label for="name" id="formNameLabel">이름 <span class="required">*</span></label>
+                        <input type="text" id="name" name="name" placeholder="홍길동" required oninput="validateForm()">
+                    </div>
 
-                <div class="form-group">
-                    <label for="email">이메일 <span class="required">*</span></label>
-                    <input type="email" id="email" name="email" placeholder="email@example.com" required>
-                </div>
+                    <div class="form-group">
+                        <label for="email" id="formEmailLabel">이메일 <span class="required">*</span></label>
+                        <input type="email" id="email" name="email" placeholder="example@email.com" required oninput="validateForm()">
+                    </div>
 
-                <div class="form-group">
-                    <label for="country">국가 / Country <span class="required">*</span></label>
-                    <select id="country" name="country" required>
-                        <option value="">국가를 선택하세요</option>
-                        <option value="South Korea / 대한민국">South Korea / 대한민국</option>
-                        <option value="Philippines / 필리핀">Philippines / 필리핀</option>
-                        <option value="Vietnam / 베트남">Vietnam / 베트남</option>
-                        <option value="Thailand / 태국">Thailand / 태국</option>
-                        <option value="Indonesia / 인도네시아">Indonesia / 인도네시아</option>
-                        <option value="Singapore / 싱가포르">Singapore / 싱가포르</option>
-                        <option value="Malaysia / 말레이시아">Malaysia / 말레이시아</option>
-                        <option value="Other / 기타">Other / 기타</option>
-                    </select>
-                </div>
+                    <div class="form-group">
+                        <label for="country" id="formCountryLabel">국가 / Country <span class="required">*</span></label>
+                        <select id="country" name="country" required onchange="validateForm()">
+                            <option value="">국가를 선택하세요</option>
+                            <option value="KR">🇰🇷 대한민국 (South Korea)</option>
+                            <option value="US">🇺🇸 미국 (United States)</option>
+                            <option value="PH">🇵🇭 필리핀 (Philippines)</option>
+                            <option value="ID">🇮🇩 인도네시아 (Indonesia)</option>
+                            <option value="TH">🇹🇭 태국 (Thailand)</option>
+                            <option value="VN">🇻🇳 베트남 (Vietnam)</option>
+                            <option value="CN">🇨🇳 중국 (China)</option>
+                            <option value="JP">🇯🇵 일본 (Japan)</option>
+                            <option value="IN">🇮🇳 인도 (India)</option>
+                            <option value="ES">🇪🇸 스페인 (Spain)</option>
+                            <option value="FR">🇫🇷 프랑스 (France)</option>
+                            <option value="SA">🇸🇦 사우디아라비아 (Saudi Arabia)</option>
+                            <option value="BR">🇧🇷 브라질 (Brazil)</option>
+                            <option value="RU">🇷🇺 러시아 (Russia)</option>
+                            <option value="DE">🇩🇪 독일 (Germany)</option>
+                        </select>
+                    </div>
 
-                <div class="form-group">
-                    <label for="company">회사명 <span style="color: #9ca3af; font-size: 12px;">(선택사항)</span></label>
-                    <input type="text" id="company" name="company" placeholder="회사명 입력">
-                </div>
+                    <div class="form-group">
+                        <label for="company" id="formCompanyLabel">회사명 <span style="color: #9ca3af; font-size: 12px;">(선택사항)</span></label>
+                        <input type="text" id="company" name="company" placeholder="회사명 입력">
+                    </div>
 
-                <div id="formMessage" style="display: none; padding: 12px; border-radius: 8px; margin-bottom: 16px; text-align: center; font-weight: 500;"></div>
+                    <button type="submit" class="submit-btn" id="submitBtn" disabled>
+                        <span>⭐</span>
+                        <span id="submitText">얼리 액세스 신청하기</span>
+                        <span>→</span>
+                    </button>
+                </form>
 
-                <button type="submit" class="submit-btn" id="submitBtn" disabled>
-                    <span>⭐</span>
-                    <span>얼리 액세스 신청하기</span>
-                    <span>→</span>
-                </button>
-
-                <p class="form-note">
-                    ✓ 출시 시 우선 안내 · 특별 혜택 제공 · 무료 가입
-                </p>
-            </form>
-
-            <p class="contact-info">
-                출시 일정 및 얼리 액세스 관련 문의: <a href="mailto:support@tagoja.com">support@tagoja.com</a>
-            </p>
+                <div id="formMessage" style="margin-top: 24px; padding: 16px; border-radius: 8px; display: none; text-align: center; font-weight: 600;"></div>
+            </div>
         </div>
     </section>
 
-    <!-- FINAL CTA -->
-    <section class="final-cta">
-        <div class="container">
-            <h2>선점하는 자가<br>기회를 잡습니다</h2>
-            <p>글로벌 커머스 혁명에 가장 먼저 참여하세요.<br>얼리 액세스는 한정되어 있습니다.</p>
-            <button class="btn-primary" onclick="scrollToForm()" style="background: white; color: #ea580c;">
-                <span>✨</span>
-                <span>지금 대기자 등록하기</span>
-                <span>→</span>
-            </button>
-        </div>
-    </section>
-
-    <!-- FOOTER -->
     <footer>
         <p>© 2026 TAGOJA. Operated by SEOWOO LLC</p>
         <p>30 N Gould St, Sheridan, WY 82801, United States</p>
@@ -1184,1329 +675,154 @@
     </footer>
 
     <script>
-        // 15-Language Translations Object
+        // 15-Language Translations (from tagoja-15lang-final.jsx)
         const TRANSLATIONS = {
-            en: { code: "GB", name: "English", announcementBar: "✨ TAGOJA Global Commerce Platform Launching Soon – Secure Your Early Access ✨", hero: { badge: "Launching Soon", title1: "Global Commerce Platform,", title2: "Launching Soon", subtitle: "Join now and secure early opportunities", desc1: "Global commerce infrastructure for suppliers, sellers, and logistics partners", desc2: "Early access opportunities before launch", val1: "Sell globally without inventory", val1sub: "Ready at launch", val2: "Automated logistics system", val2sub: "From shipping to settlement", val3: "Early partner benefits", val3sub: "Special support", cta1: "Apply for Early Access", cta2: "Join Waitlist", note: "✓ Priority notification at launch · Special benefits · Free signup" }, why: { badge: "Early Adopter Benefits", title: "Why Join Early Access", subtitle: "Why You Should Join Early Access", b1: "Priority Onboarding", b1sub: "Priority Onboarding", b1desc: "First to use at launch", b2: "Founding Partner Status", b2sub: "Founding Partner Status", b2desc: "VIP certification and priority exposure", b3: "Launch Fee Benefits", b3sub: "Launch Fee Benefits", b3desc: "Lower fees than regular users", b4: "First Market Access", b4sub: "First Market Access", b4desc: "Priority entry to Southeast Asia market", cta: "Apply Now for Benefits →" }, what: { title: "What TAGOJA Will Provide", subtitle: "What TAGOJA Will Provide", f1: "Global Supply Chain", f1desc: "Automated matching of suppliers and sellers", f1sub: "Global Supply Chain Connection", f2: "Automated Logistics", f2desc: "Fully automated processing from order to delivery", f2sub: "Automated Logistics System", f3: "Zero-Inventory Model", f3desc: "Sell globally without inventory burden", f3sub: "Zero-Inventory Sales Model" }, who: { badge: "Target Partners", title: "Who Should Join Early?", subtitle: "Who Should Join Early Access?", s: "Sellers", ssub: "Seller / Dropshipper", stag: "Want global sales without inventory", sp1: "✓ Preparing dropshipping business", sp2: "✓ Expanding overseas sales channels", sp3: "✓ Business model without inventory", scta: "Join as Seller →", su: "Suppliers", susub: "Supplier / Manufacturer", sutag: "Manufacturers preparing for export", sup1: "✓ Need global sales network", sup2: "✓ Simplify export procedures", sup3: "✓ Direct export without distributors", sucta: "Join as Supplier →", l: "Logistics Partners", lsub: "3PL / Logistics", ltag: "Want to join global logistics network", lp1: "✓ Provide international shipping", lp2: "✓ Secure volume and stable revenue", lp3: "✓ Join global commerce infrastructure", lcta: "Join as Logistics →" }, road: { title: "Launch Preparation", subtitle: "Development & Launch Roadmap", p1: "Now: In Development", p1desc: "Core platform features nearing completion", p1sub: "Currently in Development", p2: "Q3 2026: Phased Launch", p2desc: "Priority invitation to early access partners", p2sub: "Phased Launch in Q3 2026", p3: "First Market: Southeast Asia", p3desc: "Priority entry to Vietnam, Thailand, Philippines", p3sub: "Starting in Southeast Asia", note: "🎯 Early access participants receive priority onboarding and testing opportunities before official launch" }, form: { badge: "Limited Early Access", title: "Join Waitlist", subtitle: "Join Early Access Waitlist", type: "Select participation type", t1: "Seller", t2: "Supplier", t3: "Logistics", name: "Name", ph: "John Doe", email: "Email", country: "Country", countryPlaceholder: "Select country", company: "Company Name", companySub: "(Optional)", companyPh: "Enter company name", submit: "Apply for Early Access", note: "✓ Priority notification at launch · Special benefits · Free signup", contact: "For launch schedule and early access inquiries: ", successMsg: "✅ Successfully registered! We will notify you first at launch. 🎉", errorMsg: "❌ An error occurred during submission. Please try again.", submitting: "⏳ Submitting..." }, final: { title: "First Movers Win", desc1: "Be the first to join the global commerce revolution.", desc2: "Early access is limited.", cta: "Register Now" }, footer: { copyright: "© 2026 TAGOJA. Operated by SEOWOO LLC", address: "30 N Gould St, Sheridan, WY 82801, United States", status: "Currently in Development · Launching 2026 · Currently in Development" } },
-            ko: { code: "KR", name: "한국어", announcementBar: "✨ 글로벌 커머스 플랫폼 TAGOJA 곧 출시 | Launching Soon – Secure Your Early Access ✨", hero: { badge: "곧 출시 · Launching Soon", title1: "글로벌 커머스 플랫폼,", title2: "곧 출시됩니다", subtitle: "지금 참여하고 초기 기회를 선점하세요", desc1: "공급사, 셀러, 물류 파트너를 위한 글로벌 커머스 인프라", desc2: "출시 전 우선 참여 기회 제공", val1: "재고 없이 글로벌 판매", val1sub: "출시 시 바로 시작 가능", val2: "자동화된 물류 시스템", val2sub: "배송부터 정산까지 자동", val3: "우선 파트너 혜택", val3sub: "얼리 참여자 특별 지원", cta1: "얼리 액세스 신청", cta2: "대기자 등록", note: "✓ 신청 후 출시 시 우선 안내 · 특별 혜택 제공 · 무료 가입" }, why: { badge: "얼리 어답터 혜택", title: "지금 참여해야 하는 이유", subtitle: "Why You Should Join Early Access", b1: "우선 온보딩", b1sub: "Priority Onboarding", b1desc: "플랫폼 출시 시 가장 먼저 이용 가능", b2: "초기 파트너 지위", b2sub: "Founding Partner Status", b2desc: "특별 파트너 인증 및 네트워크 내 우선 노출", b3: "출시 특별 수수료", b3sub: "Launch Fee Benefits", b3desc: "정식 출시 후 일반 가입자보다 낮은 수수료", b4: "글로벌 시장 선점", b4sub: "First Market Access", b4desc: "동남아시아 시장 우선 진출 기회", cta: "지금 신청하고 혜택 받기 →" }, what: { title: "TAGOJA가 제공할 서비스", subtitle: "What TAGOJA Will Provide", f1: "글로벌 공급망 연결", f1desc: "공급사와 셀러를 자동으로 매칭하는 글로벌 네트워크", f1sub: "Global Supply Chain Connection", f2: "자동화 물류 시스템", f2desc: "주문부터 배송, 정산까지 완전 자동화 처리", f2sub: "Automated Logistics System", f3: "무재고 판매 모델", f3desc: "재고 부담 없이 전세계 시장에서 판매 가능", f3sub: "Zero-Inventory Sales Model" }, who: { badge: "타겟 파트너", title: "누가 먼저 참여해야 하나요?", subtitle: "Who Should Join Early Access?", s: "셀러", ssub: "Seller / Dropshipper", stag: "재고 없이 글로벌 판매를 원하는 분", sp1: "✓ 드랍쉬핑 비즈니스 준비 중", sp2: "✓ 해외 판매 채널 확대 희망", sp3: "✓ 재고 부담 없는 사업 모델", scta: "셀러로 참여 →", su: "공급사", susub: "Supplier / Manufacturer", sutag: "해외 수출을 준비하는 제조사", sup1: "✓ 글로벌 판매망 확보 필요", sup2: "✓ 수출 절차 간소화 희망", sup3: "✓ 유통사 없이 직접 수출", sucta: "공급사로 참여 →", l: "물류 파트너", lsub: "3PL / Logistics", ltag: "글로벌 물류 네트워크 참여 희망", lp1: "✓ 국제 배송 서비스 제공", lp2: "✓ 물량 확보 및 안정적 수익", lp3: "✓ 글로벌 커머스 인프라 참여", lcta: "물류사로 참여 →" }, road: { title: "출시 준비 현황", subtitle: "Development & Launch Roadmap", p1: "현재: 개발 진행 중", p1desc: "플랫폼 핵심 기능 개발 완료 단계", p1sub: "Currently in Development", p2: "2026년 3분기: 단계별 출시", p2desc: "얼리 액세스 파트너 우선 초대", p2sub: "Phased Launch in Q3 2026", p3: "첫 시장: 동남아시아", p3desc: "베트남, 태국, 필리핀 등 우선 진출", p3sub: "Starting in Southeast Asia", note: "🎯 얼리 액세스 참여자는 정식 출시 전 우선 온보딩 및 테스트 기회 제공" }, form: { badge: "한정된 얼리 액세스 기회", title: "대기자 명단 등록", subtitle: "Join Early Access Waitlist", type: "참여 유형 선택", t1: "셀러", t2: "공급사", t3: "물류사", name: "이름", ph: "홍길동", email: "이메일", country: "국가 / Country", countryPlaceholder: "국가를 선택하세요", company: "회사명", companySub: "(선택사항)", companyPh: "회사명 입력", submit: "얼리 액세스 신청하기", note: "✓ 출시 시 우선 안내 · 특별 혜택 제공 · 무료 가입", contact: "출시 일정 및 얼리 액세스 관련 문의: ", successMsg: "✅ 대기자 명단에 성공적으로 등록되었습니다! 출시 시 우선 안내 드리겠습니다. 🎉", errorMsg: "❌ 제출 중 오류가 발생했습니다. 다시 시도해 주세요.", submitting: "⏳ 제출 중..." }, final: { title: "선점하는 자가 기회를 잡습니다", desc1: "글로벌 커머스 혁명에 가장 먼저 참여하세요.", desc2: "얼리 액세스는 한정되어 있습니다.", cta: "지금 대기자 등록하기" }, footer: { copyright: "© 2026 TAGOJA. Operated by SEOWOO LLC", address: "30 N Gould St, Sheridan, WY 82801, United States", status: "현재 개발 중 · 2026년 출시 예정 · Currently in Development" } }
-        };
+  en: { code: "GB", name: "English", hero: { badge: "Launching Soon", title: "Global Commerce Platform Launching Soon", subtitle: "글로벌 커머스 플랫폼 곧 출시", message: "Join now and secure early opportunities", desc: "Global commerce infrastructure for suppliers, sellers, and logistics partners", val1: "Sell globally without inventory", val1sub: "Ready at launch", val2: "Automated logistics system", val2sub: "From shipping to settlement", val3: "Early partner benefits", val3sub: "Special support", cta1: "Join Early Access", cta2: "Join Waitlist" }, why: { title: "Why Join Early Access", b1: "Priority Onboarding", b1d: "First to use at launch", b2: "Founding Partner Status", b2d: "VIP certification", b3: "Launch Fee Benefits", b3d: "Lower fees", b4: "First Market Access", b4d: "Southeast Asia priority" }, form: { title: "Join Waitlist", type: "Select Type", t1: "Seller", t2: "Supplier", t3: "Logistics", name: "Full Name", ph: "John Doe", email: "Email", company: "Company (Optional)", submit: "Join Early Access", successMsg: "✅ Successfully registered! We will notify you first at launch. 🎉", errorMsg: "❌ An error occurred. Please try again.", submitting: "⏳ Submitting..." } },
+  
+  ko: { code: "KR", name: "한국어", hero: { badge: "곧 출시", title: "글로벌 커머스 플랫폼 곧 출시됩니다", subtitle: "Global Commerce Platform Launching Soon", message: "지금 참여하고 초기 기회를 선점하세요", desc: "공급사, 셀러, 물류 파트너를 위한 글로벌 커머스 인프라", val1: "재고 없이 글로벌 판매", val1sub: "출시 시 바로 시작", val2: "자동화된 물류 시스템", val2sub: "배송부터 정산까지", val3: "우선 파트너 혜택", val3sub: "얼리 참여자 지원", cta1: "얼리 액세스 신청", cta2: "대기자 등록" }, why: { title: "지금 참여해야 하는 이유", b1: "우선 온보딩", b1d: "출시 시 가장 먼저 이용", b2: "초기 파트너 지위", b2d: "VIP 인증", b3: "출시 특별 수수료", b3d: "낮은 수수료", b4: "글로벌 시장 선점", b4d: "동남아시아 우선 진출" }, form: { title: "대기자 명단 등록", type: "참여 유형 선택", t1: "셀러", t2: "공급사", t3: "물류사", name: "이름", ph: "홍길동", email: "이메일", company: "회사명 (선택)", submit: "얼리 액세스 신청하기", successMsg: "✅ 대기자 명단에 성공적으로 등록되었습니다! 출시 시 우선 안내 드리겠습니다. 🎉", errorMsg: "❌ 제출 중 오류가 발생했습니다. 다시 시도해 주세요.", submitting: "⏳ 제출 중..." } },
 
-        // TL - Tagalog
-        TRANSLATIONS.tl = {code:"PH",name:"Tagalog",announcementBar:"✨ TAGOJA Global Commerce Platform Paparating Na – Siguruhin ang Iyong Early Access ✨",hero:{badge:"Paparating Na",title1:"Global Commerce Platform Paparating Na",title2:"Global Commerce Platform Paparating Na",subtitle:"Sumali ngayon at siguruhin ang unang pagkakataon",desc1:"Pandaigdigang imprastraktura para sa supplier, seller, logistics",desc2:"Global Commerce Platform",val1:"Magbenta sa buong mundo nang walang stock",val1sub:"Handang magsimula",val2:"Awtomatikong logistics",val2sub:"Pagpapadala hanggang bayad",val3:"Priyoridad na benepisyo",val3sub:"Espesyal na suporta",cta1:"Mag-apply para sa Early Access",cta2:"Sumali sa Waitlist"},why:{title:"Bakit Sumali Ngayon",b1:"Priyoridad na Onboarding",b1d:"Unang gumamit sa launch",b2:"Founding Partner Status",b2d:"VIP sertipikasyon",b3:"Espesyal na Bayad",b3d:"Mas mababang bayad",b4:"Unang Market Access",b4d:"Southeast Asia priority"},what:{title:"Serbisyo ng TAGOJA",f1:"Pandaigdigang Supply Chain",f1d:"Koneksyon ng supplier at seller",f2:"Awtomatikong Logistics",f2d:"Order hanggang delivery",f3:"Zero-Inventory Model",f3d:"Walang stock burden"},who:{title:"Sino ang Dapat Sumali?",s:"Mga Seller",sd:"Seller / Dropshipper",sm:"Magbenta nang walang stock",sp1:"Dropshipping business",sp2:"Overseas sales channels",sp3:"Walang stock na modelo",sc:"Sumali bilang Seller",su:"Mga Supplier",sud:"Supplier / Manufacturer",sum:"Export manufacturers",sup1:"Global sales network",sup2:"Simplified export",sup3:"Direct export",suc:"Sumali bilang Supplier",l:"Logistics Partner",ld:"3PL / Logistics",lm:"Global logistics network",lp1:"International shipping",lp2:"Stable na kita",lp3:"Commerce infrastructure",lc:"Sumali bilang Partner"},road:{title:"Status ng Paghahanda",p1:"Kasalukuyan: Development",p1d:"Core features kumpleto na",p2:"Q3 2026: Phased Launch",p2d:"Early access muna",p3:"Unang Market: Southeast Asia",p3d:"Vietnam, Thailand, Philippines"},form:{title:"Magrehistro sa Waitlist",type:"Pumili ng Uri",t1:"Seller",t2:"Supplier",t3:"Logistics",name:"Pangalan",ph:"Juan Dela Cruz",email:"Email",country:"Country",countryPlaceholder:"Pumili ng bansa",company:"Kumpanya",companySub:"(Opsyonal)",companyPh:"Ilagay ang kumpanya",submit:"Mag-apply para sa Early Access",successMsg:"✅ Matagumpay na registered! Unahin namin kayo. 🎉",errorMsg:"❌ May error. Subukan ulit.",submitting:"⏳ Nagpapadala..."},final:{title:"Mga Unang Dumating Nananalo",desc1:"Limitado ang early access",desc2:"Be first in the global commerce revolution.",cta:"Sumali Ngayon"}};
-        
-        // ID - Indonesian
-        TRANSLATIONS.id = {code:"ID",name:"Bahasa Indonesia",announcementBar:"✨ Platform Perdagangan Global TAGOJA Segera Hadir – Amankan Early Access Anda ✨",hero:{badge:"Segera Hadir",title1:"Platform Perdagangan Global Segera Hadir",title2:"Platform Perdagangan Global Segera Hadir",subtitle:"Bergabung sekarang dan amankan peluang awal",desc1:"Infrastruktur perdagangan global untuk supplier, seller, logistics",desc2:"Global Commerce Platform",val1:"Jual global tanpa stok",val1sub:"Siap mulai saat launch",val2:"Sistem logistik otomatis",val2sub:"Pengiriman hingga bayar",val3:"Keuntungan partner prioritas",val3sub:"Dukungan khusus",cta1:"Daftar Early Access",cta2:"Gabung Waitlist"},why:{title:"Mengapa Bergabung Sekarang",b1:"Onboarding Prioritas",b1d:"Pertama gunakan saat launch",b2:"Status Mitra Pendiri",b2d:"Sertifikasi VIP",b3:"Biaya Khusus",b3d:"Biaya lebih rendah",b4:"Akses Pasar Pertama",b4d:"Prioritas Asia Tenggara"},what:{title:"Layanan TAGOJA",f1:"Rantai Pasokan Global",f1d:"Koneksi supplier dan seller",f2:"Logistik Otomatis",f2d:"Order hingga delivery",f3:"Model Tanpa Stok",f3d:"Jual tanpa beban stok"},who:{title:"Siapa yang Harus Bergabung?",s:"Seller",sd:"Seller / Dropshipper",sm:"Jual global tanpa stok",sp1:"Bisnis dropshipping",sp2:"Saluran penjualan luar",sp3:"Model tanpa stok",sc:"Gabung sebagai Seller",su:"Supplier",sud:"Supplier / Manufacturer",sum:"Produsen ekspor",sup1:"Jaringan penjualan global",sup2:"Proses ekspor sederhana",sup3:"Ekspor langsung",suc:"Gabung sebagai Supplier",l:"Mitra Logistik",ld:"3PL / Logistics",lm:"Jaringan logistik global",lp1:"Pengiriman internasional",lp2:"Pendapatan stabil",lp3:"Infrastruktur commerce",lc:"Gabung sebagai Partner"},road:{title:"Status Persiapan",p1:"Sekarang: Development",p1d:"Fitur inti hampir selesai",p2:"Q3 2026: Peluncuran Bertahap",p2d:"Early access duluan",p3:"Pasar Pertama: Asia Tenggara",p3d:"Vietnam, Thailand, Filipina"},form:{title:"Daftar Waitlist",type:"Pilih Tipe",t1:"Seller",t2:"Supplier",t3:"Logistik",name:"Nama",ph:"Budi Santoso",email:"Email",country:"Negara",countryPlaceholder:"Pilih negara",company:"Perusahaan",companySub:"(Opsional)",companyPh:"Masukkan perusahaan",submit:"Daftar Early Access",successMsg:"✅ Berhasil terdaftar! Kami akan memberitahu Anda. 🎉",errorMsg:"❌ Terjadi kesalahan. Coba lagi.",submitting:"⏳ Mengirim..."},final:{title:"Yang Pertama Menang",desc1:"Early access terbatas",desc2:"Be first in the global commerce revolution.",cta:"Daftar Sekarang"}};
-        
+  tl: { code: "PH", name: "Tagalog", hero: { badge: "Paparating Na", title: "Global Commerce Platform Paparating Na", subtitle: "Pandaigdigang Platform sa Kalakalan", message: "Sumali ngayon at siguruhin ang unang pagkakataon", desc: "Pandaigdigang imprastraktura para sa supplier, seller, logistics", val1: "Magbenta sa buong mundo nang walang stock", val1sub: "Handang magsimula", val2: "Awtomatikong logistics", val2sub: "Pagpapadala hanggang bayad", val3: "Priyoridad na benepisyo", val3sub: "Espesyal na suporta", cta1: "Mag-apply para sa Early Access", cta2: "Sumali sa Waitlist" }, why: { title: "Bakit Sumali Ngayon", b1: "Priyoridad na Onboarding", b1d: "Unang gumamit sa launch", b2: "Founding Partner Status", b2d: "VIP sertipikasyon", b3: "Espesyal na Bayad", b3d: "Mas mababang bayad", b4: "Unang Market Access", b4d: "Southeast Asia priority" }, form: { title: "Magrehistro sa Waitlist", type: "Pumili ng Uri", t1: "Seller", t2: "Supplier", t3: "Logistics", name: "Pangalan", ph: "Juan Dela Cruz", email: "Email", company: "Kumpanya (Opsyonal)", submit: "Mag-apply para sa Early Access", successMsg: "✅ Matagumpay na registered! 🎉", errorMsg: "❌ May error. Subukan ulit.", submitting: "⏳ Nagpapadala..." } },
 
-        // TH - Thai
-        TRANSLATIONS.th = {code:"TH",name:"ภาษาไทย",announcementBar:"✨ TAGOJA แพลตฟอร์มพาณิชย์โลก เปิดตัวเร็วๆ นี้ – เข้าร่วมตอนนี้และคว้าโอกาสแรกเริ่ม ✨",hero:{badge:"เปิดตัวเร็วๆ นี้",title1:"แพลตฟอร์มพาณิชย์โลก เปิดตัวเร็วๆ นี้",title2:"แพลตฟอร์มพาณิชย์โลก เปิดตัวเร็วๆ นี้",subtitle:"เข้าร่วมตอนนี้และคว้าโอกาสแรกเริ่ม",desc1:"โครงสร้างพื้นฐานพาณิชย์โลกสำหรับซัพพลายเออร์ ผู้ขาย โลจิสติกส์",desc2:"Global Commerce Platform",val1:"ขายทั่วโลกไม่ต้องมีสต็อก",val1sub:"พร้อมเริ่มเมื่อเปิดตัว",val2:"ระบบโลจิสติกส์อัตโนมัติ",val2sub:"จัดส่งถึงชำระเงิน",val3:"สิทธิพิเศษพาร์ทเนอร์",val3sub:"สนับสนุนพิเศษ",cta1:"สมัครเข้าถึงก่อน",cta2:"เข้าร่วมรายชื่อรอ"},why:{title:"ทำไมต้องเข้าร่วมตอนนี้",b1:"เริ่มใช้งานก่อน",b1d:"ใช้งานก่อนเมื่อเปิดตัว",b2:"สถานะพาร์ทเนอร์ผู้ก่อตั้ง",b2d:"การรับรอง VIP",b3:"ค่าธรรมเนียมพิเศษ",b3d:"ค่าธรรมเนียมต่ำกว่า",b4:"เข้าตลาดก่อน",b4d:"เอเชียตะวันออกเฉียงใต้"},what:{title:"บริการ TAGOJA",f1:"ซัพพลายเชนโลก",f1d:"เชื่อมต่อซัพพลายเออร์และผู้ขาย",f2:"โลจิสติกส์อัตโนมัติ",f2d:"สั่งซื้อถึงจัดส่ง",f3:"โมเดลไม่ต้องมีสต็อก",f3d:"ขายโดยไม่มีภาระสต็อก"},who:{title:"ใครควรเข้าร่วมก่อน?",s:"ผู้ขาย",sd:"Seller / Dropshipper",sm:"ขายโลกไม่ต้องมีสต็อก",sp1:"ธุรกิจ dropshipping",sp2:"ช่องทางขายต่างประเทศ",sp3:"โมเดลไม่ต้องมีสต็อก",sc:"เข้าร่วมเป็นผู้ขาย",su:"ซัพพลายเออร์",sud:"Supplier / Manufacturer",sum:"ผู้ผลิตส่งออก",sup1:"เครือข่ายขายโลก",sup2:"กระบวนการส่งออกง่าย",sup3:"ส่งออกโดยตรง",suc:"เข้าร่วมเป็นซัพพลายเออร์",l:"พาร์ทเนอร์โลจิสติกส์",ld:"3PL / Logistics",lm:"เครือข่ายโลจิสติกส์โลก",lp1:"จัดส่งระหว่างประเทศ",lp2:"รายได้มั่นคง",lp3:"โครงสร้างพาณิชย์",lc:"เข้าร่วมเป็นพาร์ทเนอร์"},road:{title:"สถานะการเตรียม",p1:"ปัจจุบัน: กำลังพัฒนา",p1d:"ฟีเจอร์หลักเกือบเสร็จ",p2:"Q3 2026: เปิดตัวเป็นขั้นตอน",p2d:"เข้าถึงก่อนก่อน",p3:"ตลาดแรก: เอเชียตะวันออกเฉียงใต้",p3d:"เวียดนาม ไทย ฟิลิปปินส์"},form:{title:"ลงทะเบียนรายชื่อรอ",type:"เลือกประเภท",t1:"ผู้ขาย",t2:"ซัพพลายเออร์",t3:"โลจิสติกส์",name:"ชื่อ",ph:"สมชาย ใจดี",email:"อีเมล",country:"ประเทศ",countryPlaceholder:"เลือกประเทศ",company:"บริษัท",companySub:"(ไม่บังคับ)",companyPh:"ใส่ชื่อบริษัท",submit:"สมัครเข้าถึงก่อน",successMsg:"✅ ลงทะเบียนสำเร็จ! 🎉",errorMsg:"❌ เกิดข้อผิดพลาด",submitting:"⏳ กำลังส่ง..."},final:{title:"ผู้นำคว้าโอกาส",desc1:"การเข้าถึงก่อนมีจำกัด",desc2:"Be first in the global commerce revolution.",cta:"ลงทะเบียนตอนนี้"}};
-        
-        // VI - Vietnamese
-        TRANSLATIONS.vi = {code:"VN",name:"Tiếng Việt",announcementBar:"✨ TAGOJA Nền Tảng Thương Mại Toàn Cầu Sắp Ra Mắt – Tham gia ngay để nắm bắt cơ hội đầu tiên ✨",hero:{badge:"Sắp Ra Mắt",title1:"Nền Tảng Thương Mại Toàn Cầu Sắp Ra Mắt",title2:"Nền Tảng Thương Mại Toàn Cầu Sắp Ra Mắt",subtitle:"Tham gia ngay để nắm bắt cơ hội đầu tiên",desc1:"Cơ sở hạ tầng thương mại toàn cầu cho nhà cung cấp, người bán, logistics",desc2:"Global Commerce Platform",val1:"Bán toàn cầu không cần kho",val1sub:"Sẵn sàng khi ra mắt",val2:"Hệ thống logistics tự động",val2sub:"Giao hàng đến thanh toán",val3:"Ưu đãi đối tác ưu tiên",val3sub:"Hỗ trợ đặc biệt",cta1:"Đăng Ký Truy Cập Sớm",cta2:"Tham Gia Danh Sách Chờ"},why:{title:"Tại Sao Tham Gia Ngay",b1:"Onboarding Ưu Tiên",b1d:"Sử dụng đầu tiên khi ra mắt",b2:"Tư Cách Đối Tác Sáng Lập",b2d:"Chứng nhận VIP",b3:"Phí Đặc Biệt",b3d:"Phí thấp hơn",b4:"Truy Cập Thị Trường Đầu Tiên",b4d:"Ưu tiên Đông Nam Á"},what:{title:"Dịch Vụ TAGOJA",f1:"Chuỗi Cung Ứng Toàn Cầu",f1d:"Kết nối nhà cung cấp và người bán",f2:"Logistics Tự Động",f2d:"Đơn hàng đến giao hàng",f3:"Mô Hình Không Tồn Kho",f3d:"Bán không lo tồn kho"},who:{title:"Ai Nên Tham Gia Sớm?",s:"Người Bán",sd:"Seller / Dropshipper",sm:"Bán toàn cầu không kho",sp1:"Kinh doanh dropshipping",sp2:"Kênh bán hàng quốc tế",sp3:"Mô hình không tồn kho",sc:"Tham Gia Người Bán",su:"Nhà Cung Cấp",sud:"Supplier / Manufacturer",sum:"Nhà sản xuất xuất khẩu",sup1:"Mạng bán hàng toàn cầu",sup2:"Xuất khẩu đơn giản",sup3:"Xuất khẩu trực tiếp",suc:"Tham Gia Nhà Cung Cấp",l:"Đối Tác Logistics",ld:"3PL / Logistics",lm:"Mạng logistics toàn cầu",lp1:"Vận chuyển quốc tế",lp2:"Doanh thu ổn định",lp3:"Cơ sở hạ tầng thương mại",lc:"Tham Gia Đối Tác"},road:{title:"Tình Trạng Chuẩn Bị",p1:"Hiện Tại: Đang Phát Triển",p1d:"Tính năng cốt lõi gần hoàn thiện",p2:"Q3 2026: Ra Mắt Theo Giai Đoạn",p2d:"Truy cập sớm trước",p3:"Thị Trường Đầu: Đông Nam Á",p3d:"Việt Nam, Thái Lan, Philippines"},form:{title:"Đăng Ký Danh Sách Chờ",type:"Chọn Loại",t1:"Người Bán",t2:"Nhà Cung Cấp",t3:"Logistics",name:"Họ Tên",ph:"Nguyễn Văn A",email:"Email",country:"Country",countryPlaceholder:"Select country",company:"Công Ty",companySub:"(Không Bắt Buộc)",companyPh:"Enter company name",submit:"Đăng Ký Truy Cập Sớm",successMsg:"✅ Successfully registered! We will prioritize you. 🎉",errorMsg:"❌ An error occurred. Please try again.",submitting:"⏳ Submitting..."},final:{title:"Người Đầu Tiên Chiến Thắng",desc1:"Truy cập sớm có hạn",desc2:"Be first in the global commerce revolution.",cta:"Tham Gia Ngay"}};
-        
-        // ZH - Chinese
-        TRANSLATIONS.zh = {code:"CN",name:"中文",announcementBar:"✨ TAGOJA 全球商务平台即将推出 – 立即加入,抢占早期机会 ✨",hero:{badge:"即将推出",title1:"全球商务平台即将推出",title2:"全球商务平台即将推出",subtitle:"立即加入,抢占早期机会",desc1:"为供应商、卖家和物流合作伙伴打造的全球商务基础设施",desc2:"Global Commerce Platform",val1:"无库存全球销售",val1sub:"推出时即可开始",val2:"自动化物流系统",val2sub:"从配送到结算",val3:"优先合作伙伴福利",val3sub:"特别支持",cta1:"申请早期访问",cta2:"加入候补名单"},why:{title:"为什么要现在加入",b1:"优先入驻",b1d:"推出时第一批使用",b2:"创始合作伙伴地位",b2d:"VIP认证",b3:"推出特别费率",b3d:"更低费率",b4:"抢占全球市场",b4d:"东南亚优先"},what:{title:"TAGOJA将提供的服务",f1:"全球供应链连接",f1d:"连接供应商和卖家",f2:"自动化物流系统",f2d:"订单到配送自动化",f3:"零库存销售模式",f3d:"无库存负担销售"},who:{title:"谁应该优先加入?",s:"卖家",sd:"Seller / Dropshipper",sm:"无库存全球销售",sp1:"代发货业务",sp2:"海外销售渠道",sp3:"无库存模式",sc:"作为卖家加入",su:"供应商",sud:"Supplier / Manufacturer",sum:"出口制造商",sup1:"全球销售网络",sup2:"简化出口",sup3:"直接出口",suc:"作为供应商加入",l:"物流合作伙伴",ld:"3PL / Logistics",lm:"全球物流网络",lp1:"国际配送",lp2:"稳定收入",lp3:"商务基础设施",lc:"作为合作伙伴加入"},road:{title:"推出准备状态",p1:"现在:开发中",p1d:"核心功能接近完成",p2:"2026年第三季度:分阶段推出",p2d:"早期访问优先",p3:"首个市场:东南亚",p3d:"越南、泰国、菲律宾"},form:{title:"加入候补名单",type:"选择类型",t1:"卖家",t2:"供应商",t3:"物流",name:"姓名",ph:"张三",email:"电子邮箱",country:"Country",countryPlaceholder:"Select country",company:"公司名称",companySub:"(可选)",companyPh:"Enter company name",submit:"申请早期访问",successMsg:"✅ Successfully registered! We will prioritize you. 🎉",errorMsg:"❌ An error occurred. Please try again.",submitting:"⏳ Submitting..."},final:{title:"先行者抓住机会",desc1:"早期访问名额有限",desc2:"Be first in the global commerce revolution.",cta:"立即加入"}};
-        
-        // JA - Japanese
-        TRANSLATIONS.ja = {code:"JP",name:"日本語",announcementBar:"✨ TAGOJA グローバルコマースプラットフォーム まもなくローンチ – 今すぐ参加して初期チャンスを確保 ✨",hero:{badge:"まもなくローンチ",title1:"グローバルコマースプラットフォーム まもなくローンチ",title2:"グローバルコマースプラットフォーム まもなくローンチ",subtitle:"今すぐ参加して初期チャンスを確保",desc1:"サプライヤー、セラー、物流パートナーのためのグローバルコマースインフラ",desc2:"Global Commerce Platform",val1:"在庫なしでグローバル販売",val1sub:"ローンチ時にすぐ開始",val2:"自動化された物流システム",val2sub:"配送から決済まで",val3:"優先パートナー特典",val3sub:"特別サポート",cta1:"早期アクセス申請",cta2:"ウェイトリスト登録"},why:{title:"今参加すべき理由",b1:"優先オンボーディング",b1d:"ローンチ時に最初に利用",b2:"創設パートナー資格",b2d:"VIP認証",b3:"ローンチ特別手数料",b3d:"低い手数料",b4:"グローバル市場先占",b4d:"東南アジア優先"},what:{title:"TAGOJAが提供するサービス",f1:"グローバルサプライチェーン",f1d:"サプライヤーとセラーを接続",f2:"自動化物流システム",f2d:"注文から配送まで自動",f3:"在庫なし販売モデル",f3d:"在庫負担なく販売"},who:{title:"誰が先に参加すべきか?",s:"セラー",sd:"Seller / Dropshipper",sm:"在庫なしでグローバル販売",sp1:"ドロップシッピングビジネス",sp2:"海外販売チャネル",sp3:"在庫なしモデル",sc:"セラーとして参加",su:"サプライヤー",sud:"Supplier / Manufacturer",sum:"輸出メーカー",sup1:"グローバル販売網",sup2:"輸出手続き簡素化",sup3:"直接輸出",suc:"サプライヤーとして参加",l:"物流パートナー",ld:"3PL / Logistics",lm:"グローバル物流ネットワーク",lp1:"国際配送",lp2:"安定収益",lp3:"コマースインフラ",lc:"パートナーとして参加"},road:{title:"ローンチ準備状況",p1:"現在:開発進行中",p1d:"中核機能完了段階",p2:"2026年第3四半期:段階的ローンチ",p2d:"早期アクセス優先",p3:"最初の市場:東南アジア",p3d:"ベトナム、タイ、フィリピン"},form:{title:"ウェイトリスト登録",type:"タイプ選択",t1:"セラー",t2:"サプライヤー",t3:"物流",name:"氏名",ph:"山田太郎",email:"メール",country:"Country",countryPlaceholder:"Select country",company:"会社名",companySub:"(任意)",companyPh:"Enter company name",submit:"早期アクセス申請",successMsg:"✅ Successfully registered! We will prioritize you. 🎉",errorMsg:"❌ An error occurred. Please try again.",submitting:"⏳ Submitting..."},final:{title:"先行者がチャンスをつかむ",desc1:"早期アクセスは限定",desc2:"Be first in the global commerce revolution.",cta:"今すぐ登録"}};
-        
-        // HI - Hindi
-        TRANSLATIONS.hi = {code:"IN",name:"हिन्दी",announcementBar:"✨ TAGOJA वैश्विक वाणिज्य प्लेटफार्म जल्द लॉन्च – अभी शामिल हों और शुरुआती अवसर सुरक्षित करें ✨",hero:{badge:"जल्द आ रहा है",title1:"वैश्विक वाणिज्य प्लेटफार्म जल्द लॉन्च",title2:"वैश्विक वाणिज्य प्लेटफार्म जल्द लॉन्च",subtitle:"अभी शामिल हों और शुरुआती अवसर सुरक्षित करें",desc1:"आपूर्तिकर्ताओं, विक्रेताओं और रसद भागीदारों के लिए वैश्विक वाणिज्य बुनियादी ढांचा",desc2:"Global Commerce Platform",val1:"बिना स्टॉक के वैश्विक बिक्री",val1sub:"लॉन्च पर तुरंत शुरू",val2:"स्वचालित रसद प्रणाली",val2sub:"शिपिंग से निपटान तक",val3:"प्राथमिकता भागीदार लाभ",val3sub:"विशेष सहायता",cta1:"अर्ली एक्सेस के लिए आवेदन करें",cta2:"प्रतीक्षा सूची में शामिल हों"},why:{title:"अभी क्यों शामिल हों",b1:"प्राथमिकता ऑनबोर्डिंग",b1d:"लॉन्च पर पहले उपयोग करें",b2:"संस्थापक भागीदार स्थिति",b2d:"VIP प्रमाणन",b3:"लॉन्च विशेष शुल्क",b3d:"कम शुल्क",b4:"पहली बाजार पहुंच",b4d:"दक्षिण पूर्व एशिया प्राथमिकता"},what:{title:"TAGOJA क्या प्रदान करेगा",f1:"वैश्विक आपूर्ति श्रृंखला",f1d:"आपूर्तिकर्ता और विक्रेता कनेक्ट करें",f2:"स्वचालित रसद",f2d:"ऑर्डर से डिलीवरी स्वचालन",f3:"शून्य-इन्वेंटरी मॉडल",f3d:"स्टॉक बोझ के बिना बेचें"},who:{title:"पहले किसे शामिल होना चाहिए?",s:"विक्रेता",sd:"Seller / Dropshipper",sm:"बिना स्टॉक वैश्विक बिक्री",sp1:"ड्रॉपशिपिंग व्यवसाय",sp2:"विदेशी बिक्री चैनल",sp3:"शून्य-इन्वेंटरी मॉडल",sc:"विक्रेता के रूप में शामिल हों",su:"आपूर्तिकर्ता",sud:"Supplier / Manufacturer",sum:"निर्यात निर्माता",sup1:"वैश्विक बिक्री नेटवर्क",sup2:"सरलीकृत निर्यात",sup3:"प्रत्यक्ष निर्यात",suc:"आपूर्तिकर्ता के रूप में शामिल हों",l:"रसद भागीदार",ld:"3PL / Logistics",lm:"वैश्विक रसद नेटवर्क",lp1:"अंतर्राष्ट्रीय शिपिंग",lp2:"स्थिर राजस्व",lp3:"वाणिज्य बुनियादी ढांचा",lc:"भागीदार के रूप में शामिल हों"},road:{title:"लॉन्च तैयारी",p1:"अब: विकास में",p1d:"मुख्य विशेषताएं पूर्ण होने के करीब",p2:"Q3 2026: चरणबद्ध लॉन्च",p2d:"पहले शुरुआती पहुंच",p3:"पहला बाजार: दक्षिण पूर्व एशिया",p3d:"वियतनाम, थाईलैंड, फिलीपींस"},form:{title:"प्रतीक्षा सूची में शामिल हों",type:"प्रकार चुनें",t1:"विक्रेता",t2:"आपूर्तिकर्ता",t3:"रसद",name:"पूरा नाम",ph:"राज कुमार",email:"ईमेल",country:"Country",countryPlaceholder:"Select country",company:"कंपनी",companySub:"(वैकल्पिक)",companyPh:"Enter company name",submit:"अर्ली एक्सेस के लिए आवेदन करें",successMsg:"✅ Successfully registered! We will prioritize you. 🎉",errorMsg:"❌ An error occurred. Please try again.",submitting:"⏳ Submitting..."},final:{title:"पहले आने वाले जीतते हैं",desc1:"शुरुआती पहुंच सीमित है",desc2:"Be first in the global commerce revolution.",cta:"अभी शामिल हों"}};
-        
-        // ES - Spanish
-        TRANSLATIONS.es = {code:"ES",name:"Español",announcementBar:"✨ TAGOJA Plataforma de Comercio Global Próximamente – Únete ahora y asegura oportunidades tempranas ✨",hero:{badge:"Próximamente",title1:"Plataforma de Comercio Global Próximamente",title2:"Plataforma de Comercio Global Próximamente",subtitle:"Únete ahora y asegura oportunidades tempranas",desc1:"Infraestructura de comercio global para proveedores, vendedores y socios logísticos",desc2:"Global Commerce Platform",val1:"Vende globalmente sin inventario",val1sub:"Listo para comenzar en el lanzamiento",val2:"Sistema logístico automatizado",val2sub:"Desde envío hasta liquidación",val3:"Beneficios de socio prioritario",val3sub:"Soporte especial",cta1:"Solicitar Acceso Anticipado",cta2:"Unirse a Lista de Espera"},why:{title:"Por Qué Unirse Ahora",b1:"Incorporación Prioritaria",b1d:"Primero en usar en el lanzamiento",b2:"Estado de Socio Fundador",b2d:"Certificación VIP",b3:"Tarifas Especiales de Lanzamiento",b3d:"Tarifas más bajas",b4:"Primer Acceso al Mercado",b4d:"Prioridad en el Sudeste Asiático"},what:{title:"Lo Que TAGOJA Proporcionará",f1:"Cadena de Suministro Global",f1d:"Conectar proveedores y vendedores",f2:"Logística Automatizada",f2d:"Automatización de pedido a entrega",f3:"Modelo Sin Inventario",f3d:"Vender sin carga de stock"},who:{title:"¿Quién Debe Unirse Primero?",s:"Vendedores",sd:"Seller / Dropshipper",sm:"Vender globalmente sin inventario",sp1:"Negocio de dropshipping",sp2:"Canales de venta en el extranjero",sp3:"Modelo sin inventario",sc:"Unirse como Vendedor",su:"Proveedores",sud:"Supplier / Manufacturer",sum:"Fabricantes exportadores",sup1:"Red de ventas global",sup2:"Exportación simplificada",sup3:"Exportación directa",suc:"Unirse como Proveedor",l:"Socios Logísticos",ld:"3PL / Logistics",lm:"Red logística global",lp1:"Envío internacional",lp2:"Ingresos estables",lp3:"Infraestructura comercial",lc:"Unirse como Socio"},road:{title:"Preparación de Lanzamiento",p1:"Ahora: En Desarrollo",p1d:"Funciones principales cerca de completarse",p2:"Q3 2026: Lanzamiento por Fases",p2d:"Acceso anticipado primero",p3:"Primer Mercado: Sudeste Asiático",p3d:"Vietnam, Tailandia, Filipinas"},form:{title:"Unirse a Lista de Espera",type:"Seleccionar Tipo",t1:"Vendedor",t2:"Proveedor",t3:"Logística",name:"Nombre Completo",ph:"Juan Pérez",email:"Correo",country:"Country",countryPlaceholder:"Select country",company:"Empresa",companySub:"(Opcional)",companyPh:"Enter company name",submit:"Solicitar Acceso Anticipado",successMsg:"✅ Successfully registered! We will prioritize you. 🎉",errorMsg:"❌ An error occurred. Please try again.",submitting:"⏳ Submitting..."},final:{title:"Los Primeros Ganan",desc1:"El acceso anticipado es limitado",desc2:"Be first in the global commerce revolution.",cta:"Unirse Ahora"}};
-        
-        // FR - French
-        TRANSLATIONS.fr = {code:"FR",name:"Français",announcementBar:"✨ TAGOJA Plateforme de Commerce Mondiale Bientôt – Rejoignez maintenant et sécurisez les opportunités précoces ✨",hero:{badge:"Bientôt Disponible",title1:"Plateforme de Commerce Mondiale Bientôt",title2:"Plateforme de Commerce Mondiale Bientôt",subtitle:"Rejoignez maintenant et sécurisez les opportunités précoces",desc1:"Infrastructure commerciale mondiale pour fournisseurs, vendeurs et partenaires logistiques",desc2:"Global Commerce Platform",val1:"Vendez mondialement sans inventaire",val1sub:"Prêt au lancement",val2:"Système logistique automatisé",val2sub:"De l'expédition au règlement",val3:"Avantages partenaire prioritaire",val3sub:"Support spécial",cta1:"Demander Accès Anticipé",cta2:"Rejoindre Liste d'Attente"},why:{title:"Pourquoi Rejoindre Maintenant",b1:"Intégration Prioritaire",b1d:"Premier à utiliser au lancement",b2:"Statut Partenaire Fondateur",b2d:"Certification VIP",b3:"Frais Spéciaux de Lancement",b3d:"Frais réduits",b4:"Premier Accès au Marché",b4d:"Priorité Asie du Sud-Est"},what:{title:"Ce Que TAGOJA Fournira",f1:"Chaîne d'Approvisionnement Mondiale",f1d:"Connecter fournisseurs et vendeurs",f2:"Logistique Automatisée",f2d:"Automatisation commande à livraison",f3:"Modèle Sans Inventaire",f3d:"Vendre sans fardeau de stock"},who:{title:"Qui Devrait Rejoindre En Premier?",s:"Vendeurs",sd:"Seller / Dropshipper",sm:"Vendre mondialement sans inventaire",sp1:"Business de dropshipping",sp2:"Canaux de vente à l'étranger",sp3:"Modèle sans inventaire",sc:"Rejoindre comme Vendeur",su:"Fournisseurs",sud:"Supplier / Manufacturer",sum:"Fabricants exportateurs",sup1:"Réseau de vente mondial",sup2:"Export simplifié",sup3:"Export direct",suc:"Rejoindre comme Fournisseur",l:"Partenaires Logistiques",ld:"3PL / Logistics",lm:"Réseau logistique mondial",lp1:"Expédition internationale",lp2:"Revenus stables",lp3:"Infrastructure commerciale",lc:"Rejoindre comme Partenaire"},road:{title:"Préparation du Lancement",p1:"Maintenant: En Développement",p1d:"Fonctionnalités principales presque terminées",p2:"Q3 2026: Lancement Progressif",p2d:"Accès anticipé d'abord",p3:"Premier Marché: Asie du Sud-Est",p3d:"Vietnam, Thaïlande, Philippines"},form:{title:"Rejoindre Liste d'Attente",type:"Sélectionner Type",t1:"Vendeur",t2:"Fournisseur",t3:"Logistique",name:"Nom Complet",ph:"Jean Dupont",email:"Email",country:"Country",countryPlaceholder:"Select country",company:"Entreprise",companySub:"(Optionnel)",companyPh:"Enter company name",submit:"Demander Accès Anticipé",successMsg:"✅ Successfully registered! We will prioritize you. 🎉",errorMsg:"❌ An error occurred. Please try again.",submitting:"⏳ Submitting..."},final:{title:"Les Premiers Gagnent",desc1:"L'accès anticipé est limité",desc2:"Be first in the global commerce revolution.",cta:"Rejoindre Maintenant"}};
-        
-        // AR - Arabic
-        TRANSLATIONS.ar = {code:"SA",name:"العربية",announcementBar:"✨ TAGOJA منصة التجارة العالمية قريباً – انضم الآن واحصل على الفرص المبكرة ✨",hero:{badge:"قريباً",title1:"منصة التجارة العالمية قريباً",title2:"منصة التجارة العالمية قريباً",subtitle:"انضم الآن واحصل على الفرص المبكرة",desc1:"البنية التحتية التجارية العالمية للموردين والبائعين وشركاء اللوجستيات",desc2:"Global Commerce Platform",val1:"البيع عالمياً بدون مخزون",val1sub:"جاهز للبدء عند الإطلاق",val2:"نظام لوجستي آلي",val2sub:"من الشحن إلى التسوية",val3:"مزايا الشريك ذو الأولوية",val3sub:"دعم خاص",cta1:"طلب الوصول المبكر",cta2:"الانضمام لقائمة الانتظار"},why:{title:"لماذا الانضمام الآن",b1:"الإعداد ذو الأولوية",b1d:"الأول في الاستخدام عند الإطلاق",b2:"حالة الشريك المؤسس",b2d:"شهادة VIP",b3:"رسوم الإطلاق الخاصة",b3d:"رسوم أقل",b4:"الوصول الأول للسوق",b4d:"أولوية جنوب شرق آسيا"},what:{title:"ما الذي ستوفره TAGOJA",f1:"سلسلة التوريد العالمية",f1d:"ربط الموردين والبائعين",f2:"اللوجستيات الآلية",f2d:"أتمتة من الطلب إلى التسليم",f3:"نموذج بدون مخزون",f3d:"البيع بدون عبء المخزون"},who:{title:"من يجب أن ينضم أولاً؟",s:"البائعون",sd:"Seller / Dropshipper",sm:"البيع عالمياً بدون مخزون",sp1:"أعمال الدروب شيبينج",sp2:"قنوات المبيعات الخارجية",sp3:"نموذج بدون مخزون",sc:"الانضمام كبائع",su:"الموردون",sud:"Supplier / Manufacturer",sum:"مصنعون مصدرون",sup1:"شبكة مبيعات عالمية",sup2:"تصدير مبسط",sup3:"تصدير مباشر",suc:"الانضمام كمورد",l:"شركاء اللوجستيات",ld:"3PL / Logistics",lm:"شبكة لوجستية عالمية",lp1:"الشحن الدولي",lp2:"إيرادات مستقرة",lp3:"البنية التحتية التجارية",lc:"الانضمام كشريك"},road:{title:"حالة التحضير للإطلاق",p1:"الآن: قيد التطوير",p1d:"الميزات الأساسية تقترب من الاكتمال",p2:"الربع الثالث 2026: إطلاق تدريجي",p2d:"الوصول المبكر أولاً",p3:"السوق الأول: جنوب شرق آسيا",p3d:"فيتنام، تايلاند، الفلبين"},form:{title:"الانضمام لقائمة الانتظار",type:"اختر النوع",t1:"بائع",t2:"مورد",t3:"لوجستيات",name:"الاسم الكامل",ph:"أحمد محمد",email:"البريد الإلكتروني",country:"Country",countryPlaceholder:"Select country",company:"الشركة",companySub:"(اختياري)",companyPh:"Enter company name",submit:"طلب الوصول المبكر",successMsg:"✅ Successfully registered! We will prioritize you. 🎉",errorMsg:"❌ An error occurred. Please try again.",submitting:"⏳ Submitting..."},final:{title:"الأوائل يفوزون",desc1:"الوصول المبكر محدود",desc2:"Be first in the global commerce revolution.",cta:"انضم الآن"}};
-        
-        // PT - Portuguese
-        TRANSLATIONS.pt = {code:"BR",name:"Português",announcementBar:"✨ TAGOJA Plataforma de Comércio Global Em Breve – Junte-se agora e garanta oportunidades iniciais ✨",hero:{badge:"Em Breve",title1:"Plataforma de Comércio Global Em Breve",title2:"Plataforma de Comércio Global Em Breve",subtitle:"Junte-se agora e garanta oportunidades iniciais",desc1:"Infraestrutura de comércio global para fornecedores, vendedores e parceiros logísticos",desc2:"Global Commerce Platform",val1:"Venda globalmente sem estoque",val1sub:"Pronto para começar no lançamento",val2:"Sistema logístico automatizado",val2sub:"Do envio à liquidação",val3:"Benefícios de parceiro prioritário",val3sub:"Suporte especial",cta1:"Solicitar Acesso Antecipado",cta2:"Entrar na Lista de Espera"},why:{title:"Por Que Entrar Agora",b1:"Integração Prioritária",b1d:"Primeiro a usar no lançamento",b2:"Status de Parceiro Fundador",b2d:"Certificação VIP",b3:"Taxas Especiais de Lançamento",b3d:"Taxas mais baixas",b4:"Primeiro Acesso ao Mercado",b4d:"Prioridade no Sudeste Asiático"},what:{title:"O Que TAGOJA Fornecerá",f1:"Cadeia de Suprimentos Global",f1d:"Conectar fornecedores e vendedores",f2:"Logística Automatizada",f2d:"Automação do pedido à entrega",f3:"Modelo Sem Estoque",f3d:"Vender sem carga de estoque"},who:{title:"Quem Deve Entrar Primeiro?",s:"Vendedores",sd:"Seller / Dropshipper",sm:"Vender globalmente sem estoque",sp1:"Negócio de dropshipping",sp2:"Canais de venda no exterior",sp3:"Modelo sem estoque",sc:"Entrar como Vendedor",su:"Fornecedores",sud:"Supplier / Manufacturer",sum:"Fabricantes exportadores",sup1:"Rede de vendas global",sup2:"Exportação simplificada",sup3:"Exportação direta",suc:"Entrar como Fornecedor",l:"Parceiros Logísticos",ld:"3PL / Logistics",lm:"Rede logística global",lp1:"Envio internacional",lp2:"Receita estável",lp3:"Infraestrutura comercial",lc:"Entrar como Parceiro"},road:{title:"Preparação de Lançamento",p1:"Agora: Em Desenvolvimento",p1d:"Recursos principais quase concluídos",p2:"Q3 2026: Lançamento por Fases",p2d:"Acesso antecipado primeiro",p3:"Primeiro Mercado: Sudeste Asiático",p3d:"Vietnã, Tailândia, Filipinas"},form:{title:"Entrar na Lista de Espera",type:"Selecionar Tipo",t1:"Vendedor",t2:"Fornecedor",t3:"Logística",name:"Nome Completo",ph:"João Silva",email:"Email",country:"Country",countryPlaceholder:"Select country",company:"Empresa",companySub:"(Opcional)",companyPh:"Enter company name",submit:"Solicitar Acesso Antecipado",successMsg:"✅ Successfully registered! We will prioritize you. 🎉",errorMsg:"❌ An error occurred. Please try again.",submitting:"⏳ Submitting..."},final:{title:"Os Primeiros Vencem",desc1:"O acesso antecipado é limitado",desc2:"Be first in the global commerce revolution.",cta:"Entrar Agora"}};
-        
-        // RU - Russian
-        TRANSLATIONS.ru = {code:"RU",name:"Русский",announcementBar:"✨ TAGOJA Глобальная Торговая Платформа Скоро – Присоединяйтесь сейчас и получите ранние возможности ✨",hero:{badge:"Скоро",title1:"Глобальная Торговая Платформа Скоро",title2:"Глобальная Торговая Платформа Скоро",subtitle:"Присоединяйтесь сейчас и получите ранние возможности",desc1:"Глобальная торговая инфраструктура для поставщиков, продавцов и логистических партнеров",desc2:"Global Commerce Platform",val1:"Продавайте глобально без запасов",val1sub:"Готово к запуску",val2:"Автоматизированная логистическая система",val2sub:"От доставки до расчетов",val3:"Преимущества приоритетного партнера",val3sub:"Специальная поддержка",cta1:"Запросить Ранний Доступ",cta2:"Присоединиться к Списку Ожидания"},why:{title:"Почему Присоединиться Сейчас",b1:"Приоритетная Адаптация",b1d:"Первым использовать при запуске",b2:"Статус Партнера-Основателя",b2d:"VIP сертификация",b3:"Специальные Тарифы Запуска",b3d:"Более низкие тарифы",b4:"Первый Доступ к Рынку",b4d:"Приоритет в Юго-Восточной Азии"},what:{title:"Что Предоставит TAGOJA",f1:"Глобальная Цепочка Поставок",f1d:"Соединение поставщиков и продавцов",f2:"Автоматизированная Логистика",f2d:"Автоматизация от заказа до доставки",f3:"Модель Без Запасов",f3d:"Продажа без бремени запасов"},who:{title:"Кто Должен Присоединиться Первым?",s:"Продавцы",sd:"Seller / Dropshipper",sm:"Глобальная продажа без запасов",sp1:"Бизнес дропшиппинга",sp2:"Зарубежные каналы продаж",sp3:"Модель без запасов",sc:"Присоединиться как Продавец",su:"Поставщики",sud:"Supplier / Manufacturer",sum:"Производители-экспортеры",sup1:"Глобальная сеть продаж",sup2:"Упрощенный экспорт",sup3:"Прямой экспорт",suc:"Присоединиться как Поставщик",l:"Логистические Партнеры",ld:"3PL / Logistics",lm:"Глобальная логистическая сеть",lp1:"Международная доставка",lp2:"Стабильный доход",lp3:"Торговая инфраструктура",lc:"Присоединиться как Партнер"},road:{title:"Подготовка к Запуску",p1:"Сейчас: В Разработке",p1d:"Основные функции близки к завершению",p2:"Q3 2026: Поэтапный Запуск",p2d:"Сначала ранний доступ",p3:"Первый Рынок: Юго-Восточная Азия",p3d:"Вьетнам, Таиланд, Филиппины"},form:{title:"Присоединиться к Списку Ожидания",type:"Выбрать Тип",t1:"Продавец",t2:"Поставщик",t3:"Логистика",name:"Полное Имя",ph:"Иван Иванов",email:"Email",country:"Country",countryPlaceholder:"Select country",company:"Компания",companySub:"(Необязательно)",companyPh:"Enter company name",submit:"Запросить Ранний Доступ",successMsg:"✅ Successfully registered! We will prioritize you. 🎉",errorMsg:"❌ An error occurred. Please try again.",submitting:"⏳ Submitting..."},final:{title:"Первые Побеждают",desc1:"Ранний доступ ограничен",desc2:"Be first in the global commerce revolution.",cta:"Присоединиться Сейчас"}};
-        
-        // DE - German
-        TRANSLATIONS.de = {code:"DE",name:"Deutsch",announcementBar:"✨ TAGOJA Globale Handelsplattform Demnächst – Jetzt beitreten und frühe Chancen sichern ✨",hero:{badge:"Demnächst",title1:"Globale Handelsplattform Demnächst",title2:"Globale Handelsplattform Demnächst",subtitle:"Jetzt beitreten und frühe Chancen sichern",desc1:"Globale Handelsinfrastruktur für Lieferanten, Verkäufer und Logistikpartner",desc2:"Global Commerce Platform",val1:"Global verkaufen ohne Inventar",val1sub:"Bereit zum Start beim Launch",val2:"Automatisiertes Logistiksystem",val2sub:"Von Versand bis Abrechnung",val3:"Prioritäts-Partnervorteile",val3sub:"Spezielle Unterstützung",cta1:"Frühen Zugang Beantragen",cta2:"Warteliste Beitreten"},why:{title:"Warum Jetzt Beitreten",b1:"Prioritäts-Onboarding",b1d:"Erster beim Launch nutzen",b2:"Gründungspartner-Status",b2d:"VIP-Zertifizierung",b3:"Launch-Sondergebühren",b3d:"Niedrigere Gebühren",b4:"Erster Marktzugang",b4d:"Südostasien-Priorität"},what:{title:"Was TAGOJA Bereitstellen Wird",f1:"Globale Lieferkette",f1d:"Lieferanten und Verkäufer verbinden",f2:"Automatisierte Logistik",f2d:"Automatisierung von Bestellung bis Lieferung",f3:"Null-Inventar-Modell",f3d:"Verkaufen ohne Lagerlast"},who:{title:"Wer Sollte Zuerst Beitreten?",s:"Verkäufer",sd:"Seller / Dropshipper",sm:"Global verkaufen ohne Inventar",sp1:"Dropshipping-Geschäft",sp2:"Ausländische Vertriebskanäle",sp3:"Null-Inventar-Modell",sc:"Als Verkäufer Beitreten",su:"Lieferanten",sud:"Supplier / Manufacturer",sum:"Exportierende Hersteller",sup1:"Globales Vertriebsnetz",sup2:"Vereinfachter Export",sup3:"Direkter Export",suc:"Als Lieferant Beitreten",l:"Logistikpartner",ld:"3PL / Logistics",lm:"Globales Logistiknetzwerk",lp1:"Internationaler Versand",lp2:"Stabile Einnahmen",lp3:"Handelsinfrastruktur",lc:"Als Partner Beitreten"},road:{title:"Launch-Vorbereitung",p1:"Jetzt: In Entwicklung",p1d:"Kernfunktionen kurz vor Fertigstellung",p2:"Q3 2026: Stufenweiser Launch",p2d:"Früher Zugang zuerst",p3:"Erster Markt: Südostasien",p3d:"Vietnam, Thailand, Philippinen"},form:{title:"Warteliste Beitreten",type:"Typ Wählen",t1:"Verkäufer",t2:"Lieferant",t3:"Logistik",name:"Vollständiger Name",ph:"Max Mustermann",email:"E-Mail",country:"Country",countryPlaceholder:"Select country",company:"Firma",companySub:"(Optional)",companyPh:"Enter company name",submit:"Frühen Zugang Beantragen",successMsg:"✅ Successfully registered! We will prioritize you. 🎉",errorMsg:"❌ An error occurred. Please try again.",submitting:"⏳ Submitting..."},final:{title:"Die Ersten Gewinnen",desc1:"Früher Zugang ist begrenzt",desc2:"Be first in the global commerce revolution.",cta:"Jetzt Beitreten"}};
+  id: { code: "ID", name: "Bahasa Indonesia", hero: { badge: "Segera Hadir", title: "Platform Perdagangan Global Segera Hadir", subtitle: "Global Commerce Platform", message: "Bergabung sekarang dan amankan peluang awal", desc: "Infrastruktur perdagangan global untuk supplier, seller, logistics", val1: "Jual global tanpa stok", val1sub: "Siap mulai saat launch", val2: "Sistem logistik otomatis", val2sub: "Pengiriman hingga bayar", val3: "Keuntungan partner prioritas", val3sub: "Dukungan khusus", cta1: "Daftar Early Access", cta2: "Gabung Waitlist" }, why: { title: "Mengapa Bergabung Sekarang", b1: "Onboarding Prioritas", b1d: "Pertama gunakan saat launch", b2: "Status Mitra Pendiri", b2d: "Sertifikasi VIP", b3: "Biaya Khusus", b3d: "Biaya lebih rendah", b4: "Akses Pasar Pertama", b4d: "Prioritas Asia Tenggara" }, form: { title: "Daftar Waitlist", type: "Pilih Tipe", t1: "Seller", t2: "Supplier", t3: "Logistik", name: "Nama", ph: "Budi Santoso", email: "Email", company: "Perusahaan (Opsional)", submit: "Daftar Early Access", successMsg: "✅ Berhasil terdaftar! 🎉", errorMsg: "❌ Terjadi kesalahan. Coba lagi.", submitting: "⏳ Mengirim..." } },
 
-        // Current language
+  th: { code: "TH", name: "ภาษาไทย", hero: { badge: "เปิดตัวเร็วๆ นี้", title: "แพลตฟอร์มพาณิชย์โลก เปิดตัวเร็วๆ นี้", subtitle: "Global Commerce Platform", message: "เข้าร่วมตอนนี้และคว้าโอกาสแรกเริ่ม", desc: "โครงสร้างพื้นฐานพาณิชย์โลกสำหรับซัพพลายเออร์ ผู้ขาย โลจิสติกส์", val1: "ขายทั่วโลกไม่ต้องมีสต็อก", val1sub: "พร้อมเริ่มเมื่อเปิดตัว", val2: "ระบบโลจิสติกส์อัตโนมัติ", val2sub: "จัดส่งถึงชำระเงิน", val3: "สิทธิพิเศษพาร์ทเนอร์", val3sub: "สนับสนุนพิเศษ", cta1: "สมัครเข้าถึงก่อน", cta2: "เข้าร่วมรายชื่อรอ" }, why: { title: "ทำไมต้องเข้าร่วมตอนนี้", b1: "เริ่มใช้งานก่อน", b1d: "ใช้งานก่อนเมื่อเปิดตัว", b2: "สถานะพาร์ทเนอร์ผู้ก่อตั้ง", b2d: "การรับรอง VIP", b3: "ค่าธรรมเนียมพิเศษ", b3d: "ค่าธรรมเนียมต่ำกว่า", b4: "เข้าตลาดก่อน", b4d: "เอเชียตะวันออกเฉียงใต้" }, form: { title: "ลงทะเบียนรายชื่อรอ", type: "เลือกประเภท", t1: "ผู้ขาย", t2: "ซัพพลายเออร์", t3: "โลจิสติกส์", name: "ชื่อ", ph: "สมชาย ใจดี", email: "อีเมล", company: "บริษัท (ไม่บังคับ)", submit: "สมัครเข้าถึงก่อน", successMsg: "✅ ลงทะเบียนสำเร็จ! 🎉", errorMsg: "❌ เกิดข้อผิดพลาด", submitting: "⏳ กำลังส่ง..." } },
+
+  vi: { code: "VN", name: "Tiếng Việt", hero: { badge: "Sắp Ra Mắt", title: "Nền Tảng Thương Mại Toàn Cầu Sắp Ra Mắt", subtitle: "Global Commerce Platform", message: "Tham gia ngay để nắm bắt cơ hội đầu tiên", desc: "Cơ sở hạ tầng thương mại toàn cầu cho nhà cung cấp, người bán, logistics", val1: "Bán toàn cầu không cần kho", val1sub: "Sẵn sàng khi ra mắt", val2: "Hệ thống logistics tự động", val2sub: "Giao hàng đến thanh toán", val3: "Ưu đãi đối tác ưu tiên", val3sub: "Hỗ trợ đặc biệt", cta1: "Đăng Ký Truy Cập Sớm", cta2: "Tham Gia Danh Sách Chờ" }, why: { title: "Tại Sao Tham Gia Ngay", b1: "Onboarding Ưu Tiên", b1d: "Sử dụng đầu tiên khi ra mắt", b2: "Tư Cách Đối Tác Sáng Lập", b2d: "Chứng nhận VIP", b3: "Phí Đặc Biệt", b3d: "Phí thấp hơn", b4: "Truy Cập Thị Trường Đầu Tiên", b4d: "Ưu tiên Đông Nam Á" }, form: { title: "Đăng Ký Danh Sách Chờ", type: "Chọn Loại", t1: "Người Bán", t2: "Nhà Cung Cấp", t3: "Logistics", name: "Họ Tên", ph: "Nguyễn Văn A", email: "Email", company: "Công Ty (Không Bắt Buộc)", submit: "Đăng Ký Truy Cập Sớm", successMsg: "✅ Đăng ký thành công! 🎉", errorMsg: "❌ Có lỗi xảy ra", submitting: "⏳ Đang gửi..." } },
+
+  zh: { code: "CN", name: "中文", hero: { badge: "即将推出", title: "全球商务平台即将推出", subtitle: "Global Commerce Platform", message: "立即加入，抢占早期机会", desc: "为供应商、卖家和物流合作伙伴打造的全球商务基础设施", val1: "无库存全球销售", val1sub: "推出时即可开始", val2: "自动化物流系统", val2sub: "从配送到结算", val3: "优先合作伙伴福利", val3sub: "特别支持", cta1: "申请早期访问", cta2: "加入候补名单" }, why: { title: "为什么要现在加入", b1: "优先入驻", b1d: "推出时第一批使用", b2: "创始合作伙伴地位", b2d: "VIP认证", b3: "推出特别费率", b3d: "更低费率", b4: "抢占全球市场", b4d: "东南亚优先" }, form: { title: "加入候补名单", type: "选择类型", t1: "卖家", t2: "供应商", t3: "物流", name: "姓名", ph: "张三", email: "电子邮箱", company: "公司名称（可选）", submit: "申请早期访问", successMsg: "✅ 注册成功！🎉", errorMsg: "❌ 发生错误", submitting: "⏳ 提交中..." } },
+
+  ja: { code: "JP", name: "日本語", hero: { badge: "まもなくローンチ", title: "グローバルコマースプラットフォーム まもなくローンチ", subtitle: "Global Commerce Platform", message: "今すぐ参加して初期チャンスを確保", desc: "サプライヤー、セラー、物流パートナーのためのグローバルコマースインフラ", val1: "在庫なしでグローバル販売", val1sub: "ローンチ時にすぐ開始", val2: "自動化された物流システム", val2sub: "配送から決済まで", val3: "優先パートナー特典", val3sub: "特別サポート", cta1: "早期アクセス申請", cta2: "ウェイトリスト登録" }, why: { title: "今参加すべき理由", b1: "優先オンボーディング", b1d: "ローンチ時に最初に利用", b2: "創設パートナー資格", b2d: "VIP認証", b3: "ローンチ特別手数料", b3d: "低い手数料", b4: "グローバル市場先占", b4d: "東南アジア優先" }, form: { title: "ウェイトリスト登録", type: "タイプ選択", t1: "セラー", t2: "サプライヤー", t3: "物流", name: "氏名", ph: "山田太郎", email: "メール", company: "会社名（任意）", submit: "早期アクセス申請", successMsg: "✅ 登録完了！🎉", errorMsg: "❌ エラーが発生しました", submitting: "⏳ 送信中..." } },
+
+  hi: { code: "IN", name: "हिन्दी", hero: { badge: "जल्द आ रहा है", title: "वैश्विक वाणिज्य प्लेटफार्म जल्द लॉन्च", subtitle: "Global Commerce Platform", message: "अभी शामिल हों और शुरुआती अवसर सुरक्षित करें", desc: "आपूर्तिकर्ताओं, विक्रेताओं और रसद भागीदारों के लिए वैश्विक वाणिज्य बुनियादी ढांचा", val1: "बिना स्टॉक के वैश्विक बिक्री", val1sub: "लॉन्च पर तुरंत शुरू", val2: "स्वचालित रसद प्रणाली", val2sub: "शिपिंग से निपटान तक", val3: "प्राथमिकता भागीदार लाभ", val3sub: "विशेष सहायता", cta1: "अर्ली एक्सेस के लिए आवेदन करें", cta2: "प्रतीक्षा सूची में शामिल हों" }, why: { title: "अभी क्यों शामिल हों", b1: "प्राथमिकता ऑनबोर्डिंग", b1d: "लॉन्च पर पहले उपयोग करें", b2: "संस्थापक भागीदार स्थिति", b2d: "VIP प्रमाणन", b3: "लॉन्च विशेष शुल्क", b3d: "कम शुल्क", b4: "पहली बाजार पहुंच", b4d: "दक्षिण पूर्व एशिया प्राथमिकता" }, form: { title: "प्रतीक्षा सूची में शामिल हों", type: "प्रकार चुनें", t1: "विक्रेता", t2: "आपूर्तिकर्ता", t3: "रसद", name: "पूरा नाम", ph: "राज कुमार", email: "ईमेल", company: "कंपनी (वैकल्पिक)", submit: "अर्ली एक्सेस के लिए आवेदन करें", successMsg: "✅ सफलतापूर्वक पंजीकृत! 🎉", errorMsg: "❌ त्रुटि हुई", submitting: "⏳ सबमिट कर रहे हैं..." } },
+
+  es: { code: "ES", name: "Español", hero: { badge: "Próximamente", title: "Plataforma de Comercio Global Próximamente", subtitle: "Global Commerce Platform", message: "Únete ahora y asegura oportunidades tempranas", desc: "Infraestructura de comercio global para proveedores, vendedores y socios logísticos", val1: "Vende globalmente sin inventario", val1sub: "Listo para comenzar en el lanzamiento", val2: "Sistema logístico automatizado", val2sub: "Desde envío hasta liquidación", val3: "Beneficios de socio prioritario", val3sub: "Soporte especial", cta1: "Solicitar Acceso Anticipado", cta2: "Unirse a Lista de Espera" }, why: { title: "Por Qué Unirse Ahora", b1: "Incorporación Prioritaria", b1d: "Primero en usar en el lanzamiento", b2: "Estado de Socio Fundador", b2d: "Certificación VIP", b3: "Tarifas Especiales de Lanzamiento", b3d: "Tarifas más bajas", b4: "Primer Acceso al Mercado", b4d: "Prioridad en el Sudeste Asiático" }, form: { title: "Unirse a Lista de Espera", type: "Seleccionar Tipo", t1: "Vendedor", t2: "Proveedor", t3: "Logística", name: "Nombre Completo", ph: "Juan Pérez", email: "Correo", company: "Empresa (Opcional)", submit: "Solicitar Acceso Anticipado", successMsg: "✅ ¡Registro exitoso! 🎉", errorMsg: "❌ Ocurrió un error", submitting: "⏳ Enviando..." } },
+
+  fr: { code: "FR", name: "Français", hero: { badge: "Bientôt Disponible", title: "Plateforme de Commerce Mondiale Bientôt", subtitle: "Global Commerce Platform", message: "Rejoignez maintenant et sécurisez les opportunités précoces", desc: "Infrastructure commerciale mondiale pour fournisseurs, vendeurs et partenaires logistiques", val1: "Vendez mondialement sans inventaire", val1sub: "Prêt au lancement", val2: "Système logistique automatisé", val2sub: "De l'expédition au règlement", val3: "Avantages partenaire prioritaire", val3sub: "Support spécial", cta1: "Demander Accès Anticipé", cta2: "Rejoindre Liste d'Attente" }, why: { title: "Pourquoi Rejoindre Maintenant", b1: "Intégration Prioritaire", b1d: "Premier à utiliser au lancement", b2: "Statut Partenaire Fondateur", b2d: "Certification VIP", b3: "Frais Spéciaux de Lancement", b3d: "Frais réduits", b4: "Premier Accès au Marché", b4d: "Priorité Asie du Sud-Est" }, form: { title: "Rejoindre Liste d'Attente", type: "Sélectionner Type", t1: "Vendeur", t2: "Fournisseur", t3: "Logistique", name: "Nom Complet", ph: "Jean Dupont", email: "Email", company: "Entreprise (Optionnel)", submit: "Demander Accès Anticipé", successMsg: "✅ Inscription réussie! 🎉", errorMsg: "❌ Une erreur s'est produite", submitting: "⏳ Envoi en cours..." } },
+
+  ar: { code: "SA", name: "العربية", hero: { badge: "قريباً", title: "منصة التجارة العالمية قريباً", subtitle: "Global Commerce Platform", message: "انضم الآن واحصل على الفرص المبكرة", desc: "البنية التحتية التجارية العالمية للموردين والبائعين وشركاء اللوجستيات", val1: "البيع عالمياً بدون مخزون", val1sub: "جاهز للبدء عند الإطلاق", val2: "نظام لوجستي آلي", val2sub: "من الشحن إلى التسوية", val3: "مزايا الشريك ذو الأولوية", val3sub: "دعم خاص", cta1: "طلب الوصول المبكر", cta2: "الانضمام لقائمة الانتظار" }, why: { title: "لماذا الانضمام الآن", b1: "الإعداد ذو الأولوية", b1d: "الأول في الاستخدام عند الإطلاق", b2: "حالة الشريك المؤسس", b2d: "شهادة VIP", b3: "رسوم الإطلاق الخاصة", b3d: "رسوم أقل", b4: "الوصول الأول للسوق", b4d: "أولوية جنوب شرق آسيا" }, form: { title: "الانضمام لقائمة الانتظار", type: "اختر النوع", t1: "بائع", t2: "مورد", t3: "لوجستيات", name: "الاسم الكامل", ph: "أحمد محمد", email: "البريد الإلكتروني", company: "الشركة (اختياري)", submit: "طلب الوصول المبكر", successMsg: "✅ تم التسجيل بنجاح! 🎉", errorMsg: "❌ حدث خطأ", submitting: "⏳ جاري الإرسال..." } },
+
+  pt: { code: "BR", name: "Português", hero: { badge: "Em Breve", title: "Plataforma de Comércio Global Em Breve", subtitle: "Global Commerce Platform", message: "Junte-se agora e garanta oportunidades iniciais", desc: "Infraestrutura de comércio global para fornecedores, vendedores e parceiros logísticos", val1: "Venda globalmente sem estoque", val1sub: "Pronto para começar no lançamento", val2: "Sistema logístico automatizado", val2sub: "Do envio à liquidação", val3: "Benefícios de parceiro prioritário", val3sub: "Suporte especial", cta1: "Solicitar Acesso Antecipado", cta2: "Entrar na Lista de Espera" }, why: { title: "Por Que Entrar Agora", b1: "Integração Prioritária", b1d: "Primeiro a usar no lançamento", b2: "Status de Parceiro Fundador", b2d: "Certificação VIP", b3: "Taxas Especiais de Lançamento", b3d: "Taxas mais baixas", b4: "Primeiro Acesso ao Mercado", b4d: "Prioridade no Sudeste Asiático" }, form: { title: "Entrar na Lista de Espera", type: "Selecionar Tipo", t1: "Vendedor", t2: "Fornecedor", t3: "Logística", name: "Nome Completo", ph: "João Silva", email: "Email", company: "Empresa (Opcional)", submit: "Solicitar Acesso Antecipado", successMsg: "✅ Registro bem-sucedido! 🎉", errorMsg: "❌ Ocorreu um erro", submitting: "⏳ Enviando..." } },
+
+  ru: { code: "RU", name: "Русский", hero: { badge: "Скоро", title: "Глобальная Торговая Платформа Скоро", subtitle: "Global Commerce Platform", message: "Присоединяйтесь сейчас и получите ранние возможности", desc: "Глобальная торговая инфраструктура для поставщиков, продавцов и логистических партнеров", val1: "Продавайте глобально без запасов", val1sub: "Готово к запуску", val2: "Автоматизированная логистическая система", val2sub: "От доставки до расчетов", val3: "Преимущества приоритетного партнера", val3sub: "Специальная поддержка", cta1: "Запросить Ранний Доступ", cta2: "Присоединиться к Списку Ожидания" }, why: { title: "Почему Присоединиться Сейчас", b1: "Приоритетная Адаптация", b1d: "Первым использовать при запуске", b2: "Статус Партнера-Основателя", b2d: "VIP сертификация", b3: "Специальные Тарифы Запуска", b3d: "Более низкие тарифы", b4: "Первый Доступ к Рынку", b4d: "Приоритет в Юго-Восточной Азии" }, form: { title: "Присоединиться к Списку Ожидания", type: "Выбрать Тип", t1: "Продавец", t2: "Поставщик", t3: "Логистика", name: "Полное Имя", ph: "Иван Иванов", email: "Email", company: "Компания (Необязательно)", submit: "Запросить Ранний Доступ", successMsg: "✅ Регистрация успешна! 🎉", errorMsg: "❌ Произошла ошибка", submitting: "⏳ Отправка..." } },
+
+  de: { code: "DE", name: "Deutsch", hero: { badge: "Demnächst", title: "Globale Handelsplattform Demnächst", subtitle: "Global Commerce Platform", message: "Jetzt beitreten und frühe Chancen sichern", desc: "Globale Handelsinfrastruktur für Lieferanten, Verkäufer und Logistikpartner", val1: "Global verkaufen ohne Inventar", val1sub: "Bereit zum Start beim Launch", val2: "Automatisiertes Logistiksystem", val2sub: "Von Versand bis Abrechnung", val3: "Prioritäts-Partnervorteile", val3sub: "Spezielle Unterstützung", cta1: "Frühen Zugang Beantragen", cta2: "Warteliste Beitreten" }, why: { title: "Warum Jetzt Beitreten", b1: "Prioritäts-Onboarding", b1d: "Erster beim Launch nutzen", b2: "Gründungspartner-Status", b2d: "VIP-Zertifizierung", b3: "Launch-Sondergebühren", b3d: "Niedrigere Gebühren", b4: "Erster Marktzugang", b4d: "Südostasien-Priorität" }, form: { title: "Warteliste Beitreten", type: "Typ Wählen", t1: "Verkäufer", t2: "Lieferant", t3: "Logistik", name: "Vollständiger Name", ph: "Max Mustermann", email: "E-Mail", company: "Firma (Optional)", submit: "Frühen Zugang Beantragen", successMsg: "✅ Erfolgreich registriert! 🎉", errorMsg: "❌ Ein Fehler ist aufgetreten", submitting: "⏳ Wird gesendet..." } }
+};
+
         let currentLang = localStorage.getItem('tagoja_language') || 'ko';
+        let selectedType = '';
 
-        // Language functions
-        function toggleLanguageDropdown() {
-            const dropdown = document.getElementById('languageDropdown');
-            const chevron = document.getElementById('chevron');
-            dropdown.classList.toggle('active');
-            chevron.classList.toggle('rotate');
-        }
-
-        function changeLanguage(lang, element) {
-            currentLang = lang;
-            localStorage.setItem('tagoja_language', lang);
-            
-            const t = TRANSLATIONS[lang];
-            
-            // Update language selector
-            document.getElementById('currentLangCode').textContent = t.code;
-            document.getElementById('currentLangName').textContent = t.name;
-            
-            // Update selected state in dropdown
-            document.querySelectorAll('.language-option').forEach(opt => {
-                opt.classList.remove('selected');
-            });
-            if (element) element.classList.add('selected');
-            
-            // Close dropdown
-            document.getElementById('languageDropdown').classList.remove('active');
-            document.getElementById('chevron').classList.remove('rotate');
-            
-            // Update page content
-            updatePageContent(t);
-        }
-
-        function updatePageContent(t) {
-            // Only update if full translation exists
-            if (!t.hero) return;
-            
-            // Update announcement bar
-            const announcementBar = document.querySelector('.announcement-bar > div');
-            if (announcementBar) announcementBar.innerHTML = t.announcementBar;
-            
-            // Update hero section
-            const heroTitle = document.querySelector('.hero-section h1');
-            if (heroTitle) heroTitle.innerHTML = t.hero.title1 + '<br>' + t.hero.title2;
-            
-            const heroSubtitle = document.querySelector('.hero-subtitle');
-            if (heroSubtitle) heroSubtitle.textContent = t.hero.subtitle;
-            
-            const heroDescPs = document.querySelectorAll('.hero-description');
-            if (heroDescPs[0]) heroDescPs[0].innerHTML = t.hero.desc1 + '<br>' + t.hero.desc2;
-            
-            // Update hero badge
-            const heroBadge = document.querySelector('.hero-section .badge span:last-child');
-            if (heroBadge) heroBadge.textContent = t.hero.badge;
-            
-            // Update value cards
-            const valueCards = document.querySelectorAll('.value-card');
-            if (valueCards[0]) {
-                valueCards[0].querySelector('.value-card-title').textContent = t.hero.val1;
-                valueCards[0].querySelector('.value-card-desc').textContent = t.hero.val1sub;
-            }
-            if (valueCards[1]) {
-                valueCards[1].querySelector('.value-card-title').textContent = t.hero.val2;
-                valueCards[1].querySelector('.value-card-desc').textContent = t.hero.val2sub;
-            }
-                cta1: "申请早期访问",
-                cta2: "加入候补名单"
-            },
-            why: {
-                title: "为什么要现在加入",
-                b1: "优先入驻",
-                b1d: "推出时第一批使用",
-                b2: "创始合作伙伴地位",
-                b2d: "VIP认证",
-                b3: "推出特别费率",
-                b3d: "更低费率",
-                b4: "抢占全球市场",
-                b4d: "东南亚优先"
-            },
-            what: {
-                title: "TAGOJA将提供的服务",
-                f1: "全球供应链连接",
-                f1d: "连接供应商和卖家",
-                f2: "自动化物流系统",
-                f2d: "订单到配送自动化",
-                f3: "零库存销售模式",
-                f3d: "无库存负担销售"
-            },
-            who: {
-                title: "谁应该优先加入？",
-                s: "卖家",
-                sd: "Seller / Dropshipper",
-                sm: "无库存全球销售",
-                sp1: "代发货业务",
-                sp2: "海外销售渠道",
-                sp3: "无库存模式",
-                sc: "作为卖家加入",
-                su: "供应商",
-                sud: "Supplier / Manufacturer",
-                sum: "出口制造商",
-                sup1: "全球销售网络",
-                sup2: "简化出口",
-                sup3: "直接出口",
-                suc: "作为供应商加入",
-                l: "物流合作伙伴",
-                ld: "3PL / Logistics",
-                lm: "全球物流网络",
-                lp1: "国际配送",
-                lp2: "稳定收入",
-                lp3: "商务基础设施",
-                lc: "作为合作伙伴加入"
-            },
-            road: {
-                title: "推出准备状态",
-                p1: "现在：开发中",
-                p1d: "核心功能接近完成",
-                p2: "2026年第三季度：分阶段推出",
-                p2d: "早期访问优先",
-                p3: "首个市场：东南亚",
-                p3d: "越南、泰国、菲律宾"
-            },
-            form: {
-                title: "加入候补名单",
-                type: "选择类型",
-                t1: "卖家",
-                t2: "供应商",
-                t3: "物流",
-                name: "姓名",
-                ph: "张三",
-                email: "电子邮箱",
-                country: "国家",
-                countryPlaceholder: "选择国家",
-                company: "公司名称",
-                companySub: "（可选）",
-                companyPh: "输入公司名称",
-                submit: "申请早期访问",
-                successMsg: "✅ 注册成功！🎉",
-                errorMsg: "❌ 发生错误",
-                submitting: "⏳ 提交中..."
-            },
-            final: {
-                title: "先行者抓住机会",
-                desc1: "成为首批加入的人",
-                desc2: "早期访问名额有限",
-                cta: "立即加入"
-            }
-        };
-        
-        TRANSLATIONS.ja = {
-            code: "JP",
-            name: "日本語",
-            announcementBar: "✨ TAGOJAグローバルコマースプラットフォーム まもなくローンチ – Early Access登録 ✨",
-            hero: {
-                badge: "まもなくローンチ",
-                title1: "グローバルコマースプラットフォーム，",
-                title2: "まもなくローンチ",
-                subtitle: "今すぐ参加して初期チャンスを確保",
-                desc1: "サプライヤー、セラー、物流パートナーのためのグローバルコマースインフラ",
-                desc2: "ローンチ前の早期アクセス機会",
-                val1: "在庫なしでグローバル販売",
-                val1sub: "ローンチ時にすぐ開始",
-                val2: "自動化された物流システム",
-                val2sub: "配送から決済まで",
-                val3: "優先パートナー特典",
-                val3sub: "特別サポート",
-                cta1: "早期アクセス申請",
-                cta2: "ウェイトリスト登録"
-            },
-            why: {
-                title: "今参加すべき理由",
-                b1: "優先オンボーディング",
-                b1d: "ローンチ時に最初に利用",
-                b2: "創設パートナー資格",
-                b2d: "VIP認証",
-                b3: "ローンチ特別手数料",
-                b3d: "低い手数料",
-                b4: "グローバル市場先占",
-                b4d: "東南アジア優先"
-            },
-            what: {
-                title: "TAGOJAが提供するサービス",
-                f1: "グローバルサプライチェーン",
-                f1d: "サプライヤーとセラーを接続",
-                f2: "自動化物流システム",
-                f2d: "注文から配送まで自動",
-                f3: "在庫なし販売モデル",
-                f3d: "在庫負担なく販売"
-            },
-            who: {
-                title: "誰が先に参加すべきか？",
-                s: "セラー",
-                sd: "Seller / Dropshipper",
-                sm: "在庫なしでグローバル販売",
-                sp1: "ドロップシッピングビジネス",
-                sp2: "海外販売チャネル",
-                sp3: "在庫なしモデル",
-                sc: "セラーとして参加",
-                su: "サプライヤー",
-                sud: "Supplier / Manufacturer",
-                sum: "輸出メーカー",
-                sup1: "グローバル販売網",
-                sup2: "輸出手続き簡素化",
-                sup3: "直接輸出",
-                suc: "サプライヤーとして参加",
-                l: "物流パートナー",
-                ld: "3PL / Logistics",
-                lm: "グローバル物流ネットワーク",
-                lp1: "国際配送",
-                lp2: "安定収益",
-                lp3: "コマースインフラ",
-                lc: "パートナーとして参加"
-            },
-            road: {
-                title: "ローンチ準備状況",
-                p1: "現在：開発進行中",
-                p1d: "中核機能完了段階",
-                p2: "2026年第3四半期：段階的ローンチ",
-                p2d: "早期アクセス優先",
-                p3: "最初の市場：東南アジア",
-                p3d: "ベトナム、タイ、フィリピン"
-            },
-            form: {
-                title: "ウェイトリスト登録",
-                type: "タイプ選択",
-                t1: "セラー",
-                t2: "サプライヤー",
-                t3: "物流",
-                name: "氏名",
-                ph: "山田太郎",
-                email: "メール",
-                country: "国",
-                countryPlaceholder: "国を選択",
-                company: "会社名",
-                companySub: "（任意）",
-                companyPh: "会社名を入力",
-                submit: "早期アクセス申請",
-                successMsg: "✅ 登録完了！🎉",
-                errorMsg: "❌ エラーが発生しました",
-                submitting: "⏳ 送信中..."
-            },
-            final: {
-                title: "先行者がチャンスをつかむ",
-                desc1: "最初に参加しよう",
-                desc2: "早期アクセスは限定",
-                cta: "今すぐ登録"
-            }
-        };
-        
-        TRANSLATIONS.hi = {
-            code: "IN",
-            name: "हिन्दी",
-            announcementBar: "✨ TAGOJA वैश्विक वाणिज्य प्लेटफार्म जल्द लॉन्च – Early Access पाएं ✨",
-            hero: {
-                badge: "जल्द आ रहा है",
-                title1: "वैश्विक वाणिज्य प्लेटफार्म,",
-                title2: "जल्द लॉन्च",
-                subtitle: "अभी शामिल हों और शुरुआती अवसर सुरक्षित करें",
-                desc1: "आपूर्तिकर्ताओं, विक्रेताओं और रसद भागीदारों के लिए वैश्विक वाणिज्य बुनियादी ढांचा",
-                desc2: "लॉन्च से पहले शुरुआती पहुंच अवसर",
-                val1: "बिना स्टॉक के वैश्विक बिक्री",
-                val1sub: "लॉन्च पर तुरंत शुरू",
-                val2: "स्वचालित रसद प्रणाली",
-                val2sub: "शिपिंग से निपटान तक",
-                val3: "प्राथमिकता भागीदार लाभ",
-                val3sub: "विशेष सहायता",
-                cta1: "अर्ली एक्सेस के लिए आवेदन करें",
-                cta2: "प्रतीक्षा सूची में शामिल हों"
-            },
-            why: {
-                title: "अभी क्यों शामिल हों",
-                b1: "प्राथमिकता ऑनबोर्डिंग",
-                b1d: "लॉन्च पर पहले उपयोग करें",
-                b2: "संस्थापक भागीदार स्थिति",
-                b2d: "VIP प्रमाणन",
-                b3: "लॉन्च विशेष शुल्क",
-                b3d: "कम शुल्क",
-                b4: "पहली बाजार पहुंच",
-                b4d: "दक्षिण पूर्व एशिया प्राथमिकता"
-            },
-            what: {
-                title: "TAGOJA क्या प्रदान करेगा",
-                f1: "वैश्विक आपूर्ति श्रृंखला",
-                f1d: "आपूर्तिकर्ता और विक्रेता कनेक्ट करें",
-                f2: "स्वचालित रसद",
-                f2d: "ऑर्डर से डिलीवरी स्वचालन",
-                f3: "शून्य-इन्वेंटरी मॉडल",
-                f3d: "स्टॉक बोझ के बिना बेचें"
-            },
-            who: {
-                title: "पहले किसे शामिल होना चाहिए?",
-                s: "विक्रेता",
-                sd: "Seller / Dropshipper",
-                sm: "बिना स्टॉक वैश्विक बिक्री",
-                sp1: "ड्रॉपशिपिंग व्यवसाय",
-                sp2: "विदेशी बिक्री चैनल",
-                sp3: "शून्य-इन्वेंटरी मॉडल",
-                sc: "विक्रेता के रूप में शामिल हों",
-                su: "आपूर्तिकर्ता",
-                sud: "Supplier / Manufacturer",
-                sum: "निर्यात निर्माता",
-                sup1: "वैश्विक बिक्री नेटवर्क",
-                sup2: "सरलीकृत निर्यात",
-                sup3: "प्रत्यक्ष निर्यात",
-                suc: "आपूर्तिकर्ता के रूप में शामिल हों",
-                l: "रसद भागीदार",
-                ld: "3PL / Logistics",
-                lm: "वैश्विक रसद नेटवर्क",
-                lp1: "अंतर्राष्ट्रीय शिपिंग",
-                lp2: "स्थिर राजस्व",
-                lp3: "वाणिज्य बुनियादी ढांचा",
-                lc: "भागीदार के रूप में शामिल हों"
-            },
-            road: {
-                title: "लॉन्च तैयारी",
-                p1: "अब: विकास में",
-                p1d: "मुख्य विशेषताएं पूर्ण होने के करीब",
-                p2: "Q3 2026: चरणबद्ध लॉन्च",
-                p2d: "पहले शुरुआती पहुंच",
-                p3: "पहला बाजार: दक्षिण पूर्व एशिया",
-                p3d: "वियतनाम, थाईलैंड, फिलीपींस"
-            },
-            form: {
-                title: "प्रतीक्षा सूची में शामिल हों",
-                type: "प्रकार चुनें",
-                t1: "विक्रेता",
-                t2: "आपूर्तिकर्ता",
-                t3: "रसद",
-                name: "पूरा नाम",
-                ph: "राज कुमार",
-                email: "ईमेल",
-                country: "देश",
-                countryPlaceholder: "देश चुनें",
-                company: "कंपनी",
-                companySub: "(वैकल्पिक)",
-                companyPh: "कंपनी का नाम दर्ज करें",
-                submit: "अर्ली एक्सेस के लिए आवेदन करें",
-                successMsg: "✅ सफलतापूर्वक पंजीकृत! 🎉",
-                errorMsg: "❌ त्रुटि हुई। कृपया पुनः प्रयास करें",
-                submitting: "⏳ सबमिट कर रहे हैं..."
-            },
-            final: {
-                title: "पहले आने वाले जीतते हैं",
-                desc1: "वैश्विक वाणिज्य क्रांति में पहले शामिल हों",
-                desc2: "शुरुआती पहुंच सीमित है",
-                cta: "अभी शामिल हों"
-            }
-        };
-        
-        TRANSLATIONS.es = {
-            code: "ES",
-            name: "Español",
-            announcementBar: "✨ Plataforma de Comercio Global TAGOJA Próximamente – Asegura tu Early Access ✨",
-            hero: {
-                badge: "Próximamente",
-                title1: "Plataforma de Comercio Global,",
-                title2: "Próximamente",
-                subtitle: "Únete ahora y asegura oportunidades tempranas",
-                desc1: "Infraestructura de comercio global para proveedores, vendedores y socios logísticos",
-                desc2: "Oportunidades de acceso temprano antes del lanzamiento",
-                val1: "Vende globalmente sin inventario",
-                val1sub: "Listo para comenzar en el lanzamiento",
-                val2: "Sistema logístico automatizado",
-                val2sub: "Desde envío hasta liquidación",
-                val3: "Beneficios de socio prioritario",
-                val3sub: "Soporte especial",
-                cta1: "Solicitar Acceso Anticipado",
-                cta2: "Unirse a Lista de Espera"
-            },
-            why: {
-                title: "Por Qué Unirse Ahora",
-                b1: "Incorporación Prioritaria",
-                b1d: "Primero en usar en el lanzamiento",
-                b2: "Estado de Socio Fundador",
-                b2d: "Certificación VIP",
-                b3: "Tarifas Especiales de Lanzamiento",
-                b3d: "Tarifas más bajas",
-                b4: "Primer Acceso al Mercado",
-                b4d: "Prioridad en el Sudeste Asiático"
-            },
-            what: {
-                title: "Lo Que TAGOJA Proporcionará",
-                f1: "Cadena de Suministro Global",
-                f1d: "Conectar proveedores y vendedores",
-                f2: "Logística Automatizada",
-                f2d: "Automatización de pedido a entrega",
-                f3: "Modelo Sin Inventario",
-                f3d: "Vender sin carga de stock"
-            },
-            who: {
-                title: "¿Quién Debe Unirse Primero?",
-                s: "Vendedores",
-                sd: "Seller / Dropshipper",
-                sm: "Vender globalmente sin inventario",
-                sp1: "Negocio de dropshipping",
-                sp2: "Canales de venta en el extranjero",
-                sp3: "Modelo sin inventario",
-                sc: "Unirse como Vendedor",
-                su: "Proveedores",
-                sud: "Supplier / Manufacturer",
-                sum: "Fabricantes exportadores",
-                sup1: "Red de ventas global",
-                sup2: "Exportación simplificada",
-                sup3: "Exportación directa",
-                suc: "Unirse como Proveedor",
-                l: "Socios Logísticos",
-                ld: "3PL / Logistics",
-                lm: "Red logística global",
-                lp1: "Envío internacional",
-                lp2: "Ingresos estables",
-                lp3: "Infraestructura comercial",
-                lc: "Unirse como Socio"
-            },
-            road: {
-                title: "Preparación de Lanzamiento",
-                p1: "Ahora: En Desarrollo",
-                p1d: "Funciones principales cerca de completarse",
-                p2: "Q3 2026: Lanzamiento por Fases",
-                p2d: "Acceso anticipado primero",
-                p3: "Primer Mercado: Sudeste Asiático",
-                p3d: "Vietnam, Tailandia, Filipinas"
-            },
-            form: {
-                title: "Unirse a Lista de Espera",
-                type: "Seleccionar Tipo",
-                t1: "Vendedor",
-                t2: "Proveedor",
-                t3: "Logística",
-                name: "Nombre Completo",
-                ph: "Juan Pérez",
-                email: "Correo",
-                country: "País",
-                countryPlaceholder: "Seleccionar país",
-                company: "Empresa",
-                companySub: "(Opcional)",
-                companyPh: "Ingresar nombre de empresa",
-                submit: "Solicitar Acceso Anticipado",
-                successMsg: "✅ ¡Registro exitoso! 🎉",
-                errorMsg: "❌ Ocurrió un error. Por favor intenta de nuevo",
-                submitting: "⏳ Enviando..."
-            },
-            final: {
-                title: "Los Primeros Ganan",
-                desc1: "Sé el primero en unirte a la revolución del comercio global",
-                desc2: "El acceso anticipado es limitado",
-                cta: "Unirse Ahora"
-            }
-        };
-        
-        TRANSLATIONS.fr = {
-            code: "FR",
-            name: "Français",
-            announcementBar: "✨ Plateforme de Commerce Mondiale TAGOJA Bientôt – Sécurisez votre Early Access ✨",
-            hero: {
-                badge: "Bientôt Disponible",
-                title1: "Plateforme de Commerce Mondiale,",
-                title2: "Bientôt",
-                subtitle: "Rejoignez maintenant et sécurisez les opportunités précoces",
-                desc1: "Infrastructure commerciale mondiale pour fournisseurs, vendeurs et partenaires logistiques",
-                desc2: "Opportunités d'accès précoce avant le lancement",
-                val1: "Vendez mondialement sans inventaire",
-                val1sub: "Prêt au lancement",
-                val2: "Système logistique automatisé",
-                val2sub: "De l'expédition au règlement",
-                val3: "Avantages partenaire prioritaire",
-                val3sub: "Support spécial",
-                cta1: "Demander Accès Anticipé",
-                cta2: "Rejoindre Liste d'Attente"
-            },
-            why: {
-                title: "Pourquoi Rejoindre Maintenant",
-                b1: "Intégration Prioritaire",
-                b1d: "Premier à utiliser au lancement",
-                b2: "Statut Partenaire Fondateur",
-                b2d: "Certification VIP",
-                b3: "Frais Spéciaux de Lancement",
-                b3d: "Frais réduits",
-                b4: "Premier Accès au Marché",
-                b4d: "Priorité Asie du Sud-Est"
-            },
-            what: {
-                title: "Ce Que TAGOJA Fournira",
-                f1: "Chaîne d'Approvisionnement Mondiale",
-                f1d: "Connecter fournisseurs et vendeurs",
-                f2: "Logistique Automatisée",
-                f2d: "Automatisation commande à livraison",
-                f3: "Modèle Sans Inventaire",
-                f3d: "Vendre sans fardeau de stock"
-            },
-            who: {
-                title: "Qui Devrait Rejoindre En Premier?",
-                s: "Vendeurs",
-                sd: "Seller / Dropshipper",
-                sm: "Vendre mondialement sans inventaire",
-                sp1: "Business de dropshipping",
-                sp2: "Canaux de vente à l'étranger",
-                sp3: "Modèle sans inventaire",
-                sc: "Rejoindre comme Vendeur",
-                su: "Fournisseurs",
-                sud: "Supplier / Manufacturer",
-                sum: "Fabricants exportateurs",
-                sup1: "Réseau de vente mondial",
-                sup2: "Export simplifié",
-                sup3: "Export direct",
-                suc: "Rejoindre comme Fournisseur",
-                l: "Partenaires Logistiques",
-                ld: "3PL / Logistics",
-                lm: "Réseau logistique mondial",
-                lp1: "Expédition internationale",
-                lp2: "Revenus stables",
-                lp3: "Infrastructure commerciale",
-                lc: "Rejoindre comme Partenaire"
-            },
-            road: {
-                title: "Préparation du Lancement",
-                p1: "Maintenant: En Développement",
-                p1d: "Fonctionnalités principales presque terminées",
-                p2: "Q3 2026: Lancement Progressif",
-                p2d: "Accès anticipé d'abord",
-                p3: "Premier Marché: Asie du Sud-Est",
-                p3d: "Vietnam, Thaïlande, Philippines"
-            },
-            form: {
-                title: "Rejoindre Liste d'Attente",
-                type: "Sélectionner Type",
-                t1: "Vendeur",
-                t2: "Fournisseur",
-                t3: "Logistique",
-                name: "Nom Complet",
-                ph: "Jean Dupont",
-                email: "Email",
-                country: "Pays",
-                countryPlaceholder: "Sélectionner pays",
-                company: "Entreprise",
-                companySub: "(Optionnel)",
-                companyPh: "Entrer nom d'entreprise",
-                submit: "Demander Accès Anticipé",
-                successMsg: "✅ Inscription réussie! 🎉",
-                errorMsg: "❌ Une erreur s'est produite. Veuillez réessayer",
-                submitting: "⏳ Envoi en cours..."
-            },
-            final: {
-                title: "Les Premiers Gagnent",
-                desc1: "Soyez le premier à rejoindre la révolution du commerce mondial",
-                desc2: "L'accès anticipé est limité",
-                cta: "Rejoindre Maintenant"
-            }
-        };
-        
-        TRANSLATIONS.ar = {
-            code: "SA",
-            name: "العربية",
-            announcementBar: "✨ منصة التجارة العالمية TAGOJA قريباً – احجز Early Access ✨",
-            hero: {
-                badge: "قريباً",
-                title1: "منصة التجارة العالمية،",
-                title2: "قريباً",
-                subtitle: "انضم الآن واحصل على الفرص المبكرة",
-                desc1: "البنية التحتية التجارية العالمية للموردين والبائعين وشركاء اللوجستيات",
-                desc2: "فرص الوصول المبكر قبل الإطلاق",
-                val1: "البيع عالمياً بدون مخزون",
-                val1sub: "جاهز للبدء عند الإطلاق",
-                val2: "نظام لوجستي آلي",
-                val2sub: "من الشحن إلى التسوية",
-                val3: "مزايا الشريك ذو الأولوية",
-                val3sub: "دعم خاص",
-                cta1: "طلب الوصول المبكر",
-                cta2: "الانضمام لقائمة الانتظار"
-            },
-            why: {
-                title: "لماذا الانضمام الآن",
-                b1: "الإعداد ذو الأولوية",
-                b1d: "الأول في الاستخدام عند الإطلاق",
-                b2: "حالة الشريك المؤسس",
-                b2d: "شهادة VIP",
-                b3: "رسوم الإطلاق الخاصة",
-                b3d: "رسوم أقل",
-                b4: "الوصول الأول للسوق",
-                b4d: "أولوية جنوب شرق آسيا"
-            },
-            what: {
-                title: "ما الذي ستوفره TAGOJA",
-                f1: "سلسلة التوريد العالمية",
-                f1d: "ربط الموردين والبائعين",
-                f2: "اللوجستيات الآلية",
-                f2d: "أتمتة من الطلب إلى التسليم",
-                f3: "نموذج بدون مخزون",
-                f3d: "البيع بدون عبء المخزون"
-            },
-            who: {
-                title: "من يجب أن ينضم أولاً؟",
-                s: "البائعون",
-                sd: "Seller / Dropshipper",
-                sm: "البيع عالمياً بدون مخزون",
-                sp1: "أعمال الدروب شيبينج",
-                sp2: "قنوات المبيعات الخارجية",
-                sp3: "نموذج بدون مخزون",
-                sc: "الانضمام كبائع",
-                su: "الموردون",
-                sud: "Supplier / Manufacturer",
-                sum: "مصنعون مصدرون",
-                sup1: "شبكة مبيعات عالمية",
-                sup2: "تصدير مبسط",
-                sup3: "تصدير مباشر",
-                suc: "الانضمام كمورد",
-                l: "شركاء اللوجستيات",
-                ld: "3PL / Logistics",
-                lm: "شبكة لوجستية عالمية",
-                lp1: "الشحن الدولي",
-                lp2: "إيرادات مستقرة",
-                lp3: "البنية التحتية التجارية",
-                lc: "الانضمام كشريك"
-            },
-            road: {
-                title: "حالة التحضير للإطلاق",
-                p1: "الآن: قيد التطوير",
-                p1d: "الميزات الأساسية تقترب من الاكتمال",
-                p2: "الربع الثالث 2026: إطلاق تدريجي",
-                p2d: "الوصول المبكر أولاً",
-                p3: "السوق الأول: جنوب شرق آسيا",
-                p3d: "فيتنام، تايلاند، الفلبين"
-            },
-            form: {
-                title: "الانضمام لقائمة الانتظار",
-                type: "اختر النوع",
-                t1: "بائع",
-                t2: "مورد",
-                t3: "لوجستيات",
-                name: "الاسم الكامل",
-                ph: "أحمد محمد",
-                email: "البريد الإلكتروني",
-                country: "الدولة",
-                countryPlaceholder: "اختر الدولة",
-                company: "الشركة",
-                companySub: "(اختياري)",
-                companyPh: "أدخل اسم الشركة",
-                submit: "طلب الوصول المبكر",
-                successMsg: "✅ تم التسجيل بنجاح! 🎉",
-                errorMsg: "❌ حدث خطأ. يرجى المحاولة مرة أخرى",
-                submitting: "⏳ جاري الإرسال..."
-            },
-            final: {
-                title: "الأوائل يفوزون",
-                desc1: "كن أول من ينضم إلى ثورة التجارة العالمية",
-                desc2: "الوصول المبكر محدود",
-                cta: "انضم الآن"
-            }
-        };
-        
-        TRANSLATIONS.pt = {
-            code: "BR",
-            name: "Português",
-            announcementBar: "✨ Plataforma de Comércio Global TAGOJA Em Breve – Garanta seu Early Access ✨",
-            hero: {
-                badge: "Em Breve",
-                title1: "Plataforma de Comércio Global,",
-                title2: "Em Breve",
-                subtitle: "Junte-se agora e garanta oportunidades iniciais",
-                desc1: "Infraestrutura de comércio global para fornecedores, vendedores e parceiros logísticos",
-                desc2: "Oportunidades de acesso antecipado antes do lançamento",
-                val1: "Venda globalmente sem estoque",
-                val1sub: "Pronto para começar no lançamento",
-                val2: "Sistema logístico automatizado",
-                val2sub: "Do envio à liquidação",
-                val3: "Benefícios de parceiro prioritário",
-                val3sub: "Suporte especial",
-                cta1: "Solicitar Acesso Antecipado",
-                cta2: "Entrar na Lista de Espera"
-            },
-            why: {
-                title: "Por Que Entrar Agora",
-                b1: "Integração Prioritária",
-                b1d: "Primeiro a usar no lançamento",
-                b2: "Status de Parceiro Fundador",
-                b2d: "Certificação VIP",
-                b3: "Taxas Especiais de Lançamento",
-                b3d: "Taxas mais baixas",
-                b4: "Primeiro Acesso ao Mercado",
-                b4d: "Prioridade no Sudeste Asiático"
-            },
-            what: {
-                title: "O Que TAGOJA Fornecerá",
-                f1: "Cadeia de Suprimentos Global",
-                f1d: "Conectar fornecedores e vendedores",
-                f2: "Logística Automatizada",
-                f2d: "Automação do pedido à entrega",
-                f3: "Modelo Sem Estoque",
-                f3d: "Vender sem carga de estoque"
-            },
-            who: {
-                title: "Quem Deve Entrar Primeiro?",
-                s: "Vendedores",
-                sd: "Seller / Dropshipper",
-                sm: "Vender globalmente sem estoque",
-                sp1: "Negócio de dropshipping",
-                sp2: "Canais de venda no exterior",
-                sp3: "Modelo sem estoque",
-                sc: "Entrar como Vendedor",
-                su: "Fornecedores",
-                sud: "Supplier / Manufacturer",
-                sum: "Fabricantes exportadores",
-                sup1: "Rede de vendas global",
-                sup2: "Exportação simplificada",
-                sup3: "Exportação direta",
-                suc: "Entrar como Fornecedor",
-                l: "Parceiros Logísticos",
-                ld: "3PL / Logistics",
-                lm: "Rede logística global",
-                lp1: "Envio internacional",
-                lp2: "Receita estável",
-                lp3: "Infraestrutura comercial",
-                lc: "Entrar como Parceiro"
-            },
-            road: {
-                title: "Preparação de Lançamento",
-                p1: "Agora: Em Desenvolvimento",
-                p1d: "Recursos principais quase concluídos",
-                p2: "Q3 2026: Lançamento por Fases",
-                p2d: "Acesso antecipado primeiro",
-                p3: "Primeiro Mercado: Sudeste Asiático",
-                p3d: "Vietnã, Tailândia, Filipinas"
-            },
-            form: {
-                title: "Entrar na Lista de Espera",
-                type: "Selecionar Tipo",
-                t1: "Vendedor",
-                t2: "Fornecedor",
-                t3: "Logística",
-                name: "Nome Completo",
-                ph: "João Silva",
-                email: "Email",
-                country: "País",
-                countryPlaceholder: "Selecionar país",
-                company: "Empresa",
-                companySub: "(Opcional)",
-                companyPh: "Inserir nome da empresa",
-                submit: "Solicitar Acesso Antecipado",
-                successMsg: "✅ Registro bem-sucedido! 🎉",
-                errorMsg: "❌ Ocorreu um erro. Por favor, tente novamente",
-                submitting: "⏳ Enviando..."
-            },
-            final: {
-                title: "Os Primeiros Vencem",
-                desc1: "Seja o primeiro a participar da revolução do comércio global",
-                desc2: "O acesso antecipado é limitado",
-                cta: "Entrar Agora"
-            }
-        };
-        
-        TRANSLATIONS.ru = {
-            code: "RU",
-            name: "Русский",
-            announcementBar: "✨ Глобальная Торговая Платформа TAGOJA Скоро – Получите Early Access ✨",
-            hero: {
-                badge: "Скоро",
-                title1: "Глобальная Торговая Платформа,",
-                title2: "Скоро",
-                subtitle: "Присоединяйтесь сейчас и получите ранние возможности",
-                desc1: "Глобальная торговая инфраструктура для поставщиков, продавцов и логистических партнеров",
-                desc2: "Возможности раннего доступа перед запуском",
-                val1: "Продавайте глобально без запасов",
-                val1sub: "Готово к запуску",
-                val2: "Автоматизированная логистическая система",
-                val2sub: "От доставки до расчетов",
-                val3: "Преимущества приоритетного партнера",
-                val3sub: "Специальная поддержка",
-                cta1: "Запросить Ранний Доступ",
-                cta2: "Присоединиться к Списку Ожидания"
-            },
-            why: {
-                title: "Почему Присоединиться Сейчас",
-                b1: "Приоритетная Адаптация",
-                b1d: "Первым использовать при запуске",
-                b2: "Статус Партнера-Основателя",
-                b2d: "VIP сертификация",
-                b3: "Специальные Тарифы Запуска",
-                b3d: "Более низкие тарифы",
-                b4: "Первый Доступ к Рынку",
-                b4d: "Приоритет в Юго-Восточной Азии"
-            },
-            what: {
-                title: "Что Предоставит TAGOJA",
-                f1: "Глобальная Цепочка Поставок",
-                f1d: "Соединение поставщиков и продавцов",
-                f2: "Автоматизированная Логистика",
-                f2d: "Автоматизация от заказа до доставки",
-                f3: "Модель Без Запасов",
-                f3d: "Продажа без бремени запасов"
-            },
-            who: {
-                title: "Кто Должен Присоединиться Первым?",
-                s: "Продавцы",
-                sd: "Seller / Dropshipper",
-                sm: "Глобальная продажа без запасов",
-                sp1: "Бизнес дропшиппинга",
-                sp2: "Зарубежные каналы продаж",
-                sp3: "Модель без запасов",
-                sc: "Присоединиться как Продавец",
-                su: "Поставщики",
-                sud: "Supplier / Manufacturer",
-                sum: "Производители-экспортеры",
-                sup1: "Глобальная сеть продаж",
-                sup2: "Упрощенный экспорт",
-                sup3: "Прямой экспорт",
-                suc: "Присоединиться как Поставщик",
-                l: "Логистические Партнеры",
-                ld: "3PL / Logistics",
-                lm: "Глобальная логистическая сеть",
-                lp1: "Международная доставка",
-                lp2: "Стабильный доход",
-                lp3: "Торговая инфраструктура",
-                lc: "Присоединиться как Партнер"
-            },
-            road: {
-                title: "Подготовка к Запуску",
-                p1: "Сейчас: В Разработке",
-                p1d: "Основные функции близки к завершению",
-                p2: "Q3 2026: Поэтапный Запуск",
-                p2d: "Сначала ранний доступ",
-                p3: "Первый Рынок: Юго-Восточная Азия",
-                p3d: "Вьетнам, Таиланд, Филиппины"
-            },
-            form: {
-                title: "Присоединиться к Списку Ожидания",
-                type: "Выбрать Тип",
-                t1: "Продавец",
-                t2: "Поставщик",
-                t3: "Логистика",
-                name: "Полное Имя",
-                ph: "Иван Иванов",
-                email: "Email",
-                country: "Страна",
-                countryPlaceholder: "Выбрать страну",
-                company: "Компания",
-                companySub: "(Необязательно)",
-                companyPh: "Введите название компании",
-                submit: "Запросить Ранний Доступ",
-                successMsg: "✅ Регистрация успешна! 🎉",
-                errorMsg: "❌ Произошла ошибка. Пожалуйста, попробуйте снова",
-                submitting: "⏳ Отправка..."
-            },
-            final: {
-                title: "Первые Побеждают",
-                desc1: "Будьте первыми, кто присоединится к революции глобальной торговли",
-                desc2: "Ранний доступ ограничен",
-                cta: "Присоединиться Сейчас"
-            }
-        };
-        
-        TRANSLATIONS.de = {
-            code: "DE",
-            name: "Deutsch",
-            announcementBar: "✨ Globale Handelsplattform TAGOJA Demnächst – Sichern Sie sich Early Access ✨",
-            hero: {
-                badge: "Demnächst",
-                title1: "Globale Handelsplattform,",
-                title2: "Demnächst",
-                subtitle: "Jetzt beitreten und frühe Chancen sichern",
-                desc1: "Globale Handelsinfrastruktur für Lieferanten, Verkäufer und Logistikpartner",
-                desc2: "Frühe Zugriffsmöglichkeiten vor dem Launch",
-                val1: "Global verkaufen ohne Inventar",
-                val1sub: "Bereit zum Start beim Launch",
-                val2: "Automatisiertes Logistiksystem",
-                val2sub: "Von Versand bis Abrechnung",
-                val3: "Prioritäts-Partnervorteile",
-                val3sub: "Spezielle Unterstützung",
-                cta1: "Frühen Zugang Beantragen",
-                cta2: "Warteliste Beitreten"
-            },
-            why: {
-                title: "Warum Jetzt Beitreten",
-                b1: "Prioritäts-Onboarding",
-                b1d: "Erster beim Launch nutzen",
-                b2: "Gründungspartner-Status",
-                b2d: "VIP-Zertifizierung",
-                b3: "Launch-Sondergebühren",
-                b3d: "Niedrigere Gebühren",
-                b4: "Erster Marktzugang",
-                b4d: "Südostasien-Priorität"
-            },
-            what: {
-                title: "Was TAGOJA Bereitstellen Wird",
-                f1: "Globale Lieferkette",
-                f1d: "Lieferanten und Verkäufer verbinden",
-                f2: "Automatisierte Logistik",
-                f2d: "Automatisierung von Bestellung bis Lieferung",
-                f3: "Null-Inventar-Modell",
-                f3d: "Verkaufen ohne Lagerlast"
-            },
-            who: {
-                title: "Wer Sollte Zuerst Beitreten?",
-                s: "Verkäufer",
-                sd: "Seller / Dropshipper",
-                sm: "Global verkaufen ohne Inventar",
-                sp1: "Dropshipping-Geschäft",
-                sp2: "Ausländische Vertriebskanäle",
-                sp3: "Null-Inventar-Modell",
-                sc: "Als Verkäufer Beitreten",
-                su: "Lieferanten",
-                sud: "Supplier / Manufacturer",
-                sum: "Exportierende Hersteller",
-                sup1: "Globales Vertriebsnetz",
-                sup2: "Vereinfachter Export",
-                sup3: "Direkter Export",
-                suc: "Als Lieferant Beitreten",
-                l: "Logistikpartner",
-                ld: "3PL / Logistics",
-                lm: "Globales Logistiknetzwerk",
-                lp1: "Internationaler Versand",
-                lp2: "Stabile Einnahmen",
-                lp3: "Handelsinfrastruktur",
-                lc: "Als Partner Beitreten"
-            },
-            road: {
-                title: "Launch-Vorbereitung",
-                p1: "Jetzt: In Entwicklung",
-                p1d: "Kernfunktionen kurz vor Fertigstellung",
-                p2: "Q3 2026: Stufenweiser Launch",
-                p2d: "Früher Zugang zuerst",
-                p3: "Erster Markt: Südostasien",
-                p3d: "Vietnam, Thailand, Philippinen"
-            },
-            form: {
-                title: "Warteliste Beitreten",
-                type: "Typ Wählen",
-                t1: "Verkäufer",
-                t2: "Lieferant",
-                t3: "Logistik",
-                name: "Vollständiger Name",
-                ph: "Max Mustermann",
-                email: "E-Mail",
-                country: "Land",
-                countryPlaceholder: "Land wählen",
-                company: "Firma",
-                companySub: "(Optional)",
-                companyPh: "Firmennamen eingeben",
-                submit: "Frühen Zugang Beantragen",
-                successMsg: "✅ Registrierung erfolgreich! 🎉",
-                errorMsg: "❌ Ein Fehler ist aufgetreten. Bitte versuchen Sie es erneut",
-                submitting: "⏳ Wird gesendet..."
-            },
-            final: {
-                title: "Die Ersten Gewinnen",
-                desc1: "Seien Sie der Erste, der der globalen Handelsrevolution beitritt",
-                desc2: "Früher Zugang ist begrenzt",
-                cta: "Jetzt Beitreten"
-            }
-        };
-
-        // Current language
-        let currentLang = localStorage.getItem('tagoja_language') || 'ko';
-
-        // Language functions
-        function toggleLanguageDropdown() {
-            const dropdown = document.getElementById('languageDropdown');
-            const chevron = document.getElementById('chevron');
-            dropdown.classList.toggle('active');
-            chevron.classList.toggle('rotate');
-        }
-
-        function changeLanguage(lang, element) {
-            currentLang = lang;
-            localStorage.setItem('tagoja_language', lang);
-            
-            const t = TRANSLATIONS[lang];
-            
-            // Update language selector
-            document.getElementById('currentLangCode').textContent = t.code;
-            document.getElementById('currentLangName').textContent = t.name;
-            
-            // Update selected state in dropdown
-            document.querySelectorAll('.language-option').forEach(opt => {
-                opt.classList.remove('selected');
-            });
-            if (element) element.classList.add('selected');
-            
-            // Close dropdown
-            document.getElementById('languageDropdown').classList.remove('active');
-            document.getElementById('chevron').classList.remove('rotate');
-            
-            // Update page content
-            updatePageContent(t);
-        }
-
-        function updatePageContent(t) {
-            // Only update if full translation exists
-            if (!t.hero) return;
-            
-            // Update announcement bar
-            const announcementBar = document.querySelector('.announcement-bar > div');
-            if (announcementBar) announcementBar.innerHTML = t.announcementBar;
-            
-            // Update hero section
-            const heroTitle = document.querySelector('.hero-section h1');
-            if (heroTitle) heroTitle.innerHTML = t.hero.title1 + '<br>' + t.hero.title2;
-            
-            const heroSubtitle = document.querySelector('.hero-subtitle');
-            if (heroSubtitle) heroSubtitle.textContent = t.hero.subtitle;
-            
-            const heroDescPs = document.querySelectorAll('.hero-description');
-            if (heroDescPs[0]) heroDescPs[0].innerHTML = t.hero.desc1 + '<br>' + t.hero.desc2;
-            
-            // Update hero badge
-            const heroBadge = document.querySelector('.hero-section .badge span:last-child');
-            if (heroBadge) heroBadge.textContent = t.hero.badge;
-            
-            // Update value cards
-            const valueCards = document.querySelectorAll('.value-card');
-            if (valueCards[0]) {
-                valueCards[0].querySelector('.value-card-title').textContent = t.hero.val1;
-                valueCards[0].querySelector('.value-card-desc').textContent = t.hero.val1sub;
-            }
-            if (valueCards[1]) {
-                valueCards[1].querySelector('.value-card-title').textContent = t.hero.val2;
-                valueCards[1].querySelector('.value-card-desc').textContent = t.hero.val2sub;
-            }
-            if (valueCards[2]) {
-                valueCards[2].querySelector('.value-card-title').textContent = t.hero.val3;
-                valueCards[2].querySelector('.value-card-desc').textContent = t.hero.val3sub;
-            }
-            
-            // Update CTA buttons
-            const ctaButtons = document.querySelectorAll('.hero-section .btn-primary');
-            if (ctaButtons[0]) ctaButtons[0].querySelector('span:nth-child(2)').textContent = t.hero.cta1;
-            const ctaSecondary = document.querySelector('.hero-section .btn-secondary span:first-child');
-            if (ctaSecondary) ctaSecondary.textContent = t.hero.cta2;
-            
-            // Update form section
-            if (t.form) {
-                const formBadge = document.querySelector('#waitlist-form .badge span:last-child');
-                if (formBadge) formBadge.textContent = t.form.badge || t.hero.badge;
-                
-                const formTitle = document.querySelector('#waitlist-form .section-title');
-                if (formTitle) formTitle.textContent = t.form.title;
-                
-                const formSubtitle = document.querySelector('#waitlist-form p[style*="1.25rem"]');
-                if (formSubtitle) formSubtitle.textContent = t.form.subtitle || 'Join Early Access Waitlist';
-                
-                // Update form labels
-                const typeLabel = document.querySelector('.form-box label:first-child');
-                if (typeLabel) typeLabel.innerHTML = t.form.type + ' <span class="required">*</span>';
-                
-                const typeButtons = document.querySelectorAll('.type-btn');
-                if (typeButtons[0]) typeButtons[0].textContent = t.form.t1;
-                if (typeButtons[1]) typeButtons[1].textContent = t.form.t2;
-                if (typeButtons[2]) typeButtons[2].textContent = t.form.t3;
-                
-                const nameLabel = document.querySelector('label[for="name"]');
-                if (nameLabel) nameLabel.innerHTML = t.form.name + ' <span class="required">*</span>';
-                
-                const nameInput = document.getElementById('name');
-                if (nameInput) nameInput.placeholder = t.form.ph;
-                
-                const emailLabel = document.querySelector('label[for="email"]');
-                if (emailLabel) emailLabel.innerHTML = t.form.email + ' <span class="required">*</span>';
-                
-                const countryLabel = document.querySelector('label[for="country"]');
-                if (countryLabel) countryLabel.innerHTML = t.form.country + ' <span class="required">*</span>';
-                
-                const countrySelect = document.getElementById('country');
-                if (countrySelect && t.form.countryPlaceholder) {
-                    countrySelect.options[0].text = t.form.countryPlaceholder;
-                }
-                
-                const companyLabel = document.querySelector('label[for="company"]');
-                if (companyLabel && t.form.companySub) {
-                    companyLabel.innerHTML = t.form.company + ' <span style="color: #9ca3af; font-size: 12px;">' + t.form.companySub + '</span>';
-                }
-                
-                const companyInput = document.getElementById('company');
-                if (companyInput && t.form.companyPh) companyInput.placeholder = t.form.companyPh;
-                
-                // Update submit button
-                const submitBtn = document.getElementById('submitBtn');
-                if (submitBtn) submitBtn.innerHTML = '<span>⭐</span><span>' + t.form.submit + '</span><span>→</span>';
-            }
-            
-            // Update WHY section
-            if (t.why) {
-                const sections = document.querySelectorAll('.section');
-                const whySection = sections[0]; // First section is WHY
-                if (whySection) {
-                    const whyBadge = whySection.querySelector('.badge span:last-child');
-                    if (whyBadge && t.why.badge) whyBadge.textContent = t.why.badge;
-                    
-                    const whyTitle = whySection.querySelector('.section-title');
-                    if (whyTitle) whyTitle.textContent = t.why.title;
-                    
-                    const whySubtitle = whySection.querySelector('.section-subtitle');
-                    if (whySubtitle && t.why.subtitle) whySubtitle.textContent = t.why.subtitle;
-                    
-                    const benefitCards = whySection.querySelectorAll('.benefit-card');
-                    if (benefitCards[0]) {
-                        benefitCards[0].querySelector('.benefit-title').textContent = t.why.b1;
-                        benefitCards[0].querySelector('.benefit-subtitle').textContent = t.why.b1sub || t.why.b1;
-                        benefitCards[0].querySelector('.benefit-desc').textContent = t.why.b1desc || t.why.b1d;
-                    }
-                    if (benefitCards[1]) {
-                        benefitCards[1].querySelector('.benefit-title').textContent = t.why.b2;
-                        benefitCards[1].querySelector('.benefit-subtitle').textContent = t.why.b2sub || t.why.b2;
-                        benefitCards[1].querySelector('.benefit-desc').textContent = t.why.b2desc || t.why.b2d;
-                    }
-                    if (benefitCards[2]) {
-                        benefitCards[2].querySelector('.benefit-title').textContent = t.why.b3;
-                        benefitCards[2].querySelector('.benefit-subtitle').textContent = t.why.b3sub || t.why.b3;
-                        benefitCards[2].querySelector('.benefit-desc').textContent = t.why.b3desc || t.why.b3d;
-                    }
-                    if (benefitCards[3]) {
-                        benefitCards[3].querySelector('.benefit-title').textContent = t.why.b4;
-                        benefitCards[3].querySelector('.benefit-subtitle').textContent = t.why.b4sub || t.why.b4;
-                        benefitCards[3].querySelector('.benefit-desc').textContent = t.why.b4desc || t.why.b4d;
-                    }
-                    
-                    const whyCta = whySection.querySelector('.btn-primary');
-                    if (whyCta && t.why.cta) whyCta.innerHTML = t.why.cta;
-                }
-            }
-            
-            // Update WHAT section
-            if (t.what) {
-                const sections = document.querySelectorAll('.section');
-                const whatSection = sections[1]; // Second section is WHAT
-                if (whatSection) {
-                    const whatTitle = whatSection.querySelector('.section-title');
-                    if (whatTitle) whatTitle.textContent = t.what.title;
-                    
-                    const whatSubtitle = whatSection.querySelector('.section-subtitle');
-                    if (whatSubtitle && t.what.subtitle) whatSubtitle.textContent = t.what.subtitle;
-                    
-                    const serviceCards = whatSection.querySelectorAll('.service-card');
-                    if (serviceCards[0]) {
-                        serviceCards[0].querySelector('.service-title').textContent = t.what.f1;
-                        serviceCards[0].querySelector('.service-desc').textContent = t.what.f1desc || t.what.f1d;
-                        serviceCards[0].querySelector('.service-subtitle').textContent = t.what.f1sub || t.what.f1;
-                    }
-                    if (serviceCards[1]) {
-                        serviceCards[1].querySelector('.service-title').textContent = t.what.f2;
-                        serviceCards[1].querySelector('.service-desc').textContent = t.what.f2desc || t.what.f2d;
-                        serviceCards[1].querySelector('.service-subtitle').textContent = t.what.f2sub || t.what.f2;
-                    }
-                    if (serviceCards[2]) {
-                        serviceCards[2].querySelector('.service-title').textContent = t.what.f3;
-                        serviceCards[2].querySelector('.service-desc').textContent = t.what.f3desc || t.what.f3d;
-                        serviceCards[2].querySelector('.service-subtitle').textContent = t.what.f3sub || t.what.f3;
-                    }
-                }
-            }
-            
-            // Update WHO section
-            if (t.who) {
-                const sections = document.querySelectorAll('.section');
-                const whoSection = sections[2]; // Third section is WHO
-                if (whoSection) {
-                    const whoTitle = whoSection.querySelector('.section-title');
-                    if (whoTitle) whoTitle.textContent = t.who.title;
-                    
-                    const whoSubtitle = whoSection.querySelector('.section-subtitle');
-                    if (whoSubtitle && t.who.subtitle) whoSubtitle.textContent = t.who.subtitle;
-                    
-                    const targetCards = whoSection.querySelectorAll('.target-card');
-                    if (targetCards[0]) {
-                        targetCards[0].querySelector('.target-type').textContent = t.who.s;
-                        targetCards[0].querySelector('.target-eng').textContent = t.who.ssub || t.who.sd;
-                        targetCards[0].querySelector('.target-tagline').textContent = t.who.stag || t.who.sm;
-                        
-                        const listItems = targetCards[0].querySelectorAll('.target-list li');
-                        if (listItems[0]) listItems[0].innerHTML = '<span>✓</span> ' + t.who.sp1;
-                        if (listItems[1]) listItems[1].innerHTML = '<span>✓</span> ' + t.who.sp2;
-                        if (listItems[2]) listItems[2].innerHTML = '<span>✓</span> ' + t.who.sp3;
-                        
-                        const btn = targetCards[0].querySelector('.target-btn');
-                        if (btn) btn.textContent = t.who.scta || t.who.sc;
-                    }
-                    if (targetCards[1]) {
-                        targetCards[1].querySelector('.target-type').textContent = t.who.su;
-                        targetCards[1].querySelector('.target-eng').textContent = t.who.susub || t.who.sud;
-                        targetCards[1].querySelector('.target-tagline').textContent = t.who.sutag || t.who.sum;
-                        
-                        const listItems = targetCards[1].querySelectorAll('.target-list li');
-                        if (listItems[0]) listItems[0].innerHTML = '<span>✓</span> ' + t.who.sup1;
-                        if (listItems[1]) listItems[1].innerHTML = '<span>✓</span> ' + t.who.sup2;
-                        if (listItems[2]) listItems[2].innerHTML = '<span>✓</span> ' + t.who.sup3;
-                        
-                        const btn = targetCards[1].querySelector('.target-btn');
-                        if (btn) btn.textContent = t.who.sucta || t.who.suc;
-                    }
-                    if (targetCards[2]) {
-                        targetCards[2].querySelector('.target-type').textContent = t.who.l;
-                        targetCards[2].querySelector('.target-eng').textContent = t.who.lsub || t.who.ld;
-                        targetCards[2].querySelector('.target-tagline').textContent = t.who.ltag || t.who.lm;
-                        
-                        const listItems = targetCards[2].querySelectorAll('.target-list li');
-                        if (listItems[0]) listItems[0].innerHTML = '<span>✓</span> ' + t.who.lp1;
-                        if (listItems[1]) listItems[1].innerHTML = '<span>✓</span> ' + t.who.lp2;
-                        if (listItems[2]) listItems[2].innerHTML = '<span>✓</span> ' + t.who.lp3;
-                        
-                        const btn = targetCards[2].querySelector('.target-btn');
-                        if (btn) btn.textContent = t.who.lcta || t.who.lc;
-                    }
-                }
-            }
-            
-            // Update ROAD section
-            if (t.road) {
-                const sections = document.querySelectorAll('.section');
-                const roadSection = sections[3]; // Fourth section is ROAD
-                if (roadSection) {
-                    const roadTitle = roadSection.querySelector('.section-title');
-                    if (roadTitle) roadTitle.textContent = t.road.title;
-                    
-                    const roadSubtitle = roadSection.querySelector('.section-subtitle');
-                    if (roadSubtitle && t.road.subtitle) roadSubtitle.textContent = t.road.subtitle;
-                    
-                    const roadmapItems = roadSection.querySelectorAll('.roadmap-item');
-                    if (roadmapItems[0]) {
-                        roadmapItems[0].querySelector('.roadmap-title').textContent = t.road.p1;
-                        roadmapItems[0].querySelector('.roadmap-desc').textContent = t.road.p1desc || t.road.p1d;
-                        roadmapItems[0].querySelector('.roadmap-eng').textContent = t.road.p1sub || t.road.p1;
-                    }
-                    if (roadmapItems[1]) {
-                        roadmapItems[1].querySelector('.roadmap-title').textContent = t.road.p2;
-                        roadmapItems[1].querySelector('.roadmap-desc').textContent = t.road.p2desc || t.road.p2d;
-                        roadmapItems[1].querySelector('.roadmap-eng').textContent = t.road.p2sub || t.road.p2;
-                    }
-                    if (roadmapItems[2]) {
-                        roadmapItems[2].querySelector('.roadmap-title').textContent = t.road.p3;
-                        roadmapItems[2].querySelector('.roadmap-desc').textContent = t.road.p3desc || t.road.p3d;
-                        roadmapItems[2].querySelector('.roadmap-eng').textContent = t.road.p3sub || t.road.p3;
-                    }
-                    
-                    const roadmapNote = roadSection.querySelector('.roadmap-note');
-                    if (roadmapNote && t.road.note) roadmapNote.textContent = t.road.note;
-                }
-            }
-            
-            // Update final CTA section
-            if (t.final) {
-                const finalTitle = document.querySelector('.final-cta h2');
-                if (finalTitle) finalTitle.innerHTML = t.final.title;
-                
-                const finalDesc = document.querySelector('.final-cta p');
-                if (finalDesc) finalDesc.innerHTML = t.final.desc1 + '<br>' + t.final.desc2;
-                
-                const finalBtn = document.querySelector('.final-cta .btn-primary span:nth-child(2)');
-                if (finalBtn) finalBtn.textContent = t.final.cta;
-            }
-        }
-
-        // Initialize language on page load
-        document.addEventListener('DOMContentLoaded', function() {
-            const t = TRANSLATIONS[currentLang];
-            if (t && t.code) {
-                document.getElementById('currentLangCode').textContent = t.code;
-                document.getElementById('currentLangName').textContent = t.name;
-            }
-            if (t && t.hero) {
-                updatePageContent(t);
-            }
+        // Initialize page
+        window.addEventListener('DOMContentLoaded', function() {
+            changeLanguage(currentLang);
         });
+
+        // Toggle language dropdown
+        function toggleLanguageDropdown() {
+            const dropdown = document.getElementById('languageDropdown');
+            const chevron = document.getElementById('chevron');
+            dropdown.classList.toggle('active');
+            chevron.classList.toggle('rotate');
+        }
 
         // Close dropdown when clicking outside
         document.addEventListener('click', function(event) {
-            const selector = document.querySelector('.language-selector');
-            if (selector && !selector.contains(event.target)) {
-                document.getElementById('languageDropdown').classList.remove('active');
+            const dropdown = document.getElementById('languageDropdown');
+            const languageBtn = document.querySelector('.language-btn');
+            
+            if (!languageBtn.contains(event.target) && !dropdown.contains(event.target)) {
+                dropdown.classList.remove('active');
                 document.getElementById('chevron').classList.remove('rotate');
             }
         });
 
-        let selectedType = '';
+        // Change language
+        function changeLanguage(lang, element) {
+            currentLang = lang;
+            localStorage.setItem('tagoja_language', lang);
+            
+            const t = TRANSLATIONS[lang];
+            
+            // Update language selector
+            document.getElementById('currentLangCode').textContent = t.code;
+            document.getElementById('currentLangName').textContent = t.name;
+            
+            // Update selected state in dropdown
+            document.querySelectorAll('.language-option').forEach(opt => {
+                opt.classList.remove('selected');
+            });
+            if (element) element.classList.add('selected');
+            
+            // Close dropdown
+            document.getElementById('languageDropdown').classList.remove('active');
+            document.getElementById('chevron').classList.remove('rotate');
+            
+            // Update page content
+            updatePageContent(t);
+        }
 
+        // Update page content with translations
+        function updatePageContent(t) {
+            if (!t || !t.hero) return;
+            
+            // Announcement bar
+            document.getElementById('announcementBar').innerHTML = `<span>✨ ${t.hero.title} ✨</span>`;
+            
+            // Hero section
+            document.getElementById('heroBadge').textContent = t.hero.badge;
+            document.getElementById('heroTitle').innerHTML = t.hero.title;
+            document.getElementById('heroSubtitle').innerHTML = t.hero.subtitle;
+            document.getElementById('heroMessage').textContent = t.hero.message;
+            document.getElementById('heroDesc').textContent = t.hero.desc;
+            
+            document.getElementById('val1').textContent = t.hero.val1;
+            document.getElementById('val1sub').textContent = t.hero.val1sub;
+            document.getElementById('val2').textContent = t.hero.val2;
+            document.getElementById('val2sub').textContent = t.hero.val2sub;
+            document.getElementById('val3').textContent = t.hero.val3;
+            document.getElementById('val3sub').textContent = t.hero.val3sub;
+            
+            document.getElementById('cta1').textContent = t.hero.cta1;
+            document.getElementById('cta2').textContent = t.hero.cta2;
+            
+            // Why section
+            if (t.why) {
+                document.getElementById('whyTitle').textContent = t.why.title;
+                document.getElementById('b1').textContent = t.why.b1;
+                document.getElementById('b1sub').textContent = t.why.b1;
+                document.getElementById('b1d').textContent = t.why.b1d;
+                document.getElementById('b2').textContent = t.why.b2;
+                document.getElementById('b2sub').textContent = t.why.b2;
+                document.getElementById('b2d').textContent = t.why.b2d;
+                document.getElementById('b3').textContent = t.why.b3;
+                document.getElementById('b3sub').textContent = t.why.b3;
+                document.getElementById('b3d').textContent = t.why.b3d;
+                document.getElementById('b4').textContent = t.why.b4;
+                document.getElementById('b4sub').textContent = t.why.b4;
+                document.getElementById('b4d').textContent = t.why.b4d;
+            }
+            
+            // Form section
+            if (t.form) {
+                document.getElementById('formTitle').textContent = t.form.title;
+                document.getElementById('formTypeLabel').innerHTML = t.form.type + ' <span class="required">*</span>';
+                document.getElementById('typeBtn1').textContent = t.form.t1;
+                document.getElementById('typeBtn2').textContent = t.form.t2;
+                document.getElementById('typeBtn3').textContent = t.form.t3;
+                document.getElementById('formNameLabel').innerHTML = t.form.name + ' <span class="required">*</span>';
+                document.getElementById('name').placeholder = t.form.ph;
+                document.getElementById('formEmailLabel').innerHTML = t.form.email + ' <span class="required">*</span>';
+                document.getElementById('formCompanyLabel').innerHTML = t.form.company;
+                document.getElementById('submitText').textContent = t.form.submit;
+            }
+        }
+
+        // Scroll to form
         function scrollToForm() {
             document.getElementById('waitlist-form').scrollIntoView({ behavior: 'smooth' });
         }
 
-        function selectType(type) {
+        // Select user type
+        function selectType(type, element) {
             selectedType = type;
             document.getElementById('userType').value = type;
             
@@ -2514,22 +830,12 @@
             document.querySelectorAll('.type-btn').forEach(btn => {
                 btn.classList.remove('active');
             });
-            event.target.classList.add('active');
+            element.classList.add('active');
             
-            // Enable submit button if form is valid
             validateForm();
         }
 
-        function selectUserType(type) {
-            scrollToForm();
-            setTimeout(() => {
-                const btn = document.querySelector(`.type-btn[data-type="${type}"]`);
-                if (btn) {
-                    btn.click();
-                }
-            }, 500);
-        }
-
+        // Validate form
         function validateForm() {
             const name = document.getElementById('name').value;
             const email = document.getElementById('email').value;
@@ -2544,26 +850,18 @@
             }
         }
 
-        // Add event listeners for form validation
-        document.getElementById('name').addEventListener('input', validateForm);
-        document.getElementById('email').addEventListener('input', validateForm);
-        document.getElementById('country').addEventListener('change', validateForm);
-
-        async function handleSubmit(e) {
-            e.preventDefault();
+        // Handle form submit with Google Apps Script
+        async function handleSubmit(event) {
+            event.preventDefault();
             
+            const t = TRANSLATIONS[currentLang];
             const submitBtn = document.getElementById('submitBtn');
             const formMessage = document.getElementById('formMessage');
-            const form = document.getElementById('waitlistForm');
+            const successText = t.form.successMsg;
+            const errorText = t.form.errorMsg;
+            const submittingText = t.form.submitting;
             
-            // Get current translation
-            const t = TRANSLATIONS[currentLang];
-            const submittingText = (t && t.form && t.form.submitting) ? t.form.submitting : '⏳ 제출 중...';
-            const successText = (t && t.form && t.form.successMsg) ? t.form.successMsg : '✅ 대기자 명단에 성공적으로 등록되었습니다! 출시 시 우선 안내 드리겠습니다. 🎉';
-            const errorText = (t && t.form && t.form.errorMsg) ? t.form.errorMsg : '❌ 제출 중 오류가 발생했습니다. 다시 시도해 주세요.';
-            const submitText = (t && t.form && t.form.submit) ? t.form.submit : '얼리 액세스 신청하기';
-            
-            // Disable button and show loading state
+            // Disable button and show loading
             submitBtn.disabled = true;
             submitBtn.innerHTML = submittingText;
             formMessage.style.display = 'none';
@@ -2578,7 +876,7 @@
             };
             
             try {
-                // Send to Google Apps Script via GET request (to avoid CORS issues)
+                // Send to Google Apps Script via GET request
                 const params = new URLSearchParams(formData);
                 const response = await fetch('https://script.google.com/macros/s/AKfycbyUIVHgWpf0c0QPLtDD-iUTkLFd2FjnljKS88I_Vi8ciSgSlJtHo-YPnD1MYJ4W6oUueQ/exec?' + params, {
                     method: 'GET',
@@ -2595,13 +893,15 @@
                     formMessage.style.color = '#065f46';
                     
                     // Reset form
-                    form.reset();
+                    document.getElementById('waitlistForm').reset();
                     document.querySelectorAll('.type-btn').forEach(btn => {
                         btn.classList.remove('active');
                     });
+                    selectedType = '';
                     
                     // Reset button
-                    submitBtn.innerHTML = '<span>⭐</span><span>' + submitText + '</span><span>→</span>';
+                    submitBtn.innerHTML = '<span>⭐</span><span>' + t.form.submit + '</span><span>→</span>';
+                    submitBtn.disabled = true;
                 } else {
                     throw new Error(result.message || 'Submission failed');
                 }
@@ -2615,7 +915,7 @@
                 
                 // Re-enable button
                 submitBtn.disabled = false;
-                submitBtn.innerHTML = '<span>⭐</span><span>' + submitText + '</span><span>→</span>';
+                submitBtn.innerHTML = '<span>⭐</span><span>' + t.form.submit + '</span><span>→</span>';
             }
         }
     </script>
