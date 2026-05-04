@@ -1095,6 +1095,25 @@
             de: { KR: "Südkorea", US: "Vereinigte Staaten", PH: "Philippinen", ID: "Indonesien", TH: "Thailand", VN: "Vietnam", CN: "China", JP: "Japan", IN: "Indien", ES: "Spanien", FR: "Frankreich", SA: "Saudi-Arabien", BR: "Brasilien", RU: "Russland", DE: "Deutschland", OTHER: "Andere", placeholder: "Land wählen" }
         };
         const FLAGS = { KR: "🇰🇷", US: "🇺🇸", PH: "🇵🇭", ID: "🇮🇩", TH: "🇹🇭", VN: "🇻🇳", CN: "🇨🇳", JP: "🇯🇵", IN: "🇮🇳", ES: "🇪🇸", FR: "🇫🇷", SA: "🇸🇦", BR: "🇧🇷", RU: "🇷🇺", DE: "🇩🇪", OTHER: "🌐" };
+        
+        // Country labels and company placeholders
+        const FORM_LABELS = {
+            ko: { countryLabel: "국가 / Country", companyPh: "회사명 입력" },
+            en: { countryLabel: "Country", companyPh: "Enter company name" },
+            tl: { countryLabel: "Bansa / Country", companyPh: "Ilagay ang pangalan ng kumpanya" },
+            ja: { countryLabel: "国 / Country", companyPh: "会社名を入力" },
+            id: { countryLabel: "Negara / Country", companyPh: "Masukkan nama perusahaan" },
+            th: { countryLabel: "ประเทศ / Country", companyPh: "ระบุชื่อบริษัท" },
+            vi: { countryLabel: "Quốc Gia / Country", companyPh: "Nhập tên công ty" },
+            zh: { countryLabel: "国家 / Country", companyPh: "输入公司名称" },
+            hi: { countryLabel: "देश / Country", companyPh: "कंपनी का नाम दर्ज करें" },
+            es: { countryLabel: "País / Country", companyPh: "Ingrese el nombre de la empresa" },
+            fr: { countryLabel: "Pays / Country", companyPh: "Entrez le nom de l'entreprise" },
+            ar: { countryLabel: "البلد / Country", companyPh: "أدخل اسم الشركة" },
+            pt: { countryLabel: "País / Country", companyPh: "Digite o nome da empresa" },
+            ru: { countryLabel: "Страна / Country", companyPh: "Введите название компании" },
+            de: { countryLabel: "Land / Country", companyPh: "Firmennamen eingeben" }
+        };
 
         function updateCountrySelect(lang) {
             const select = document.getElementById('country');
@@ -1104,6 +1123,14 @@
             select.innerHTML = `<option value="">${names.placeholder}</option>` +
                 Object.keys(FLAGS).map(code => `<option value="${code}">${FLAGS[code]} ${names[code]}</option>`).join('');
             if (val) select.value = val;
+            
+            // Update country label and company placeholder
+            const labels = FORM_LABELS[lang] || FORM_LABELS['en'];
+            const countryLabel = document.getElementById('formCountryLabel');
+            if (countryLabel) countryLabel.innerHTML = labels.countryLabel + ' <span class="required">*</span>';
+            
+            const companyInput = document.getElementById('company');
+            if (companyInput) companyInput.placeholder = labels.companyPh;
         }
 
         // Initialize page
