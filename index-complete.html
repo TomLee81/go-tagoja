@@ -1076,9 +1076,40 @@
         let currentLang = localStorage.getItem('tagoja_language') || 'ko';
         let selectedType = '';
 
+        // Country name translations
+        const COUNTRY_NAMES = {
+            ko: { KR: "대한민국", US: "미국", PH: "필리핀", ID: "인도네시아", TH: "태국", VN: "베트남", CN: "중국", JP: "일본", IN: "인도", ES: "스페인", FR: "프랑스", SA: "사우디아라비아", BR: "브라질", RU: "러시아", DE: "독일", OTHER: "기타", placeholder: "국가를 선택하세요" },
+            en: { KR: "South Korea", US: "United States", PH: "Philippines", ID: "Indonesia", TH: "Thailand", VN: "Vietnam", CN: "China", JP: "Japan", IN: "India", ES: "Spain", FR: "France", SA: "Saudi Arabia", BR: "Brazil", RU: "Russia", DE: "Germany", OTHER: "Other", placeholder: "Select country" },
+            tl: { KR: "Timog Korea", US: "Estados Unidos", PH: "Pilipinas", ID: "Indonesia", TH: "Thailand", VN: "Vietnam", CN: "Tsina", JP: "Japan", IN: "India", ES: "Espanya", FR: "Pransya", SA: "Saudi Arabia", BR: "Brazil", RU: "Russia", DE: "Alemanya", OTHER: "Iba pa", placeholder: "Pumili ng bansa" },
+            ja: { KR: "韓国", US: "アメリカ", PH: "フィリピン", ID: "インドネシア", TH: "タイ", VN: "ベトナム", CN: "中国", JP: "日本", IN: "インド", ES: "スペイン", FR: "フランス", SA: "サウジアラビア", BR: "ブラジル", RU: "ロシア", DE: "ドイツ", OTHER: "その他", placeholder: "国を選択" },
+            id: { KR: "Korea Selatan", US: "Amerika Serikat", PH: "Filipina", ID: "Indonesia", TH: "Thailand", VN: "Vietnam", CN: "Tiongkok", JP: "Jepang", IN: "India", ES: "Spanyol", FR: "Prancis", SA: "Arab Saudi", BR: "Brasil", RU: "Rusia", DE: "Jerman", OTHER: "Lainnya", placeholder: "Pilih negara" },
+            th: { KR: "เกาหลีใต้", US: "สหรัฐอเมริกา", PH: "ฟิลิปปินส์", ID: "อินโดนีเซีย", TH: "ไทย", VN: "เวียดนาม", CN: "จีน", JP: "ญี่ปุ่น", IN: "อินเดีย", ES: "สเปน", FR: "ฝรั่งเศส", SA: "ซาอุดีอาระเบีย", BR: "บราซิล", RU: "รัสเซีย", DE: "เยอรมนี", OTHER: "อื่นๆ", placeholder: "เลือกประเทศ" },
+            vi: { KR: "Hàn Quốc", US: "Hoa Kỳ", PH: "Philippines", ID: "Indonesia", TH: "Thái Lan", VN: "Việt Nam", CN: "Trung Quốc", JP: "Nhật Bản", IN: "Ấn Độ", ES: "Tây Ban Nha", FR: "Pháp", SA: "Ả Rập Saudi", BR: "Brazil", RU: "Nga", DE: "Đức", OTHER: "Khác", placeholder: "Chọn quốc gia" },
+            zh: { KR: "韩国", US: "美国", PH: "菲律宾", ID: "印度尼西亚", TH: "泰国", VN: "越南", CN: "中国", JP: "日本", IN: "印度", ES: "西班牙", FR: "法国", SA: "沙特阿拉伯", BR: "巴西", RU: "俄罗斯", DE: "德国", OTHER: "其他", placeholder: "选择国家" },
+            hi: { KR: "दक्षिण कोरिया", US: "संयुक्त राज्य अमेरिका", PH: "फिलीपींस", ID: "इंडोनेशिया", TH: "थाईलैंड", VN: "वियतनाम", CN: "चीन", JP: "जापान", IN: "भारत", ES: "स्पेन", FR: "फ्रांस", SA: "सऊदी अरब", BR: "ब्राजील", RU: "रूस", DE: "जर्मनी", OTHER: "अन्य", placeholder: "देश चुनें" },
+            es: { KR: "Corea del Sur", US: "Estados Unidos", PH: "Filipinas", ID: "Indonesia", TH: "Tailandia", VN: "Vietnam", CN: "China", JP: "Japón", IN: "India", ES: "España", FR: "Francia", SA: "Arabia Saudita", BR: "Brasil", RU: "Rusia", DE: "Alemania", OTHER: "Otro", placeholder: "Seleccionar país" },
+            fr: { KR: "Corée du Sud", US: "États-Unis", PH: "Philippines", ID: "Indonésie", TH: "Thaïlande", VN: "Vietnam", CN: "Chine", JP: "Japon", IN: "Inde", ES: "Espagne", FR: "France", SA: "Arabie Saoudite", BR: "Brésil", RU: "Russie", DE: "Allemagne", OTHER: "Autre", placeholder: "Sélectionner pays" },
+            ar: { KR: "كوريا الجنوبية", US: "الولايات المتحدة", PH: "الفلبين", ID: "إندونيسيا", TH: "تايلاند", VN: "فيتنام", CN: "الصين", JP: "اليابان", IN: "الهند", ES: "إسبانيا", FR: "فرنسا", SA: "المملكة العربية السعودية", BR: "البرازيل", RU: "روسيا", DE: "ألمانيا", OTHER: "أخرى", placeholder: "اختر البلد" },
+            pt: { KR: "Coreia do Sul", US: "Estados Unidos", PH: "Filipinas", ID: "Indonésia", TH: "Tailândia", VN: "Vietnã", CN: "China", JP: "Japão", IN: "Índia", ES: "Espanha", FR: "França", SA: "Arábia Saudita", BR: "Brasil", RU: "Rússia", DE: "Alemanha", OTHER: "Outro", placeholder: "Selecionar país" },
+            ru: { KR: "Южная Корея", US: "США", PH: "Филиппины", ID: "Индонезия", TH: "Таиланд", VN: "Вьетнам", CN: "Китай", JP: "Япония", IN: "Индия", ES: "Испания", FR: "Франция", SA: "Саудовская Аравия", BR: "Бразилия", RU: "Россия", DE: "Германия", OTHER: "Другое", placeholder: "Выбрать страну" },
+            de: { KR: "Südkorea", US: "Vereinigte Staaten", PH: "Philippinen", ID: "Indonesien", TH: "Thailand", VN: "Vietnam", CN: "China", JP: "Japan", IN: "Indien", ES: "Spanien", FR: "Frankreich", SA: "Saudi-Arabien", BR: "Brasilien", RU: "Russland", DE: "Deutschland", OTHER: "Andere", placeholder: "Land wählen" }
+        };
+        const FLAGS = { KR: "🇰🇷", US: "🇺🇸", PH: "🇵🇭", ID: "🇮🇩", TH: "🇹🇭", VN: "🇻🇳", CN: "🇨🇳", JP: "🇯🇵", IN: "🇮🇳", ES: "🇪🇸", FR: "🇫🇷", SA: "🇸🇦", BR: "🇧🇷", RU: "🇷🇺", DE: "🇩🇪", OTHER: "🌐" };
+
+        function updateCountrySelect(lang) {
+            const select = document.getElementById('country');
+            if (!select) return;
+            const val = select.value;
+            const names = COUNTRY_NAMES[lang] || COUNTRY_NAMES['en'];
+            select.innerHTML = `<option value="">${names.placeholder}</option>` +
+                Object.keys(FLAGS).map(code => `<option value="${code}">${FLAGS[code]} ${names[code]}</option>`).join('');
+            if (val) select.value = val;
+        }
+
         // Initialize page
         window.addEventListener('DOMContentLoaded', function() {
             changeLanguage(currentLang);
+            updateCountrySelect(currentLang);
         });
 
         // Toggle language dropdown
@@ -1139,6 +1170,9 @@
             
             // Update page content
             updatePageContent(t);
+            
+            // Update country dropdown
+            updateCountrySelect(lang);
         }
 
         // Update page content with translations
